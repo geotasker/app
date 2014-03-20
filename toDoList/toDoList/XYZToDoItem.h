@@ -11,6 +11,8 @@
 @interface XYZToDoItem : NSObject
 
 @property NSString *itemName;
+@property NSString *itemRadius;
+@property NSString *itemNotes;
 @property BOOL completed;
 @property (readonly) NSDate *creationDate;
 

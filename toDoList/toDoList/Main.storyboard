@@ -13,13 +13,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ListPrototypeCell" id="DW3-6V-VFh">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ListPrototypeCell" id="DW3-6V-VFh">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DW3-6V-VFh" id="0Ab-dC-Mas">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="81n-Mc-QRL" kind="push" identifier="showDetail" id="NhS-sX-Mg1"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -40,6 +43,68 @@
             </objects>
             <point key="canvasLocation" x="449" y="292"/>
         </scene>
+        <!--Details View Controller - To-Do Item Details-->
+        <scene sceneID="84e-lp-1RS">
+            <objects>
+                <viewController id="81n-Mc-QRL" customClass="XYZDetailsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CQX-bo-3hw"/>
+                        <viewControllerLayoutGuide type="bottom" id="HBR-fD-JEx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HWc-ac-g3x">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="To-Do Item Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfZ-7S-CHd">
+                                <rect key="frame" x="34" y="81" width="134" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Radius" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2AE-TA-bwx">
+                                <rect key="frame" x="34" y="160" width="53" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUC-vO-Ma1">
+                                <rect key="frame" x="34" y="227" width="46" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndP-2u-NL9">
+                                <rect key="frame" x="34" y="122" width="241" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SiK-k6-Ba1">
+                                <rect key="frame" x="34" y="198" width="266" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I0o-8e-Kjs">
+                                <rect key="frame" x="34" y="273" width="266" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="To-Do Item Details" id="yhV-EO-ZSe"/>
+                    <connections>
+                        <outlet property="name" destination="ndP-2u-NL9" id="Hu2-pm-NaF"/>
+                        <outlet property="notes" destination="I0o-8e-Kjs" id="IwI-yn-pIf"/>
+                        <outlet property="radius" destination="SiK-k6-Ba1" id="qxZ-Vy-Jhu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QNU-6L-lDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="986" y="1073"/>
+        </scene>
         <!--Add To Do Item View Controller - Add To-Do Item-->
         <scene sceneID="TKV-b4-mjz">
             <objects>
@@ -58,12 +123,30 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search Radius (Optional)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mT9-pt-Z5T">
+                                <rect key="frame" x="20" y="181" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Notes (Optional)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1xQ-XZ-Sre">
+                                <rect key="frame" x="20" y="269" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="TDo-RH-pVR" firstAttribute="top" secondItem="GDh-e7-pb9" secondAttribute="bottom" constant="18" id="Cov-XN-wXg"/>
+                            <constraint firstItem="1xQ-XZ-Sre" firstAttribute="leading" secondItem="fC3-xG-E5C" secondAttribute="leading" constant="20" id="FSv-PP-W9f"/>
                             <constraint firstAttribute="trailing" secondItem="TDo-RH-pVR" secondAttribute="trailing" constant="20" id="Kw2-nf-qzj"/>
+                            <constraint firstAttribute="trailing" secondItem="1xQ-XZ-Sre" secondAttribute="trailing" constant="20" id="MH7-QH-baQ"/>
+                            <constraint firstItem="Aqi-yA-gw4" firstAttribute="top" secondItem="1xQ-XZ-Sre" secondAttribute="bottom" constant="269" id="U5m-VN-O2p"/>
+                            <constraint firstItem="1xQ-XZ-Sre" firstAttribute="top" secondItem="mT9-pt-Z5T" secondAttribute="bottom" constant="58" id="YVI-0x-q2b"/>
                             <constraint firstItem="TDo-RH-pVR" firstAttribute="leading" secondItem="fC3-xG-E5C" secondAttribute="leading" constant="20" id="cXy-HQ-uPK"/>
+                            <constraint firstItem="mT9-pt-Z5T" firstAttribute="leading" secondItem="fC3-xG-E5C" secondAttribute="leading" constant="20" id="rbS-Kw-EXk"/>
+                            <constraint firstAttribute="trailing" secondItem="mT9-pt-Z5T" secondAttribute="trailing" constant="20" id="wkh-su-INL"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add To-Do Item" id="MW1-g7-7xU">
@@ -80,6 +163,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="doneButton" destination="uOE-N4-aYh" id="b2j-Mu-RKE"/>
+                        <outlet property="notesField" destination="1xQ-XZ-Sre" id="9Kx-8N-7Hn"/>
+                        <outlet property="radiusField" destination="mT9-pt-Z5T" id="hKv-sD-7tE"/>
                         <outlet property="textField" destination="TDo-RH-pVR" id="yUw-EM-j2V"/>
                     </connections>
                 </viewController>

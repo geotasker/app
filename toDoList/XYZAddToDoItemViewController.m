@@ -11,6 +11,8 @@
 
 
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UITextField *radiusField;
+@property (weak, nonatomic) IBOutlet UITextField *notesField;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 
 @end
@@ -26,8 +28,22 @@
         self.toDoItem = [[XYZToDoItem alloc] init];
         self.toDoItem.itemName = self.textField.text;
         self.toDoItem.completed = NO;
-    }
     
+        if (self.radiusField.text.length > 0) {
+            self.toDoItem.itemRadius = self.radiusField.text;
+        }
+        else {
+            // some other number may be better
+            self.toDoItem.itemRadius = @"25";
+        }
+    
+        if (self.notesField.text.length > 0) {
+            self.toDoItem.itemNotes = self.notesField.text;
+        }
+        else {
+            self.toDoItem.itemNotes = @"";
+        }
+    }
     
 }
 

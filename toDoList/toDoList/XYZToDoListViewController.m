@@ -9,6 +9,7 @@
 #import "XYZToDoListViewController.h"
 #import "XYZToDoItem.h"
 #import "XYZAddToDoItemViewController.h"
+#import "XYZDetailsViewController.h"
 
 @interface XYZToDoListViewController ()
 
@@ -20,7 +21,6 @@
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue
 {
-    
     XYZAddToDoItemViewController *source = [segue sourceViewController];
     XYZToDoItem *item = source.toDoItem;
     if (item != nil) {
@@ -38,7 +38,6 @@
 
 }
 
-
 - (void)loadInitialData {
     
     XYZToDoItem *item1 = [[XYZToDoItem alloc] init];
@@ -47,7 +46,6 @@
     
 }
 
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -55,7 +53,6 @@
 }
 
 #pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
@@ -75,6 +72,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     XYZToDoItem *toDoItem = [self.toDoItems objectAtIndex:indexPath.row];
     cell.textLabel.text = toDoItem.itemName;
+    
     if (toDoItem.completed) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {
@@ -139,14 +137,24 @@
 }
 */
 
+/*
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     XYZToDoItem *tappedItem = [self.toDoItems objectAtIndex:indexPath.row];
     tappedItem.completed = !tappedItem.completed;
     [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-}
 
+}
+*/
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ( [segue.identifier isEqualToString:@"showDetail"] ) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        XYZDetailsViewController *destViewController = segue.destinationViewController;
+        destViewController.toDoItem = [self.toDoItems objectAtIndex:indexPath.row];
+    }
+}
 
 
 @end
