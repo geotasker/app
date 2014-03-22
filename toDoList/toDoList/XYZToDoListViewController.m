@@ -41,7 +41,9 @@
 - (void)loadInitialData {
     
     XYZToDoItem *item1 = [[XYZToDoItem alloc] init];
-    item1.itemName = @"This is a preloaded item, to show that it can be done";
+    item1.itemName = @"preloaded item";
+    item1.itemRadius = @"25";
+    item1.itemNotes = @"This is a preloaded item to show that it is possible, this may or may not be a final feature.";
     [self.toDoItems addObject:item1];
     
 }
