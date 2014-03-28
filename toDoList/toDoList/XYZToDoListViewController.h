@@ -10,7 +10,7 @@
 
 @interface XYZToDoListViewController : UITableViewController
 
-- (IBAction)unwindToList:(UIStoryboardSegue *)segue;
 
+- (IBAction)unwindToList:(UIStoryboardSegue *)segue;
 
 @end

@@ -15,6 +15,7 @@
 @end
 
 @implementation XYZDetailsViewController
+
 @synthesize name;
 @synthesize radius;
 @synthesize notes;
@@ -31,6 +32,24 @@
     }
     return self;
 }
+
+
+
+// Alerts ************
+-(IBAction)alertbutton{
+    alert = [[UIAlertView alloc] initWithTitle:@"GeoTasker" message:@"Press Accept Directions" delegate:self
+                             cancelButtonTitle:@"Dismiss" otherButtonTitles:@"Accept", nil];
+    [alert show];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        //send to google maps view
+        [[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://maps.google.com"]];
+    }
+}
+// end alerts ******
+
 
 - (void)viewDidLoad
 {

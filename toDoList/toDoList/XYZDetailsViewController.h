@@ -10,6 +10,12 @@
 #import "XYZToDoItem.h"
 
 @interface XYZDetailsViewController : UIViewController
+// Alerts **
+{
+    IBOutlet UIAlertView *alert;
+}
+- (IBAction)alertbutton;
+// end allerta**
 
 @property (weak, nonatomic) IBOutlet UITextView *name;
 @property (weak, nonatomic) IBOutlet UITextView *radius;
@@ -18,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property XYZToDoItem *toDoItem;
+
+
 
 
 @end
