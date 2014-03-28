@@ -10,8 +10,10 @@
 #import "XYZToDoItem.h"
 
 
-@interface XYZAddToDoItemViewController : UIViewController
+@interface XYZAddToDoItemViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property XYZToDoItem *toDoItem;
 
 @end
+
+
