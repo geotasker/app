@@ -38,13 +38,9 @@
 - (IBAction)localalertbutton:(id)sender {
     
     UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-    
     localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
-    
     localNotification.alertBody = @"New Task Available";
-    
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
-    
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
     
     
@@ -55,14 +51,16 @@
 -(IBAction)alertbutton{
     alert = [[UIAlertView alloc] initWithTitle:@"GeoTasker" message:@"Press Accept Directions" delegate:self
                              cancelButtonTitle:@"Dismiss" otherButtonTitles:@"Accept", nil];
+    
     [alert show];
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
-        //send to google maps view
-        //[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://maps.google.com"]];
-        NSLog(@"Accept");
+        NSString * storyboardName = @"Main";
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
+        UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"NotificationView"];
+        [self presentViewController:vc animated:YES completion:nil];
     }
 }
 // end alerts ******

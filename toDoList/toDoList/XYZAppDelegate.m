@@ -25,10 +25,7 @@
 
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(NSDictionary *)userInfo {
     
-    //WUTTTT
-    //UIViewController *viewController = [[UIViewController alloc]initWithNibName:NSStringFromClass([UIViewController class]) bundle:nil];
-    //[self.window.rootViewController presentModalViewController:viewController animated:NO];
-    
+    printf("%s", "yo");
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
