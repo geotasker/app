@@ -13,7 +13,22 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
  
+    UILocalNotification *locationNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    
+    if (locationNotification) {
+        
+        [application cancelAllLocalNotifications];
+    }
+    
     return YES;
+}
+
+-(void)application:(UIApplication *)application didReceiveLocalNotification:(NSDictionary *)userInfo {
+    
+    //WUTTTT
+    //UIViewController *viewController = [[UIViewController alloc]initWithNibName:NSStringFromClass([UIViewController class]) bundle:nil];
+    //[self.window.rootViewController presentModalViewController:viewController animated:NO];
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

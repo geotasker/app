@@ -15,7 +15,11 @@
     IBOutlet UIAlertView *alert;
 }
 - (IBAction)alertbutton;
+
+- (IBAction)localalertbutton:(id)sender;
 // end allerta**
+
+
 
 @property (weak, nonatomic) IBOutlet UITextView *name;
 @property (weak, nonatomic) IBOutlet UITextView *radius;

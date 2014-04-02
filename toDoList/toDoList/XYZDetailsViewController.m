@@ -12,6 +12,8 @@
 
 @interface XYZDetailsViewController ()
 
+- (IBAction)localalertbutton:(id)sender;
+
 @end
 
 @implementation XYZDetailsViewController
@@ -33,6 +35,20 @@
     return self;
 }
 
+- (IBAction)localalertbutton:(id)sender {
+    
+    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+    
+    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
+    
+    localNotification.alertBody = @"New Task Available";
+    
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    
+    
+}
 
 
 // Alerts ************
@@ -45,11 +61,11 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
         //send to google maps view
-        [[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://maps.google.com"]];
+        //[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://maps.google.com"]];
+        NSLog(@"Accept");
     }
 }
 // end alerts ******
-
 
 - (void)viewDidLoad
 {
