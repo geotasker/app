@@ -13,19 +13,24 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
  
-    UILocalNotification *locationNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    //UILocalNotification *locationNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     
-    if (locationNotification) {
+    if (launchOptions != nil) {
         
-        [application cancelAllLocalNotifications];
+        NSLog(@"got here");
     }
     
     return YES;
 }
 
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(NSDictionary *)userInfo {
-    
-    printf("%s", "yo");
+    printf("%s", "hi2");
+    //bring up notification view
+    UIViewController *vc = (UIViewController *)self.window.rootViewController;
+    NSString * storyboardName = @"Main";
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
+    UIViewController * pvc = [storyboard instantiateViewControllerWithIdentifier:@"NotificationView"];
+    [vc presentViewController:pvc animated:YES completion:nil];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

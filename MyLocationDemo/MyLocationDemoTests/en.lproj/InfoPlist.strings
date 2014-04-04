@@ -1,2 +1,6 @@
 /* Localized versions of Info.plist keys */
 
+<key>UIBackgroundModes</key>
+<array>
+<string>location</string>
+</array>

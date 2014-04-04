@@ -52,7 +52,7 @@
 {
     NSLog(@"didUpdateToLocation: %@", newLocation);
     CLLocation *currentLocation = newLocation;
-    
+    /*
     UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"New location!"
                                                       message:@"You have moved somewhere else"
                                                      delegate:nil
@@ -60,10 +60,21 @@
                                             otherButtonTitles:nil];
     
     [message show];
+    */
+    
+        
+        UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+        localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
+        localNotification.alertBody = @"You have moved somewhere else!";
+        localNotification.timeZone = [NSTimeZone defaultTimeZone];
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    
     
     if (currentLocation != nil) {
         _longitudeLabel.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
         _latitudeLabel.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
+    
+    
     }
     
     // Reverse Geocoding
