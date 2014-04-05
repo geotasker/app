@@ -356,7 +356,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Map View" id="YQY-GN-ccc">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="hUg-sr-8So">
+                        <barButtonItem key="leftBarButtonItem" title="Done" id="hUg-sr-8So">
                             <connections>
                                 <segue destination="Qng-VJ-PSo" kind="modal" id="Kl9-lg-BZh"/>
                             </connections>
