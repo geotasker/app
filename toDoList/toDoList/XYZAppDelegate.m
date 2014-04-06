@@ -7,24 +7,97 @@
 //
 
 #import "XYZAppDelegate.h"
+#import "XYZToDoListViewController.h"
+#import "XYZToDoItem.h"
 
 @implementation XYZAppDelegate
 
+@synthesize window = _window;
+@synthesize locationManager=_locationManager;
+
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    NSDate* eventDate = newLocation.timestamp;
+    NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
+    if (abs(howRecent) < 15.0)
+    {
+        //Location timestamp is within the last 15.0 seconds, let's use it
+        if(newLocation.horizontalAccuracy < 35.0){
+            //Location is accurate enough, let's use it
+            
+            CLLocation *currentLocation = newLocation;
+            
+            if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive){
+                UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"New task available"
+                                                                  message:@""
+                                                                 delegate:nil
+                                                                cancelButtonTitle:@"Not now"
+                                                                otherButtonTitles:@"show task"];
+                [message show];
+            }
+            
+            else if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateBackground){
+                
+                UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+                localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
+                localNotification.alertBody = @"You have moved somewhere else!";
+                localNotification.timeZone = [NSTimeZone defaultTimeZone];
+                [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+            }
+            
+            
+            if (currentLocation != nil) {
+                NSLog(@"%.8f", currentLocation.coordinate.longitude);
+                NSLog(@"%.8f", currentLocation.coordinate.latitude);
+                
+            }
+            //
+            //    // Reverse Geocoding
+            //    NSLog(@"Resolving the Address");
+            //    [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+            //        NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
+            //        if (error == nil && [placemarks count] > 0) {
+            //            placemark = [placemarks lastObject];
+            //            _addressLabel.text = [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@",
+            //                                  placemark.subThoroughfare, placemark.thoroughfare,
+            //                                  placemark.postalCode, placemark.locality,
+            //                                  placemark.administrativeArea,
+            //                                  placemark.country];
+            //        } else {
+            //            NSLog(@"%@", error.debugDescription);
+            //        }
+            //    } ];
+            
+        }
+    }
+    
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
- 
-    //UILocalNotification *locationNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+//    CLGeocoder *geocoder;
+//    CLPlacemark *placemark;
     
-    if (launchOptions != nil) {
+    if(self.locationManager==nil){
+        NSLog(@"locationManager not nil\n");
+        _locationManager=[[CLLocationManager alloc] init];
+        //I'm using ARC with this project so no need to release
         
-        NSLog(@"got here");
+        _locationManager.delegate=self;
+        _locationManager.desiredAccuracy=kCLLocationAccuracyBest;
+        _locationManager.distanceFilter=500; //min dist in m before update event is generated
+        self.locationManager=_locationManager;
+    }
+    
+    if([CLLocationManager locationServicesEnabled]){
+        [self.locationManager startUpdatingLocation];
     }
     
     return YES;
 }
 
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(NSDictionary *)userInfo {
-    printf("%s", "hi2");
     //bring up notification view
     UIViewController *vc = (UIViewController *)self.window.rootViewController;
     NSString * storyboardName = @"Main";
@@ -59,5 +132,14 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"didFailWithError: %@", error);
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [errorAlert show];
+}
+
 
 @end

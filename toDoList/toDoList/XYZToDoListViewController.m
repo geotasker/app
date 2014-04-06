@@ -17,6 +17,8 @@
 
 @end
 
+NSMutableArray *toDoItems = nil;
+
 @implementation XYZToDoListViewController
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue

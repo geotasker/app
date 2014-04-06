@@ -8,6 +8,8 @@
 #import "XYZDetailsViewController.h"
 #import <UIKit/UIKit.h>
 
+extern NSMutableArray *toDoItems;
+
 @interface XYZToDoListViewController : UITableViewController
 
 
