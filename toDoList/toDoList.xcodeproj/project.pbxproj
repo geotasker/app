@@ -11,6 +11,7 @@
 		9E8652AD18EB2F6800D14603 /* XYZNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E8652AB18EB2F6800D14603 /* XYZNotificationViewController.xib */; };
 		9EB3930718ECD60800BECAAD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EB3930618ECD60800BECAAD /* MapKit.framework */; };
 		9EB3930D18F1D7F100BECAAD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EB3930C18F1D7F100BECAAD /* CoreLocation.framework */; };
+		9ECDEDEB18F4CC870034D2C0 /* findMatches.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECDEDEA18F4CC870034D2C0 /* findMatches.m */; };
 		A278E88818D9FE6A00D75E03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A278E88718D9FE6A00D75E03 /* Foundation.framework */; };
 		A278E88C18D9FE6A00D75E03 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A278E88B18D9FE6A00D75E03 /* UIKit.framework */; };
 		A278E89218D9FE6A00D75E03 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A278E89018D9FE6A00D75E03 /* InfoPlist.strings */; };
@@ -48,6 +49,8 @@
 		9E8652AB18EB2F6800D14603 /* XYZNotificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYZNotificationViewController.xib; sourceTree = "<group>"; };
 		9EB3930618ECD60800BECAAD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9EB3930C18F1D7F100BECAAD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		9ECDEDE918F4CC7B0034D2C0 /* findMatches.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = findMatches.h; sourceTree = "<group>"; };
+		9ECDEDEA18F4CC870034D2C0 /* findMatches.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = findMatches.m; sourceTree = "<group>"; };
 		A278E88418D9FE6A00D75E03 /* toDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = toDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A278E88718D9FE6A00D75E03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A278E88918D9FE6A00D75E03 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -148,6 +151,8 @@
 				9E8652AA18EB2F6800D14603 /* XYZNotificationViewController.m */,
 				9E8652AB18EB2F6800D14603 /* XYZNotificationViewController.xib */,
 				A278E8C718DB47BD00D75E03 /* XYZDetailsViewController.h */,
+				9ECDEDEA18F4CC870034D2C0 /* findMatches.m */,
+				9ECDEDE918F4CC7B0034D2C0 /* findMatches.h */,
 				A278E8C818DB47BD00D75E03 /* XYZDetailsViewController.m */,
 				A278E8C918DB47BD00D75E03 /* XYZDetailsViewController.xib */,
 				A278E8C218DA3C4F00D75E03 /* XYZToDoItem.h */,
@@ -296,6 +301,7 @@
 				A278E89418D9FE6A00D75E03 /* main.m in Sources */,
 				A278E8C018DA2D8000D75E03 /* XYZToDoListViewController.m in Sources */,
 				A278E8BB18DA2BBA00D75E03 /* XYZAddToDoItemViewController.m in Sources */,
+				9ECDEDEB18F4CC870034D2C0 /* findMatches.m in Sources */,
 				A278E8CA18DB47BD00D75E03 /* XYZDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

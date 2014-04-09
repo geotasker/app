@@ -13,20 +13,22 @@
 
 @interface XYZToDoListViewController ()
 
-@property NSMutableArray *toDoItems;
-
 @end
 
 NSMutableArray *toDoItems = nil;
 
 @implementation XYZToDoListViewController
 
++(void)rtnToDoItems{
+    NSLog(@"%@", toDoItems.description);
+}
+
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue
 {
     XYZAddToDoItemViewController *source = [segue sourceViewController];
     XYZToDoItem *item = source.toDoItem;
     if (item != nil) {
-        [self.toDoItems addObject:item];
+        [toDoItems addObject:item];
         [self.tableView reloadData];
     }
 }
@@ -35,7 +37,7 @@ NSMutableArray *toDoItems = nil;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.toDoItems = [[NSMutableArray alloc] init];
+    toDoItems = [[NSMutableArray alloc] init];
     
     [self loadInitialData];
 
@@ -44,10 +46,10 @@ NSMutableArray *toDoItems = nil;
 - (void)loadInitialData {
     
     XYZToDoItem *item1 = [[XYZToDoItem alloc] init];
-    item1.itemName = @"preloaded item";
+    item1.itemName = @"starbucks";
     item1.itemRadius = @"25";
     item1.itemNotes = @"This is a preloaded item to show that it is possible, this may or may not be a final feature.";
-    [self.toDoItems addObject:item1];
+    [toDoItems addObject:item1];
     
 }
 
@@ -67,7 +69,7 @@ NSMutableArray *toDoItems = nil;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.toDoItems count];
+    return [toDoItems count];
 }
 
 
@@ -75,7 +77,7 @@ NSMutableArray *toDoItems = nil;
 {
     static NSString *CellIdentifier = @"ListPrototypeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    XYZToDoItem *toDoItem = [self.toDoItems objectAtIndex:indexPath.row];
+    XYZToDoItem *toDoItem = [toDoItems objectAtIndex:indexPath.row];
     cell.textLabel.text = toDoItem.itemName;
     
     if (toDoItem.completed) {
@@ -102,7 +104,7 @@ NSMutableArray *toDoItems = nil;
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [self.toDoItems removeObjectAtIndex:indexPath.row];
+        [toDoItems removeObjectAtIndex:indexPath.row];
         // Delete the row from the data source
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     
@@ -158,7 +160,7 @@ NSMutableArray *toDoItems = nil;
     if ( [segue.identifier isEqualToString:@"showDetail"] ) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         XYZDetailsViewController *destViewController = segue.destinationViewController;
-        destViewController.toDoItem = [self.toDoItems objectAtIndex:indexPath.row];
+        destViewController.toDoItem = [toDoItems objectAtIndex:indexPath.row];
     }
 }
 

@@ -25,4 +25,6 @@
 @property (readonly) NSDate *creationDate;
 @property BOOL completed;
 
+@property NSInteger radius;
+
 @end

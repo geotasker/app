@@ -9,18 +9,36 @@
 #import "XYZAppDelegate.h"
 #import "XYZToDoListViewController.h"
 #import "XYZToDoItem.h"
+#import "findMatches.h"
 
 @implementation XYZAppDelegate
 
 @synthesize window = _window;
 @synthesize locationManager=_locationManager;
 
-- (void)notifyNearbyTasks
++ (void)notifyNearbyTasks
 {
-    for (XYZToDoItem *item in toDoItems) {
-        if (item.match) {
-            
+    //NSLog(@"%@", toDoItems.firstObject);
+    
+    int x = 0;
+    for (XYZToDoItem *task in toDoItems) {
+        //NSLog(@"%@", task.itemName);
+        if (task.match == true) {
+            x = x+1;
+            //NSLog(@"%d", x);
         }
+    }
+    
+    NSString *str = [NSString stringWithFormat: @"You have %d new tasks", x];
+    //NSLog(@"%@", str);
+    
+    
+    if (x==0) {
+        UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+        localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
+        localNotification.alertBody = str;
+        localNotification.timeZone = [NSTimeZone defaultTimeZone];
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
     }
 }
 
@@ -34,32 +52,50 @@
         if(newLocation.horizontalAccuracy < 35.0){
             //Location is accurate enough, let's use it
             
-            CLLocation *currentLocation = newLocation;
+            CLLocation *currentLoc = newLocation;
             
-            if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive){
-                UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"New task available"
-                                                                  message:@""
-                                                                 delegate:nil
-                                                                cancelButtonTitle:@"Not now"
-                                                                otherButtonTitles:@"show task", nil];
-                [message show];
-            }
-            
-            else if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateBackground){
-                
-                UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-                localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
-                localNotification.alertBody = @"You have moved somewhere else!";
-                localNotification.timeZone = [NSTimeZone defaultTimeZone];
-                [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-            }
-            
-            
-            if (currentLocation != nil) {
-                NSLog(@"%.8f", currentLocation.coordinate.longitude);
-                NSLog(@"%.8f", currentLocation.coordinate.latitude);
+            if (currentLoc != nil) {
+                NSLog(@"%.8f", currentLoc.coordinate.longitude);
+                NSLog(@"%.8f", currentLoc.coordinate.latitude);
                 
             }
+            
+            
+            //NSLog(@"%@", toDoItems.description);
+            int x = 0;
+             x = x+1;
+            for (XYZToDoItem *item in toDoItems) {
+                [findMatches find:item loc:currentLoc];
+                
+                if (item.match==TRUE) {
+                    NSLog(@"%@", @"I got in here");
+                    NSLog(@"%@\n", item.closeMatch.description);
+                }
+            }
+            
+            NSString *str = [NSString stringWithFormat: @"You have %d new tasks", x];
+            NSLog(@"%@", str);
+            
+            [XYZAppDelegate notifyNearbyTasks];
+            
+            //            if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive){
+            //                UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"New task available"
+            //                                                                  message:@""
+            //                                                                 delegate:nil
+            //                                                                cancelButtonTitle:@"Not now"
+            //                                                                otherButtonTitles:@"show task", nil];
+            //                [message show];
+            //            }
+            //
+            //            else if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateBackground){
+            //
+            //                UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+            //                localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
+            //                localNotification.alertBody = @"You have moved somewhere else!";
+            //                localNotification.timeZone = [NSTimeZone defaultTimeZone];
+            //                [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+            //            }
+            
             //
             //    // Reverse Geocoding
             //    NSLog(@"Resolving the Address");
@@ -84,8 +120,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    CLGeocoder *geocoder;
-//    CLPlacemark *placemark;
+    //    CLGeocoder *geocoder;
+    //    CLPlacemark *placemark;
     
     if(self.locationManager==nil){
         NSLog(@"locationManager not nil\n");
@@ -94,7 +130,7 @@
         
         _locationManager.delegate=self;
         _locationManager.desiredAccuracy=kCLLocationAccuracyBest;
-        _locationManager.distanceFilter=500; //min dist in m before update event is generated
+        _locationManager.distanceFilter=100; //min dist in m before update event is generated
         self.locationManager=_locationManager;
     }
     
@@ -104,6 +140,9 @@
     
     return YES;
 }
+
+
+
 
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(NSDictionary *)userInfo {
     //bring up notification view
@@ -140,6 +179,7 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
