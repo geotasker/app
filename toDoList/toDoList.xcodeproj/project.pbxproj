@@ -10,10 +10,8 @@
 		9E8652AC18EB2F6800D14603 /* XYZNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8652AA18EB2F6800D14603 /* XYZNotificationViewController.m */; };
 		9E8652AD18EB2F6800D14603 /* XYZNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E8652AB18EB2F6800D14603 /* XYZNotificationViewController.xib */; };
 		9EB3930718ECD60800BECAAD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EB3930618ECD60800BECAAD /* MapKit.framework */; };
-		9EB3930B18F1D5C900BECAAD /* fells_loop.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9EB3930A18F1D5C900BECAAD /* fells_loop.gpx */; };
 		9EB3930D18F1D7F100BECAAD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EB3930C18F1D7F100BECAAD /* CoreLocation.framework */; };
 		A278E88818D9FE6A00D75E03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A278E88718D9FE6A00D75E03 /* Foundation.framework */; };
-		A278E88A18D9FE6A00D75E03 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A278E88918D9FE6A00D75E03 /* CoreGraphics.framework */; };
 		A278E88C18D9FE6A00D75E03 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A278E88B18D9FE6A00D75E03 /* UIKit.framework */; };
 		A278E89218D9FE6A00D75E03 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A278E89018D9FE6A00D75E03 /* InfoPlist.strings */; };
 		A278E89418D9FE6A00D75E03 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A278E89318D9FE6A00D75E03 /* main.m */; };
@@ -49,7 +47,6 @@
 		9E8652AA18EB2F6800D14603 /* XYZNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZNotificationViewController.m; sourceTree = "<group>"; };
 		9E8652AB18EB2F6800D14603 /* XYZNotificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYZNotificationViewController.xib; sourceTree = "<group>"; };
 		9EB3930618ECD60800BECAAD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		9EB3930A18F1D5C900BECAAD /* fells_loop.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = fells_loop.gpx; path = ../../../../../../Downloads/fells_loop.gpx; sourceTree = "<group>"; };
 		9EB3930C18F1D7F100BECAAD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A278E88418D9FE6A00D75E03 /* toDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = toDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A278E88718D9FE6A00D75E03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -88,7 +85,6 @@
 			files = (
 				9EB3930D18F1D7F100BECAAD /* CoreLocation.framework in Frameworks */,
 				9EB3930718ECD60800BECAAD /* MapKit.framework in Frameworks */,
-				A278E88A18D9FE6A00D75E03 /* CoreGraphics.framework in Frameworks */,
 				A278E88C18D9FE6A00D75E03 /* UIKit.framework in Frameworks */,
 				A278E88818D9FE6A00D75E03 /* Foundation.framework in Frameworks */,
 			);
@@ -110,7 +106,6 @@
 		A278E87B18D9FE6A00D75E03 = {
 			isa = PBXGroup;
 			children = (
-				9EB3930A18F1D5C900BECAAD /* fells_loop.gpx */,
 				A278E88D18D9FE6A00D75E03 /* toDoList */,
 				A278E8A618D9FE6A00D75E03 /* toDoListTests */,
 				A278E88618D9FE6A00D75E03 /* Frameworks */,
@@ -272,7 +267,6 @@
 			files = (
 				A278E8B718DA03B400D75E03 /* Main.storyboard in Resources */,
 				A278E8C118DA2D8000D75E03 /* XYZToDoListViewController.xib in Resources */,
-				9EB3930B18F1D5C900BECAAD /* fells_loop.gpx in Resources */,
 				A278E89218D9FE6A00D75E03 /* InfoPlist.strings in Resources */,
 				A278E8BC18DA2BBA00D75E03 /* XYZAddToDoItemViewController.xib in Resources */,
 				A278E89A18D9FE6A00D75E03 /* Images.xcassets in Resources */,

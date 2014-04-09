@@ -15,6 +15,14 @@
 @synthesize window = _window;
 @synthesize locationManager=_locationManager;
 
+- (void)notifyNearbyTasks
+{
+    for (XYZToDoItem *item in toDoItems) {
+        if (item.match) {
+            
+        }
+    }
+}
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
@@ -33,7 +41,7 @@
                                                                   message:@""
                                                                  delegate:nil
                                                                 cancelButtonTitle:@"Not now"
-                                                                otherButtonTitles:@"show task"];
+                                                                otherButtonTitles:@"show task", nil];
                 [message show];
             }
             

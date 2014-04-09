@@ -10,6 +10,4 @@
 
 @implementation XYZToDoItem
 
-
-
 @end

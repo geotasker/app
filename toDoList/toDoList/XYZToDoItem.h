@@ -7,14 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 
 @interface XYZToDoItem : NSObject
-
 @property NSString *itemName;
 @property NSString *itemRadius;
 @property NSString *itemNotes;
-@property BOOL completed;
-@property (readonly) NSDate *creationDate;
 
+// whether or not there is a search result.
+@property BOOL match;
+
+// map locations
+@property MKMapItem *current;
+@property MKMapItem *closeMatch;
+
+// should not be needed
+@property (readonly) NSDate *creationDate;
+@property BOOL completed;
 
 @end
