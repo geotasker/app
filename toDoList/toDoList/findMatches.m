@@ -9,13 +9,15 @@
 #import "findMatches.h"
 #import "XYZToDoListViewController.h"
 #import "XYZToDoItem.h"
+#import <UIKit/UIKit.h>
+#import "XYZAppDelegate.h"
 
 @implementation findMatches
 
 CLLocationManager *locationManager;
 
 + (int)find:(CLLocation *)currentLoc {
-  
+
     __block dispatch_queue_t queue;
     queue = dispatch_queue_create("com.example.myQueueForMaps", DISPATCH_QUEUE_CONCURRENT);
     
@@ -24,7 +26,7 @@ CLLocationManager *locationManager;
         __block int pos = 0;
         
         for(XYZToDoItem* item in toDoItems){
-        
+            
             MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];
             request.naturalLanguageQuery = item.itemName;
             // somehow deal with radius
@@ -93,12 +95,18 @@ CLLocationManager *locationManager;
     NSLog(@"%@", str);
     
     if (x>0) {
-        UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+        
+        NSLog(@"\n A Wild Alert Window Appears!\n");
+        /*UILocalNotification *localNotification = [[UILocalNotification alloc] init];
         localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
         localNotification.alertBody = str;
         localNotification.timeZone = [NSTimeZone defaultTimeZone];
-        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];*/
     }
+    
+    UIViewController *root = [[[UIApplication sharedApplication] keyWindow] rootViewController];
+    [root viewDidAppear:true];
+
 }
 
 

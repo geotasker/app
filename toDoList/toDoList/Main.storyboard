@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--To Do List View Controller - My To-Do List-->
+        <!--To Do List View Controller - To-Do List-->
         <scene sceneID="hPs-MH-vug">
             <objects>
-                <tableViewController id="AcS-zy-Bjb" customClass="XYZToDoListViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="toDoList" id="AcS-zy-Bjb" customClass="XYZToDoListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dZk-2J-PEP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -31,7 +31,7 @@
                             <outlet property="delegate" destination="AcS-zy-Bjb" id="C9f-hu-zsl"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My To-Do List" id="eS3-Ew-aPV">
+                    <navigationItem key="navigationItem" title="To-Do List" id="eS3-Ew-aPV">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Im9-pe-8WF">
                             <connections>
                                 <segue destination="r8W-TD-FX1" kind="modal" id="eRc-8R-rOP"/>
@@ -257,7 +257,7 @@
         <!--Navigation Controller-->
         <scene sceneID="e0e-m5-vhg">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qng-VJ-PSo" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="toDoListNav" automaticallyAdjustsScrollViewInsets="NO" id="Qng-VJ-PSo" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7Hl-eD-npJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

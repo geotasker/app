@@ -44,9 +44,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //    CLGeocoder *geocoder;
-    //    CLPlacemark *placemark;
-    
     if(self.locationManager==nil){
         NSLog(@"locationManager not nil\n");
         _locationManager=[[CLLocationManager alloc] init];

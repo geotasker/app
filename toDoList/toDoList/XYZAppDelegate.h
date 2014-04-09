@@ -9,10 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
+#define UIAppDelegate ((MyAppDelegate *)[UIApplication sharedApplication].delegate)
+
 @interface XYZAppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
+
+@property(nonatomic, retain) UIViewController *rootView;
 
 @end

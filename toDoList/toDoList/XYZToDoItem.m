@@ -10,11 +10,4 @@
 
 @implementation XYZToDoItem
 
-- (id) init {
-    self = [super init];
-    self.radius = 1300;
-    self.match = false;
-    return self;
-}
-
 @end

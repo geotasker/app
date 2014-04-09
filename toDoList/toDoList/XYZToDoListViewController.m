@@ -48,13 +48,15 @@ NSMutableArray *toDoItems = nil;
     XYZToDoItem *item1 = [[XYZToDoItem alloc] init];
     item1.itemName = @"starbucks";
     item1.itemRadius = @"25";
-    item1.itemNotes = @"This is a preloaded item to show that it is possible, this may or may not be a final feature.";
+    item1.itemNotes = @"This is a preloaded item to show that it is possible,this may or may not be a final feature.";
+    item1.radius = 1300;
     [toDoItems addObject:item1];
     
     XYZToDoItem *item2 = [[XYZToDoItem alloc] init];
     item2.itemName = @"coffee";
     item2.itemRadius = @"25";
     item2.itemNotes = @"This is a preloaded item to show that it is possible, this may or may not be a final feature.";
+    item2.radius = 1300;
     [toDoItems addObject:item2];
     
 }
@@ -82,7 +84,9 @@ NSMutableArray *toDoItems = nil;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"ListPrototypeCell";
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
     XYZToDoItem *toDoItem = [toDoItems objectAtIndex:indexPath.row];
     cell.textLabel.text = toDoItem.itemName;
     
@@ -94,7 +98,19 @@ NSMutableArray *toDoItems = nil;
     return cell;
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    
+    NSLog(@"gothere");
+    [self.tableView reloadData];
+}
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    XYZToDoItem * current = [toDoItems objectAtIndex:indexPath.row];
+    if(current.match){
+        cell.textLabel.textColor = [UIColor blueColor];
+    }
+}
 
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -102,8 +118,6 @@ NSMutableArray *toDoItems = nil;
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-
-
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -116,51 +130,6 @@ NSMutableArray *toDoItems = nil;
     
     }
 }
-
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Table view delegate
-
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
-    
-    // Pass the selected object to the new view controller.
-    
-    // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
-}
-*/
-
-/*
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    XYZToDoItem *tappedItem = [self.toDoItems objectAtIndex:indexPath.row];
-    tappedItem.completed = !tappedItem.completed;
-    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-
-}
-*/
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ( [segue.identifier isEqualToString:@"showDetail"] ) {
