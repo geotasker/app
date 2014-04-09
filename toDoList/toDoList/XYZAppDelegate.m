@@ -16,31 +16,6 @@
 @synthesize window = _window;
 @synthesize locationManager=_locationManager;
 
-+ (void)notifyNearbyTasks
-{
-    //NSLog(@"%@", toDoItems.firstObject);
-    
-    int x = 0;
-    for (XYZToDoItem *task in toDoItems) {
-        //NSLog(@"%@", task.itemName);
-        if (task.match == true) {
-            x = x+1;
-            //NSLog(@"%d", x);
-        }
-    }
-    
-    NSString *str = [NSString stringWithFormat: @"You have %d new tasks", x];
-    //NSLog(@"%@", str);
-    
-    
-    if (x==0) {
-        UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-        localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
-        localNotification.alertBody = str;
-        localNotification.timeZone = [NSTimeZone defaultTimeZone];
-        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-    }
-}
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
@@ -55,63 +30,12 @@
             CLLocation *currentLoc = newLocation;
             
             if (currentLoc != nil) {
-                NSLog(@"%.8f", currentLoc.coordinate.longitude);
-                NSLog(@"%.8f", currentLoc.coordinate.latitude);
+                //NSLog(@"%.8f", currentLoc.coordinate.longitude);
+                //NSLog(@"%.8f", currentLoc.coordinate.latitude);
                 
             }
             
-            
-            //NSLog(@"%@", toDoItems.description);
-            int x = 0;
-             x = x+1;
-            for (XYZToDoItem *item in toDoItems) {
-                [findMatches find:item loc:currentLoc];
-                
-                if (item.match==TRUE) {
-                    NSLog(@"%@", @"I got in here");
-                    NSLog(@"%@\n", item.closeMatch.description);
-                }
-            }
-            
-            NSString *str = [NSString stringWithFormat: @"You have %d new tasks", x];
-            NSLog(@"%@", str);
-            
-            [XYZAppDelegate notifyNearbyTasks];
-            
-            //            if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive){
-            //                UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"New task available"
-            //                                                                  message:@""
-            //                                                                 delegate:nil
-            //                                                                cancelButtonTitle:@"Not now"
-            //                                                                otherButtonTitles:@"show task", nil];
-            //                [message show];
-            //            }
-            //
-            //            else if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateBackground){
-            //
-            //                UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-            //                localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
-            //                localNotification.alertBody = @"You have moved somewhere else!";
-            //                localNotification.timeZone = [NSTimeZone defaultTimeZone];
-            //                [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-            //            }
-            
-            //
-            //    // Reverse Geocoding
-            //    NSLog(@"Resolving the Address");
-            //    [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
-            //        NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
-            //        if (error == nil && [placemarks count] > 0) {
-            //            placemark = [placemarks lastObject];
-            //            _addressLabel.text = [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@",
-            //                                  placemark.subThoroughfare, placemark.thoroughfare,
-            //                                  placemark.postalCode, placemark.locality,
-            //                                  placemark.administrativeArea,
-            //                                  placemark.country];
-            //        } else {
-            //            NSLog(@"%@", error.debugDescription);
-            //        }
-            //    } ];
+        [findMatches find:currentLoc];
             
         }
     }

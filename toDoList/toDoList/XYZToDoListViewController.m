@@ -51,6 +51,12 @@ NSMutableArray *toDoItems = nil;
     item1.itemNotes = @"This is a preloaded item to show that it is possible, this may or may not be a final feature.";
     [toDoItems addObject:item1];
     
+    XYZToDoItem *item2 = [[XYZToDoItem alloc] init];
+    item2.itemName = @"coffee";
+    item2.itemRadius = @"25";
+    item2.itemNotes = @"This is a preloaded item to show that it is possible, this may or may not be a final feature.";
+    [toDoItems addObject:item2];
+    
 }
 
 - (void)didReceiveMemoryWarning

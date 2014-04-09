@@ -23,7 +23,7 @@
 
 // should not be needed
 @property (readonly) NSDate *creationDate;
-@property BOOL completed;
+@property bool completed;
 
 @property NSInteger radius;
 

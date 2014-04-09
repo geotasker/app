@@ -11,11 +11,16 @@
 #import "findMatches.h"
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "XYZAppDelegate.h"
+
 
 NSMutableArray *queries;
 
 @interface findMatches : NSObject
 
-+ (void)find:(XYZToDoItem *)item loc:(CLLocation *)currentLoc;
++ (int)find:(CLLocation *)currentLoc;
+
++(void) notifyNearbyTasks;
+
 
 @end
