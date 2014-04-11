@@ -64,6 +64,7 @@ CLLocationManager *locationManager;
                 }
                 else {
                     item.match = false;
+                    NSLog(@"No item match");
                     item.closeMatch = nil;
                     pos++;
                 }
@@ -94,6 +95,9 @@ CLLocationManager *locationManager;
     NSString *str = [NSString stringWithFormat: @"You have %d new tasks", x];
     NSLog(@"%@", str);
     
+    UIViewController *root = [[[UIApplication sharedApplication] keyWindow] rootViewController];
+    [root viewDidAppear:true];
+    
     if (x>0) {
         
         NSLog(@"\n A Wild Alert Window Appears!\n");
@@ -104,8 +108,7 @@ CLLocationManager *locationManager;
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];*/
     }
     
-    UIViewController *root = [[[UIApplication sharedApplication] keyWindow] rootViewController];
-    [root viewDidAppear:true];
+
 
 }
 

@@ -110,6 +110,9 @@ NSMutableArray *toDoItems = nil;
     if(current.match){
         cell.textLabel.textColor = [UIColor blueColor];
     }
+    else{
+        cell.textLabel.textColor = [UIColor blackColor];
+    }
 }
 
 // Override to support conditional editing of the table view.
