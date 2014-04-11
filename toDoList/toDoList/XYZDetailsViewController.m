@@ -23,6 +23,7 @@
 @synthesize notes;
 @synthesize scrollNotes;
 @synthesize scrollView;
+@synthesize locationBool;
 
 @synthesize toDoItem;
 
@@ -95,12 +96,13 @@
     self.radius.layer.cornerRadius = 5.0;
     self.radius.clipsToBounds = YES;
     
+    //eventually all this should be editable
+    locationBool.text = (toDoItem.hasLocation ? @"Yes" : @"No");
+    
 // not using this line or item anymore
     self.notes.text = toDoItem.itemNotes;
 
-
 }
-
 
 - (void)didReceiveMemoryWarning
 {

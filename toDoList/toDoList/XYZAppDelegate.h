@@ -11,6 +11,8 @@
 
 #define UIAppDelegate ((MyAppDelegate *)[UIApplication sharedApplication].delegate)
 
+extern CLLocation *currentLoc;
+
 @interface XYZAppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

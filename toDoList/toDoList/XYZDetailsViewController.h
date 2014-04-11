@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property XYZToDoItem *toDoItem;
+@property (weak, nonatomic) IBOutlet UILabel *locationBool;
 
 
 

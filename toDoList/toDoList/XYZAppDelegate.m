@@ -16,6 +16,8 @@
 @synthesize window = _window;
 @synthesize locationManager=_locationManager;
 
+// This is a global that can be accessed in any file that imports app delegate
+CLLocation *currentLoc;
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
@@ -27,7 +29,7 @@
         if(newLocation.horizontalAccuracy < 35.0){
             //Location is accurate enough, let's use it
             
-            CLLocation *currentLoc = newLocation;
+            currentLoc = newLocation;
             
             if (currentLoc != nil) {
                 //NSLog(@"%.8f", currentLoc.coordinate.longitude);

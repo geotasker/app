@@ -17,6 +17,9 @@
 // whether or not there is a search result.
 @property BOOL match;
 
+// where item is associated with location
+@property BOOL hasLocation;
+
 // map locations
 @property MKMapItem *current;
 @property MKMapItem *closeMatch;

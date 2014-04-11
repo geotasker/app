@@ -10,6 +10,8 @@
 #import "XYZToDoItem.h"
 #import "XYZAddToDoItemViewController.h"
 #import "XYZDetailsViewController.h"
+#import "XYZAppDelegate.h"
+#import "findMatches.h"
 
 @interface XYZToDoListViewController ()
 
@@ -27,6 +29,12 @@ NSMutableArray *toDoItems = nil;
 {
     XYZAddToDoItemViewController *source = [segue sourceViewController];
     XYZToDoItem *item = source.toDoItem;
+    
+    // Make query after item is added
+    NSLog(@"%.8f", currentLoc.coordinate.longitude);
+    NSLog(@"%.8f", currentLoc.coordinate.latitude);
+    [findMatches find:currentLoc];
+    
     if (item != nil) {
         [toDoItems addObject:item];
         [self.tableView reloadData];
@@ -40,7 +48,7 @@ NSMutableArray *toDoItems = nil;
     toDoItems = [[NSMutableArray alloc] init];
     
     [self loadInitialData];
-
+    
 }
 
 - (void)loadInitialData {
@@ -50,6 +58,7 @@ NSMutableArray *toDoItems = nil;
     item1.itemRadius = @"25";
     item1.itemNotes = @"This is a preloaded item to show that it is possible,this may or may not be a final feature.";
     item1.radius = 1300;
+    item1.hasLocation = true;
     [toDoItems addObject:item1];
     
     XYZToDoItem *item2 = [[XYZToDoItem alloc] init];
@@ -57,6 +66,7 @@ NSMutableArray *toDoItems = nil;
     item2.itemRadius = @"25";
     item2.itemNotes = @"This is a preloaded item to show that it is possible, this may or may not be a final feature.";
     item2.radius = 1300;
+    item2.hasLocation = true;
     [toDoItems addObject:item2];
     
 }
@@ -130,7 +140,7 @@ NSMutableArray *toDoItems = nil;
         [toDoItems removeObjectAtIndex:indexPath.row];
         // Delete the row from the data source
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-    
+        
     }
 }
 

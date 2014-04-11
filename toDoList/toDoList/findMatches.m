@@ -27,53 +27,56 @@ CLLocationManager *locationManager;
         
         for(XYZToDoItem* item in toDoItems){
             
-            MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];
-            request.naturalLanguageQuery = item.itemName;
-            // somehow deal with radius
-            MKCoordinateSpan span = MKCoordinateSpanMake(0.1, 0.1);
-            request.region = MKCoordinateRegionMake(currentLoc.coordinate, span);
+            if (item.hasLocation==true) {
             
-            MKLocalSearch *search = [[MKLocalSearch alloc]initWithRequest:request];
-            [search startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error){
-                int i = 0;
-                double minimum = INFINITY;
-                MKMapItem *closest;
-                for (MKMapItem *item in response.mapItems) {
+                MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];
+                request.naturalLanguageQuery = item.itemName;
+                // somehow deal with radius
+                MKCoordinateSpan span = MKCoordinateSpanMake(0.1, 0.1);
+                request.region = MKCoordinateRegionMake(currentLoc.coordinate, span);
                 
-                    UILabel *myLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 50 + 20*i, 300, 200)];
-                    myLabel.numberOfLines = 1;
-                
-                    NSString *myString = [NSString stringWithFormat:@"%@ %@", item.name, item.phoneNumber];
-                    myLabel.text = myString;
-                
-                    CLLocation *loc = item.placemark.location;
-                    CLLocationDistance dist = [currentLoc distanceFromLocation:loc];
-                
-                    if (dist < minimum) {
-                        minimum = dist;
-                        closest = item;
+                MKLocalSearch *search = [[MKLocalSearch alloc]initWithRequest:request];
+                [search startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error){
+                    int i = 0;
+                    double minimum = INFINITY;
+                    MKMapItem *closest;
+                    for (MKMapItem *item in response.mapItems) {
+                    
+                        UILabel *myLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 50 + 20*i, 300, 200)];
+                        myLabel.numberOfLines = 1;
+                    
+                        NSString *myString = [NSString stringWithFormat:@"%@ %@", item.name, item.phoneNumber];
+                        myLabel.text = myString;
+                    
+                        CLLocation *loc = item.placemark.location;
+                        CLLocationDistance dist = [currentLoc distanceFromLocation:loc];
+                    
+                        if (dist < minimum) {
+                            minimum = dist;
+                            closest = item;
+                        }
+                        //NSLog(@"%@", closest.name);
+                        //NSLog(@"dist %f", minimum);
+                        }
+
+                    if (minimum < item.radius) {
+                        item.closeMatch = closest;
+                        item.match = true;
+                        pos++;
                     }
-                    //NSLog(@"%@", closest.name);
-                    //NSLog(@"dist %f", minimum);
-                }
+                    else {
+                        item.match = false;
+                        NSLog(@"No item match");
+                        item.closeMatch = nil;
+                        pos++;
+                    }
 
-                if (minimum < item.radius) {
-                    item.closeMatch = closest;
-                    item.match = true;
-                    pos++;
-                }
-                else {
-                    item.match = false;
-                    NSLog(@"No item match");
-                    item.closeMatch = nil;
-                    pos++;
-                }
-
-                if( [toDoItems count] == pos){
-                    [findMatches notifyNearbyTasks];
-                }
+                    if( [toDoItems count] == pos){
+                        [findMatches notifyNearbyTasks];
+                    }
                 
-            }];
+                }];
+            }
         }
     });
     
