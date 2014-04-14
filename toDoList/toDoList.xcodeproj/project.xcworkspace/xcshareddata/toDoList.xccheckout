@@ -5,19 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>E0F4F289-FEB3-45D6-A5E9-9EAF38BABF8B</string>
+	<string>5A7ECEB2-FF43-4EB3-BA3A-BACC60AFA26C</string>
 	<key>IDESourceControlProjectName</key>
 	<string>toDoList</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>590769C3-82B0-44BB-9229-3F0A8DF9336F</key>
-		<string>file:///Users/Dean_Makino/geotasker/</string>
+		<key>50F6AC3A-3812-43A3-A23C-641D7D4A89A8</key>
+		<string>https://github.com/geotasker/app.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>toDoList/toDoList.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>590769C3-82B0-44BB-9229-3F0A8DF9336F</key>
+		<key>50F6AC3A-3812-43A3-A23C-641D7D4A89A8</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,16 +25,16 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>590769C3-82B0-44BB-9229-3F0A8DF9336F</string>
+	<string>50F6AC3A-3812-43A3-A23C-641D7D4A89A8</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>590769C3-82B0-44BB-9229-3F0A8DF9336F</string>
+			<string>50F6AC3A-3812-43A3-A23C-641D7D4A89A8</string>
 			<key>IDESourceControlWCCName</key>
-			<string>newMaster</string>
+			<string>GitHub</string>
 		</dict>
 	</array>
 </dict>

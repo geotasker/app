@@ -8,11 +8,11 @@
 
 #import "XYZDetailsViewController.h"
 #import "XYZToDoItem.h"
+#import "XYZMapViewController.h"
 
 
 @interface XYZDetailsViewController ()
 
-- (IBAction)localalertbutton:(id)sender;
 
 @end
 
@@ -36,35 +36,7 @@
     return self;
 }
 
-- (IBAction)localalertbutton:(id)sender {
-    
-    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
-    localNotification.alertBody = @"New Task Available";
-    localNotification.timeZone = [NSTimeZone defaultTimeZone];
-    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-    
-    
-}
 
-
-// Alerts ************
--(IBAction)alertbutton{
-    alert = [[UIAlertView alloc] initWithTitle:@"GeoTasker" message:@"Press Accept Directions" delegate:self
-                             cancelButtonTitle:@"Dismiss" otherButtonTitles:@"Accept", nil];
-    
-    [alert show];
-}
-
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 1) {
-        NSString * storyboardName = @"Main";
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
-        UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"NotificationView"];
-        [self presentViewController:vc animated:YES completion:nil];
-    }
-}
-// end alerts ******
 
 - (void)viewDidLoad
 {
@@ -102,6 +74,23 @@
 // not using this line or item anymore
     self.notes.text = toDoItem.itemNotes;
 
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ( [segue.identifier isEqualToString:@"mapSegue"] ) {
+        XYZToDoItem *item = self.toDoItem;
+        XYZMapViewController *destViewController = segue.destinationViewController;
+        destViewController.toDoItem = item;
+        
+        
+        //bring up apple maps directions
+        NSDictionary *options = @{MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeWalking};
+        MKMapItem *currentLocationMapItem = [MKMapItem mapItemForCurrentLocation];
+        [MKMapItem openMapsWithItems:@[currentLocationMapItem, item.closeMatch] launchOptions:options];
+        
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning

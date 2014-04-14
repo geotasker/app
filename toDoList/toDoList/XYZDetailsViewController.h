@@ -9,16 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "XYZToDoItem.h"
 
+
 @interface XYZDetailsViewController : UIViewController
-// Alerts **
-{
-    IBOutlet UIAlertView *alert;
-}
-- (IBAction)alertbutton;
-
-- (IBAction)localalertbutton:(id)sender;
-// end allerta**
-
 
 
 @property (weak, nonatomic) IBOutlet UITextView *name;

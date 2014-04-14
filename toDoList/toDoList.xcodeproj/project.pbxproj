@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9E8652AC18EB2F6800D14603 /* XYZNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8652AA18EB2F6800D14603 /* XYZNotificationViewController.m */; };
-		9E8652AD18EB2F6800D14603 /* XYZNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E8652AB18EB2F6800D14603 /* XYZNotificationViewController.xib */; };
 		9EB3930718ECD60800BECAAD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EB3930618ECD60800BECAAD /* MapKit.framework */; };
 		9EB3930D18F1D7F100BECAAD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EB3930C18F1D7F100BECAAD /* CoreLocation.framework */; };
 		9ECDEDEB18F4CC870034D2C0 /* findMatches.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECDEDEA18F4CC870034D2C0 /* findMatches.m */; };
+		A242AD3618F8915800F1AA70 /* XYZMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A242AD3418F8915800F1AA70 /* XYZMapViewController.m */; };
+		A242AD3718F8915800F1AA70 /* XYZMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A242AD3518F8915800F1AA70 /* XYZMapViewController.xib */; };
 		A278E88818D9FE6A00D75E03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A278E88718D9FE6A00D75E03 /* Foundation.framework */; };
 		A278E88C18D9FE6A00D75E03 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A278E88B18D9FE6A00D75E03 /* UIKit.framework */; };
 		A278E89218D9FE6A00D75E03 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A278E89018D9FE6A00D75E03 /* InfoPlist.strings */; };
@@ -44,13 +44,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9E8652A918EB2F6800D14603 /* XYZNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZNotificationViewController.h; sourceTree = "<group>"; };
-		9E8652AA18EB2F6800D14603 /* XYZNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZNotificationViewController.m; sourceTree = "<group>"; };
-		9E8652AB18EB2F6800D14603 /* XYZNotificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYZNotificationViewController.xib; sourceTree = "<group>"; };
 		9EB3930618ECD60800BECAAD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9EB3930C18F1D7F100BECAAD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		9ECDEDE918F4CC7B0034D2C0 /* findMatches.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = findMatches.h; sourceTree = "<group>"; };
 		9ECDEDEA18F4CC870034D2C0 /* findMatches.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = findMatches.m; sourceTree = "<group>"; };
+		A242AD3318F8915800F1AA70 /* XYZMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZMapViewController.h; sourceTree = "<group>"; };
+		A242AD3418F8915800F1AA70 /* XYZMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZMapViewController.m; sourceTree = "<group>"; };
+		A242AD3518F8915800F1AA70 /* XYZMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYZMapViewController.xib; sourceTree = "<group>"; };
 		A278E88418D9FE6A00D75E03 /* toDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = toDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A278E88718D9FE6A00D75E03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A278E88918D9FE6A00D75E03 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -147,12 +147,9 @@
 				A278E89618D9FE6A00D75E03 /* XYZAppDelegate.h */,
 				A278E89718D9FE6A00D75E03 /* XYZAppDelegate.m */,
 				A278E8B618DA03B400D75E03 /* Main.storyboard */,
-				9E8652A918EB2F6800D14603 /* XYZNotificationViewController.h */,
-				9E8652AA18EB2F6800D14603 /* XYZNotificationViewController.m */,
-				9E8652AB18EB2F6800D14603 /* XYZNotificationViewController.xib */,
-				A278E8C718DB47BD00D75E03 /* XYZDetailsViewController.h */,
 				9ECDEDEA18F4CC870034D2C0 /* findMatches.m */,
 				9ECDEDE918F4CC7B0034D2C0 /* findMatches.h */,
+				A278E8C718DB47BD00D75E03 /* XYZDetailsViewController.h */,
 				A278E8C818DB47BD00D75E03 /* XYZDetailsViewController.m */,
 				A278E8C918DB47BD00D75E03 /* XYZDetailsViewController.xib */,
 				A278E8C218DA3C4F00D75E03 /* XYZToDoItem.h */,
@@ -160,6 +157,9 @@
 				A278E8BD18DA2D8000D75E03 /* XYZToDoListViewController.h */,
 				A278E8BE18DA2D8000D75E03 /* XYZToDoListViewController.m */,
 				A278E8BF18DA2D8000D75E03 /* XYZToDoListViewController.xib */,
+				A242AD3318F8915800F1AA70 /* XYZMapViewController.h */,
+				A242AD3418F8915800F1AA70 /* XYZMapViewController.m */,
+				A242AD3518F8915800F1AA70 /* XYZMapViewController.xib */,
 				A278E89918D9FE6A00D75E03 /* Images.xcassets */,
 				A278E88E18D9FE6A00D75E03 /* Supporting Files */,
 			);
@@ -275,8 +275,8 @@
 				A278E89218D9FE6A00D75E03 /* InfoPlist.strings in Resources */,
 				A278E8BC18DA2BBA00D75E03 /* XYZAddToDoItemViewController.xib in Resources */,
 				A278E89A18D9FE6A00D75E03 /* Images.xcassets in Resources */,
+				A242AD3718F8915800F1AA70 /* XYZMapViewController.xib in Resources */,
 				A278E8CB18DB47BD00D75E03 /* XYZDetailsViewController.xib in Resources */,
-				9E8652AD18EB2F6800D14603 /* XYZNotificationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,8 +296,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A278E89818D9FE6A00D75E03 /* XYZAppDelegate.m in Sources */,
+				A242AD3618F8915800F1AA70 /* XYZMapViewController.m in Sources */,
 				A278E8C418DA3C4F00D75E03 /* XYZToDoItem.m in Sources */,
-				9E8652AC18EB2F6800D14603 /* XYZNotificationViewController.m in Sources */,
 				A278E89418D9FE6A00D75E03 /* main.m in Sources */,
 				A278E8C018DA2D8000D75E03 /* XYZToDoListViewController.m in Sources */,
 				A278E8BB18DA2BBA00D75E03 /* XYZAddToDoItemViewController.m in Sources */,

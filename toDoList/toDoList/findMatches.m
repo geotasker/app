@@ -12,6 +12,8 @@
 #import <UIKit/UIKit.h>
 #import "XYZAppDelegate.h"
 
+XYZToDoItem *oneAlert = nil;
+
 @implementation findMatches
 
 CLLocationManager *locationManager;
@@ -92,6 +94,7 @@ CLLocationManager *locationManager;
     int x = 0;
     for (XYZToDoItem *task in toDoItems) {
         if (task.match == true) {
+            oneAlert = task;
             x = x+1;
         }
     }
@@ -101,24 +104,59 @@ CLLocationManager *locationManager;
     UIViewController *root = [[[UIApplication sharedApplication] keyWindow] rootViewController];
     [root viewDidAppear:true];
     
+    if(x>1){
+        oneAlert = nil;
+    }
+
     if (x>0) {
         
-        NSLog(@"\n A Wild Alert Window Appears!\n");
-        /*UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-        localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
-        localNotification.alertBody = str;
-        localNotification.timeZone = [NSTimeZone defaultTimeZone];
-        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];*/
+        if ([UIApplication sharedApplication].applicationState == UIApplicationStateBackground)
+        {
+            //NSLog(@"\n A Wild Alert Window Appears!\n");
+            
+            if (x==1)
+            {
+                str = [NSString stringWithFormat: @"Do \"%@\" at %@", oneAlert.itemName, oneAlert.closeMatch.name];
+            }
+            
+            UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+            localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
+            localNotification.alertBody = str;
+            localNotification.timeZone = [NSTimeZone defaultTimeZone];
+            [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+        }
+
+        if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive)
+        {
+            if( x >1 ){
+                alert = [[UIAlertView alloc] initWithTitle:@"GeoTasker" message:str delegate:self
+                                     cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
+            }
+            if (x == 1){
+                NSString *name = [NSString stringWithFormat: @"Do \"%@\" at %@", oneAlert.itemName, oneAlert.closeMatch.name];
+                
+                alert = [[UIAlertView alloc] initWithTitle:@"GeoTasker" message:name delegate:self
+                                         cancelButtonTitle:@"Dismiss" otherButtonTitles:@"Directions", nil];
+
+            }
+                [alert show];
+        }
     }
-    
-
-
 }
 
 
 
-
-
++(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    //NSLog(@"going to apple maps");
+    if (buttonIndex == 1) {
+        NSLog(@"going to apple maps");
+        //bring up apple maps directions
+        NSDictionary *options = @{MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeWalking};
+        MKMapItem *currentLocationMapItem = [MKMapItem mapItemForCurrentLocation];
+        [MKMapItem openMapsWithItems:@[currentLocationMapItem, oneAlert.closeMatch] launchOptions:options];
+        
+    }
+}
 
 
 @end

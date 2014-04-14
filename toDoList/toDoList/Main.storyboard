@@ -98,26 +98,6 @@
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Oo-Wn-WWj">
-                                        <rect key="frame" x="54" y="491" width="59" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button 1">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="alertbutton" destination="81n-Mc-QRL" eventType="touchUpInside" id="WZQ-WG-Awc"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMH-no-VbV">
-                                        <rect key="frame" x="179" y="491" width="59" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button 2">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="localalertbutton:" destination="81n-Mc-QRL" eventType="touchUpInside" id="7gC-XI-FUP"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Has location?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S10-3E-FOn">
                                         <rect key="frame" x="20" y="357" width="106" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -153,7 +133,13 @@
                             <constraint firstItem="MRP-ZW-Hb5" firstAttribute="top" secondItem="CQX-bo-3hw" secondAttribute="bottom" constant="-64" id="sV4-Dd-ZBZ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="To-Do Item Details" id="yhV-EO-ZSe"/>
+                    <navigationItem key="navigationItem" title="To-Do Item Details" id="yhV-EO-ZSe">
+                        <barButtonItem key="rightBarButtonItem" title="Map" id="hhU-m0-8D1">
+                            <connections>
+                                <segue destination="Wr6-66-6MG" kind="push" identifier="mapSegue" id="D1k-H8-Rzk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="locationBool" destination="X73-6l-8RQ" id="mNV-sZ-bWU"/>
                         <outlet property="name" destination="ndP-2u-NL9" id="Hu2-pm-NaF"/>
@@ -163,7 +149,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QNU-6L-lDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1428" y="1197"/>
+            <point key="canvasLocation" x="66" y="1077"/>
         </scene>
         <!--Add To Do Item View Controller - Add To-Do Item-->
         <scene sceneID="TKV-b4-mjz">
@@ -263,101 +249,6 @@
             </objects>
             <point key="canvasLocation" x="3" y="286"/>
         </scene>
-        <!--Notification View Controller-->
-        <scene sceneID="arf-Jg-Bwy">
-            <objects>
-                <viewController storyboardIdentifier="NotificationView" id="lhZ-Z6-Zkh" customClass="XYZNotificationViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="zFF-HS-L6c"/>
-                        <viewControllerLayoutGuide type="bottom" id="nwz-D4-6kI"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="bSL-sf-lxh">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name of task and the name of the store" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUz-dz-mfc">
-                                <rect key="frame" x="8" y="179" width="304" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="32n-s9-P0M">
-                                <rect key="frame" x="238" y="483" width="49" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Accept">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="4NF-hB-nEh" kind="modal" id="u9A-Gl-vuO"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ceY-MX-TU4">
-                                <rect key="frame" x="37" y="476" width="44" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Ignore">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Distance/Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B7v-mb-R0X">
-                                <rect key="frame" x="93" y="273" width="111" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ExS-oU-3tT">
-                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="To-Do List" id="rno-1L-V00">
-                                        <barButtonItem key="rightBarButtonItem" title="Map" id="kO9-ld-KNx">
-                                            <connections>
-                                                <segue destination="4NF-hB-nEh" kind="modal" id="gua-pE-lLU"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="a4N-f3-qD8"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9ku-MW-HQL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="12" y="1221"/>
-        </scene>
-        <!--View Controller - Map View-->
-        <scene sceneID="pCB-12-95T">
-            <objects>
-                <viewController id="aH4-1G-nfk" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="fic-mN-jes"/>
-                        <viewControllerLayoutGuide type="bottom" id="v4U-8y-T1z"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="EKk-1t-6pR">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="NA3-n2-wxM">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </mapView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Map View" id="YQY-GN-ccc">
-                        <barButtonItem key="leftBarButtonItem" title="Done" id="hUg-sr-8So">
-                            <connections>
-                                <segue destination="Qng-VJ-PSo" kind="modal" id="Kl9-lg-BZh"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NNx-16-kyz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="835" y="1229"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="rjk-Hx-NDi">
             <objects>
@@ -376,24 +267,32 @@
             </objects>
             <point key="canvasLocation" x="830" y="292"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="3AI-lK-1JV">
+        <!--Map View Controller-->
+        <scene sceneID="0kf-cr-Cqx">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4NF-hB-nEh" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="5Qi-ae-JuD"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Scm-kX-L4l">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="aH4-1G-nfk" kind="relationship" relationship="rootViewController" id="6G4-wa-hbY"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="T3G-t6-4og" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="Wr6-66-6MG" customClass="XYZMapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2dH-Jz-q8N"/>
+                        <viewControllerLayoutGuide type="bottom" id="JAu-h9-WOj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mbq-c1-O23">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DIz-Eb-uj9">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="JHH-q5-g7Z">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="tYV-sF-SIz"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LoV-PT-kbA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="437" y="1229"/>
+            <point key="canvasLocation" x="603" y="1084"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -401,7 +300,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="u9A-Gl-vuO"/>
-    </inferredMetricsTieBreakers>
 </document>

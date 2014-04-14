@@ -16,6 +16,10 @@
 
 NSMutableArray *queries;
 
+extern XYZToDoItem *oneAlert;
+
+UIAlertView *alert;
+
 @interface findMatches : NSObject
 
 + (int)find:(CLLocation *)currentLoc;
