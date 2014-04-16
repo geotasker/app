@@ -47,6 +47,9 @@ NSMutableArray *toDoItems = nil;
     
     [self loadInitialData];
     
+    //cancel outstanding notifications when the user sees all the to do items
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    
 }
 
 - (void)loadInitialData {

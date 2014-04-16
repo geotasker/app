@@ -41,7 +41,6 @@ CLLocation *currentLoc;
             
         }
     }
-    
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -82,6 +81,9 @@ CLLocation *currentLoc;
         MKMapItem *currentLocationMapItem = [MKMapItem mapItemForCurrentLocation];
         [MKMapItem openMapsWithItems:@[currentLocationMapItem, oneAlert.closeMatch] launchOptions:options];
     }
+    
+    //cancel outstanding notifications when you open the app through a notification
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -99,7 +101,6 @@ CLLocation *currentLoc;
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    [[UIApplication sharedApplication] cancelAllLocalNotifications];
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
