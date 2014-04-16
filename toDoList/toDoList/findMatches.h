@@ -22,9 +22,13 @@ UIAlertView *alert;
 
 @interface findMatches : NSObject
 
-+ (int)find:(CLLocation *)currentLoc;
++(int)find:(CLLocation *)currentLoc;
 
 +(void) notifyNearbyTasks;
+
++(void) findItem: (CLLocation *) currentLoc : (XYZToDoItem *) item;
+
++(void) notifyNearbyTask: (XYZToDoItem*) item;
 
 
 @end

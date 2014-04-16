@@ -79,16 +79,20 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ( [segue.identifier isEqualToString:@"mapSegue"] ) {
+        
         XYZToDoItem *item = self.toDoItem;
-        XYZMapViewController *destViewController = segue.destinationViewController;
-        destViewController.toDoItem = item;
         
-        
-        //bring up apple maps directions
-        NSDictionary *options = @{MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeWalking};
-        MKMapItem *currentLocationMapItem = [MKMapItem mapItemForCurrentLocation];
-        [MKMapItem openMapsWithItems:@[currentLocationMapItem, item.closeMatch] launchOptions:options];
-        
+        if (item.closeMatch != nil)
+        {
+            //bring up apple maps directions
+            NSDictionary *options = @{MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeWalking};
+            MKMapItem *currentLocationMapItem = [MKMapItem mapItemForCurrentLocation];
+            [MKMapItem openMapsWithItems:@[currentLocationMapItem, item.closeMatch] launchOptions:options];
+        }
+        else {
+            XYZMapViewController *destViewController = segue.destinationViewController;
+            destViewController.toDoItem = item;
+        }
     }
     
 }

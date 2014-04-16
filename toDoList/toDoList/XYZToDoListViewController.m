@@ -31,9 +31,7 @@ NSMutableArray *toDoItems = nil;
     XYZToDoItem *item = source.toDoItem;
     
     // Make query after item is added
-    NSLog(@"%.8f", currentLoc.coordinate.longitude);
-    NSLog(@"%.8f", currentLoc.coordinate.latitude);
-    [findMatches find:currentLoc];
+    [findMatches findItem:currentLoc:item];
     
     if (item != nil) {
         [toDoItems addObject:item];
