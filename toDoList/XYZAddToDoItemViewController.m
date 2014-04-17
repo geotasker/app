@@ -32,14 +32,14 @@
         self.toDoItem.itemName = self.textField.text;
         self.toDoItem.completed = NO;
         self.toDoItem.hasLocation = self.locationOn.isOn;
-        self.toDoItem.radius = 1300;
+        //self.toDoItem.radius = 1300;
         
         if (self.radiusField.text.length > 0) {
             self.toDoItem.itemRadius = self.radiusField.text;
         }
         else {
             // some other number may be better
-            self.toDoItem.itemRadius = @"25";
+            //self.toDoItem.itemRadius = @"25";
         }
         
         if (self.notesField.text.length > 0) {

@@ -112,6 +112,8 @@ CLLocationManager *locationManager;
                         //NSLog(@"dist %f", minimum);
                         }
 
+                    //NSLog(@"radius %ld", (long)item.radius);
+                    
                     if (minimum < item.radius) {
                         item.closeMatch = closest;
                         item.match = true;

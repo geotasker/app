@@ -37,6 +37,24 @@ CLLocation *currentLoc;
                 
             }
             
+        //dynamically change item radius depending on whether user is walking or driving
+            double speed = currentLoc.speed;
+            //walking, units in m/s
+            if (speed < 3)
+            {
+                //500m ~= 5m walking
+                for(XYZToDoItem* item in toDoItems){
+                    item.radius = 500;
+                }
+            }
+            else{
+                //3000m ~= 5m driving assuming 20mph avg
+                for(XYZToDoItem* item in toDoItems){
+                    item.radius = 3000;
+                }
+            }
+            
+        
         [findMatches find:currentLoc];
             
         }
