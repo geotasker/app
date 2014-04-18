@@ -65,24 +65,13 @@ CLLocation *currentLoc;
 }
 
 
-
-
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(NSDictionary *)userInfo {
-    //bring up notification view
-    /*UIViewController *vc = (UIViewController *)self.window.rootViewController;
-    NSString * storyboardName = @"Main";
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
-    UIViewController * pvc = [storyboard instantiateViewControllerWithIdentifier:@"NotificationView"];
-    [vc presentViewController:pvc animated:YES completion:nil];*/
     
     if (oneAlert != nil){
-        //bring up apple maps directions
-        NSLog(@"one alert received");
-        NSDictionary *options = @{MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeWalking};
-        MKMapItem *currentLocationMapItem = [MKMapItem mapItemForCurrentLocation];
-        [MKMapItem openMapsWithItems:@[currentLocationMapItem, oneAlert.closeMatch] launchOptions:options];
+        [findMatches localDirections];
     }
 }
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

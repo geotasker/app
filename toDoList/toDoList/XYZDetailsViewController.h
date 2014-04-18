@@ -9,18 +9,32 @@
 #import <UIKit/UIKit.h>
 #import "XYZToDoItem.h"
 
+@interface XYZDetailsViewController : UIViewController <UITextFieldDelegate>
+// Alerts **
+{
+    IBOutlet UIAlertView *alert;
+}
+- (IBAction)alertbutton;
 
-@interface XYZDetailsViewController : UIViewController
+- (IBAction)localalertbutton:(id)sender;
+// end allerta**
+
+@property (weak, nonatomic) IBOutlet UITextField *name1;
 
 
-@property (weak, nonatomic) IBOutlet UITextView *name;
-@property (weak, nonatomic) IBOutlet UITextView *radius;
-@property (weak, nonatomic) IBOutlet UILabel *notes;
-@property (weak, nonatomic) IBOutlet UITextView *scrollNotes;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
+@property (weak, nonatomic) IBOutlet UISwitch *locationSwitch;
+
+- (IBAction)switchAction:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UITextField *notesBox;
+
+// not in use
+@property (weak, nonatomic) IBOutlet UITextView *radius;
+@property (weak, nonatomic) IBOutlet UILabel *notes;
 @property XYZToDoItem *toDoItem;
-@property (weak, nonatomic) IBOutlet UILabel *locationBool;
+
 
 
 

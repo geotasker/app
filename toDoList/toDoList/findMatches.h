@@ -24,7 +24,10 @@ UIAlertView *alert;
 
 + (int)find:(CLLocation *)currentLoc;
 
-+(void) notifyNearbyTasks;
++ (void) notifyNearbyTasks;
+
+
++ (void) localDirections;
 
 
 @end

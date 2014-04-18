@@ -120,7 +120,7 @@ CLLocationManager *locationManager;
             }
             
             UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-            localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
+            localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
             localNotification.alertBody = str;
             localNotification.timeZone = [NSTimeZone defaultTimeZone];
             [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
@@ -156,6 +156,28 @@ CLLocationManager *locationManager;
         [MKMapItem openMapsWithItems:@[currentLocationMapItem, oneAlert.closeMatch] launchOptions:options];
         
     }
+}
+
+
++ (void) localDirections{
+    //bring up apple maps directions
+    
+    NSDictionary *options = @{MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeWalking};
+    MKMapItem *currentLocationMapItem = [MKMapItem mapItemForCurrentLocation];
+    
+    __block dispatch_queue_t queue;
+    queue = dispatch_queue_create("com.example.localDirections", DISPATCH_QUEUE_CONCURRENT);
+    
+    dispatch_async(queue, ^{
+        NSLog(@"%@", currentLocationMapItem.description);
+        [MKMapItem openMapsWithItems:@[currentLocationMapItem, oneAlert.closeMatch] launchOptions:options];
+        NSLog(@"apple maps opened");
+
+    });
+ 
+    NSLog(@"%@", currentLocationMapItem.description);
+
+    
 }
 
 

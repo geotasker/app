@@ -24,10 +24,16 @@
 @property MKMapItem *current;
 @property MKMapItem *closeMatch;
 
-// should not be needed
+// are now needed
 @property (readonly) NSDate *creationDate;
 @property bool completed;
 
+
+
+
 @property NSInteger radius;
+
+
+
 
 @end

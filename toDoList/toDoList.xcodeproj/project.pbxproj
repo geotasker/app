@@ -29,8 +29,9 @@
 		A278E8C018DA2D8000D75E03 /* XYZToDoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A278E8BE18DA2D8000D75E03 /* XYZToDoListViewController.m */; };
 		A278E8C118DA2D8000D75E03 /* XYZToDoListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A278E8BF18DA2D8000D75E03 /* XYZToDoListViewController.xib */; };
 		A278E8C418DA3C4F00D75E03 /* XYZToDoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A278E8C318DA3C4F00D75E03 /* XYZToDoItem.m */; };
-		A278E8CA18DB47BD00D75E03 /* XYZDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A278E8C818DB47BD00D75E03 /* XYZDetailsViewController.m */; };
+		A278E8CA18DB47BD00D75E03 /* XYZDetailsViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = A278E8C818DB47BD00D75E03 /* XYZDetailsViewController1.m */; };
 		A278E8CB18DB47BD00D75E03 /* XYZDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A278E8C918DB47BD00D75E03 /* XYZDetailsViewController.xib */; };
+		A27995231901B72000B50584 /* XYZDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A27995221901B72000B50584 /* XYZDetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,9 +77,11 @@
 		A278E8BF18DA2D8000D75E03 /* XYZToDoListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYZToDoListViewController.xib; sourceTree = "<group>"; };
 		A278E8C218DA3C4F00D75E03 /* XYZToDoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZToDoItem.h; sourceTree = "<group>"; };
 		A278E8C318DA3C4F00D75E03 /* XYZToDoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZToDoItem.m; sourceTree = "<group>"; };
-		A278E8C718DB47BD00D75E03 /* XYZDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZDetailsViewController.h; sourceTree = "<group>"; };
-		A278E8C818DB47BD00D75E03 /* XYZDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZDetailsViewController.m; sourceTree = "<group>"; };
+		A278E8C718DB47BD00D75E03 /* XYZDetailsViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZDetailsViewController1.h; sourceTree = "<group>"; };
+		A278E8C818DB47BD00D75E03 /* XYZDetailsViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZDetailsViewController1.m; sourceTree = "<group>"; };
 		A278E8C918DB47BD00D75E03 /* XYZDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYZDetailsViewController.xib; sourceTree = "<group>"; };
+		A27995211901B72000B50584 /* XYZDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZDetailsViewController.h; sourceTree = "<group>"; };
+		A27995221901B72000B50584 /* XYZDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZDetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,8 +152,10 @@
 				A278E8B618DA03B400D75E03 /* Main.storyboard */,
 				9ECDEDEA18F4CC870034D2C0 /* findMatches.m */,
 				9ECDEDE918F4CC7B0034D2C0 /* findMatches.h */,
-				A278E8C718DB47BD00D75E03 /* XYZDetailsViewController.h */,
-				A278E8C818DB47BD00D75E03 /* XYZDetailsViewController.m */,
+				A27995211901B72000B50584 /* XYZDetailsViewController.h */,
+				A27995221901B72000B50584 /* XYZDetailsViewController.m */,
+				A278E8C718DB47BD00D75E03 /* XYZDetailsViewController1.h */,
+				A278E8C818DB47BD00D75E03 /* XYZDetailsViewController1.m */,
 				A278E8C918DB47BD00D75E03 /* XYZDetailsViewController.xib */,
 				A278E8C218DA3C4F00D75E03 /* XYZToDoItem.h */,
 				A278E8C318DA3C4F00D75E03 /* XYZToDoItem.m */,
@@ -302,7 +307,8 @@
 				A278E8C018DA2D8000D75E03 /* XYZToDoListViewController.m in Sources */,
 				A278E8BB18DA2BBA00D75E03 /* XYZAddToDoItemViewController.m in Sources */,
 				9ECDEDEB18F4CC870034D2C0 /* findMatches.m in Sources */,
-				A278E8CA18DB47BD00D75E03 /* XYZDetailsViewController.m in Sources */,
+				A278E8CA18DB47BD00D75E03 /* XYZDetailsViewController1.m in Sources */,
+				A27995231901B72000B50584 /* XYZDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

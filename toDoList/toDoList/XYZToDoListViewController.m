@@ -29,12 +29,8 @@ NSMutableArray *toDoItems = nil;
 {
     XYZAddToDoItemViewController *source = [segue sourceViewController];
     XYZToDoItem *item = source.toDoItem;
-    
     // Make query after item is added
-    NSLog(@"%.8f", currentLoc.coordinate.longitude);
-    NSLog(@"%.8f", currentLoc.coordinate.latitude);
     [findMatches find:currentLoc];
-    
     if (item != nil) {
         [toDoItems addObject:item];
         [self.tableView reloadData];
@@ -46,29 +42,25 @@ NSMutableArray *toDoItems = nil;
 {
     [super viewDidLoad];
     toDoItems = [[NSMutableArray alloc] init];
-    
     [self loadInitialData];
-    
 }
 
 - (void)loadInitialData {
+//    XYZToDoItem *item1 = [[XYZToDoItem alloc] init];
+//    item1.itemName = @"starbucks";
+//    item1.itemRadius = @"25";
+//    item1.itemNotes = @"This is a preloaded item to show that it is possible,this may or may not be a final feature.";
+//    item1.radius = 1300;
+//    item1.hasLocation = true;
+//    [toDoItems addObject:item1];
     
-    XYZToDoItem *item1 = [[XYZToDoItem alloc] init];
-    item1.itemName = @"starbucks";
-    item1.itemRadius = @"25";
-    item1.itemNotes = @"This is a preloaded item to show that it is possible,this may or may not be a final feature.";
-    item1.radius = 1300;
-    item1.hasLocation = true;
-    [toDoItems addObject:item1];
-    /*
     XYZToDoItem *item2 = [[XYZToDoItem alloc] init];
     item2.itemName = @"coffee";
     item2.itemRadius = @"25";
     item2.itemNotes = @"This is a preloaded item to show that it is possible, this may or may not be a final feature.";
     item2.radius = 1300;
     item2.hasLocation = true;
-    [toDoItems addObject:item2];*/
-    
+    [toDoItems addObject:item2];
 }
 
 - (void)didReceiveMemoryWarning
@@ -94,22 +86,25 @@ NSMutableArray *toDoItems = nil;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"ListPrototypeCell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     XYZToDoItem *toDoItem = [toDoItems objectAtIndex:indexPath.row];
     cell.textLabel.text = toDoItem.itemName;
     
+    /*
+    cell.accessoryType = UITableViewCellAccessoryDetailButton;
+
     if (toDoItem.completed) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    } else {
+    }
+    else {
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
+    */
     return cell;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    
     NSLog(@"gothere");
     [self.tableView reloadData];
 }
@@ -140,7 +135,6 @@ NSMutableArray *toDoItems = nil;
         [toDoItems removeObjectAtIndex:indexPath.row];
         // Delete the row from the data source
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-        
     }
 }
 
@@ -152,5 +146,34 @@ NSMutableArray *toDoItems = nil;
     }
 }
 
+
+
+
+/*
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"reaching accessoryButtonTappedForRowWithIndexPath:");
+    [self performSegueWithIdentifier:@"showDetail" sender:[self.tableView cellForRowAtIndexPath:indexPath]];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+     XYZToDoItem *tappedItem = [toDoItems objectAtIndex:indexPath.row];
+    tappedItem.completed = !tappedItem.completed;
+    
+    if(tappedItem.completed){
+        tappedItem.match = false;
+        tappedItem.closeMatch = nil;
+        tappedItem.hasLocation = false;
+    }
+    else{
+        tappedItem.hasLocation = true;
+        [findMatches find:currentLoc];
+    }
+    
+    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    
+}
+*/
 
 @end
