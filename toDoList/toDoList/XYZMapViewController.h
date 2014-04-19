@@ -11,6 +11,10 @@
 
 @interface XYZMapViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *getDirections;
+
 @property XYZToDoItem *toDoItem;
+
+@property (weak, nonatomic) IBOutlet MKMapView *map;
 
 @end

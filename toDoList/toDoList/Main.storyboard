@@ -120,7 +120,7 @@
                     <navigationItem key="navigationItem" title="To-Do Item Details" id="yhV-EO-ZSe">
                         <barButtonItem key="rightBarButtonItem" title="Map" id="hhU-m0-8D1">
                             <connections>
-                                <segue destination="Wr6-66-6MG" kind="push" identifier="mapSegue" id="D1k-H8-Rzk"/>
+                                <segue destination="Wr6-66-6MG" kind="push" identifier="mapView" id="D1k-H8-Rzk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -270,7 +270,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="JHH-q5-g7Z"/>
+                    <navigationItem key="navigationItem" id="JHH-q5-g7Z">
+                        <barButtonItem key="rightBarButtonItem" title="Directions" id="z68-Bk-h4X">
+                            <connections>
+                                <action selector="getDirections:" destination="Wr6-66-6MG" id="Ecj-f6-zIU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="getDirections" destination="z68-Bk-h4X" id="v6P-ou-IwB"/>
+                        <outlet property="map" destination="DIz-Eb-uj9" id="guE-BE-LMv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LoV-PT-kbA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

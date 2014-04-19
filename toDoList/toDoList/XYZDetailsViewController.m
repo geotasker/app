@@ -127,14 +127,9 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     NSLog(@"textFieldDidEndEditing");
     if (textField.tag == 1) {
-        NSLog(@"textFieldDidEndEditing");
-
         toDoItem.itemName = self.name1.text;
     }
     if (textField.tag == 2) {
-
-        NSLog(@"lalalalal%@", self.notesBox.text);
-
         toDoItem.itemNotes = self.notesBox.text;
     }
 }
@@ -159,5 +154,14 @@
     }
     
 }
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ( [segue.identifier isEqualToString:@"mapView"] ) {
+        XYZDetailsViewController *destViewController = segue.destinationViewController;
+        destViewController.toDoItem = toDoItem;
+    }
+}
+
 
 @end
