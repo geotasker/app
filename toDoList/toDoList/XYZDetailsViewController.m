@@ -137,12 +137,13 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     NSLog(@"textFieldDidEndEditing");
-    if (textField.tag == 1) {
-        toDoItem.itemName = self.name1.text;
+    [textField resignFirstResponder];
+    
+    if(![toDoItem.itemName isEqualToString:self.name1.text]){
+        [findMatches find:currentLoc];
     }
-    if (textField.tag == 2) {
-        toDoItem.itemNotes = self.notesBox.text;
-    }
+    
+    toDoItem.itemName = self.name1.text;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
@@ -174,14 +175,12 @@
     NSLog(@"locationSwitch");
     if(locationSwitch.on) {
         toDoItem.hasLocation = true;
-        [findMatches find:currentLoc];
     }
     else {
         toDoItem.hasLocation = false;
         toDoItem.match = false;
         toDoItem.closeMatch = nil;
     }
-    
 }
 
 
@@ -192,5 +191,9 @@
     }
 }
 
+-(void) viewDidDisappear:(BOOL)animated{
+
+    
+}
 
 @end

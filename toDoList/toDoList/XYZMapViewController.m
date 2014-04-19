@@ -47,12 +47,13 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    NSLog(@"%@", toDoItem.itemName);
+    // NSLog(@"%@", toDoItem.itemName);
     
     self.map.mapType = MKMapTypeStandard;
     self.map.zoomEnabled = YES;
     self.map.showsUserLocation = YES;
-    
+    [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor myNavyColor]];
+
     // note make the view size dynamic
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(
     CLLocationCoordinate2DMake(currentLoc.coordinate.latitude, currentLoc.coordinate.longitude), 3100, 3100);
@@ -66,6 +67,8 @@
     point.title = toDoItem.closeMatch.name;
     
     [self.map addAnnotation:point];
+    
+    
     
     
 }
