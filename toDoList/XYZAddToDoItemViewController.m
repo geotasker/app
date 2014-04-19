@@ -3,8 +3,7 @@
 //  toDoList
 //
 //  Created by Mitchell Vollger on 3/19/14.
-//
-//
+
 
 #import "XYZAddToDoItemViewController.h"
 @interface XYZAddToDoItemViewController ()

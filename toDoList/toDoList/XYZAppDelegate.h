@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "FlatUIKit.h"
 
 #define UIAppDelegate ((MyAppDelegate *)[UIApplication sharedApplication].delegate)
 

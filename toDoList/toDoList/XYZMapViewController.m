@@ -31,7 +31,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    NSLog(@"%@", toDoItem.itemName);
+    // NSLog(@"%@", toDoItem.itemName);
+    
+    [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor myNavyColor]];
+    
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor cloudsColor]};
+
 }
 
 - (void)didReceiveMemoryWarning

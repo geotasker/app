@@ -41,26 +41,39 @@ NSMutableArray *toDoItems = nil;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"To-Do List";
+    
+    [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor silverColor]];
+    
+    //set the separator color
+    self.tableView.separatorColor = [UIColor cloudsColor];
+    
+    //Set the background color
+    self.tableView.backgroundColor = [UIColor cloudsColor];
+    self.tableView.backgroundView = nil;
+    
     toDoItems = [[NSMutableArray alloc] init];
+    
     [self loadInitialData];
+    
+    //cancel outstanding notifications when the user sees all the to do items
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+
 }
 
 - (void)loadInitialData {
-//    XYZToDoItem *item1 = [[XYZToDoItem alloc] init];
-//    item1.itemName = @"starbucks";
-//    item1.itemRadius = @"25";
-//    item1.itemNotes = @"This is a preloaded item to show that it is possible,this may or may not be a final feature.";
-//    item1.radius = 1300;
-//    item1.hasLocation = true;
-//    [toDoItems addObject:item1];
     
-    XYZToDoItem *item2 = [[XYZToDoItem alloc] init];
-    item2.itemName = @"coffee";
-    item2.itemRadius = @"25";
-    item2.itemNotes = @"This is a preloaded item to show that it is possible, this may or may not be a final feature.";
-    item2.radius = 1300;
-    item2.hasLocation = true;
-    [toDoItems addObject:item2];
+    [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor silverColor]];
+    
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor blackColor]};
+    
+    XYZToDoItem *item1 = [[XYZToDoItem alloc] init];
+    item1.itemName = @"starbucks";
+    item1.itemRadius = @"25";
+    item1.itemNotes = @"This is a preloaded item to show that it is possible, this may or may not be a final feature.";
+    item1.radius = 1300;
+    item1.hasLocation = true;
+    [toDoItems addObject:item1];
 }
 
 - (void)didReceiveMemoryWarning
@@ -83,10 +96,24 @@ NSMutableArray *toDoItems = nil;
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     static NSString *CellIdentifier = @"ListPrototypeCell";
-    UITableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    // UITableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    UITableViewCell *cell = [UITableViewCell configureFlatCellWithColor:[UIColor concreteColor] selectedColor:[UIColor blackColor] reuseIdentifier:CellIdentifier inTableView:(UITableView *)tableView];
+    
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        [cell configureFlatCellWithColor:[UIColor midnightBlueColor] selectedColor:[UIColor cloudsColor]];
+        cell.cornerRadius = 5.f; //Optional
+        if (self.tableView.style == UITableViewStyleGrouped) {
+            cell.separatorHeight = 2.f; //Optional
+        }
+        else {
+            cell.separatorHeight = 0.5;
+        }
+    }
     
     XYZToDoItem *toDoItem = [toDoItems objectAtIndex:indexPath.row];
     cell.textLabel.text = toDoItem.itemName;
@@ -112,12 +139,13 @@ NSMutableArray *toDoItems = nil;
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XYZToDoItem * current = [toDoItems objectAtIndex:indexPath.row];
-    if(current.match){
-        cell.textLabel.textColor = [UIColor blueColor];
+    if(current.match) {
+        [cell configureFlatCellWithColor:[UIColor greenSeaColor] selectedColor:[UIColor midnightBlueColor]];
     }
-    else{
-        cell.textLabel.textColor = [UIColor blackColor];
+    else {
+        [cell configureFlatCellWithColor:[UIColor myLightTurquoiseColor] selectedColor:[UIColor midnightBlueColor]];
     }
+
 }
 
 // Override to support conditional editing of the table view.
