@@ -23,9 +23,7 @@
 @synthesize locationSwitch;
 @synthesize scrollView;
 @synthesize radius;
-@synthesize notes;
 @synthesize notesBox;
-
 @synthesize toDoItem;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -49,29 +47,38 @@
     
     [locationSwitch addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
     
-    self.scrollView.contentSize =CGSizeMake(320, 758);
+    [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor myNavyColor]];
     
-    scrollView.contentInset=UIEdgeInsetsMake(64.0,0.0,44.0,0.0);
-    scrollView.scrollIndicatorInsets=UIEdgeInsetsMake(64.0,0.0,44.0,0.0);
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor cloudsColor]};
 
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
 
     // Do any additional setup after loading the view from its nib.
     self.name1.text = toDoItem.itemName;
     self.locationSwitch.on = toDoItem.hasLocation;
     self.notesBox.text = toDoItem.itemNotes;
-
-
+    
+    self.name1.clipsToBounds = YES;
+    self.name1.layer.cornerRadius = 5.0f;
+    
+    self.notesBox.clipsToBounds = YES;
+    self.notesBox.layer.cornerRadius = 5.0f;
+    self.notesBox.layer.borderColor = [[UIColor blackColor] CGColor];
+    self.notesBox.layer.borderWidth = 0.1;
+    
 //    self.scrollNotes.text = toDoItem.itemNotes;
 //    self.scrollNotes.layer.borderColor = [[UIColor blackColor] CGColor];
 //    self.scrollNotes.layer.borderWidth = 1.0;
 //    self.scrollNotes.layer.cornerRadius = 5.0;
 //    self.scrollNotes.clipsToBounds = YES;
 
-    self.radius.text = toDoItem.itemRadius;
-    self.radius.layer.borderColor = [[UIColor blackColor] CGColor];
-    self.radius.layer.borderWidth = 1.0;
-    self.radius.layer.cornerRadius = 5.0;
-    self.radius.clipsToBounds = YES;
+//    self.radius.text = toDoItem.itemRadius;
+//    self.radius.layer.borderColor = [[UIColor blackColor] CGColor];
+//    self.radius.layer.borderWidth = 1.0;
+//    self.radius.layer.cornerRadius = 5.0;
+//    self.radius.clipsToBounds = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -87,10 +94,14 @@
     localNotification.alertBody = @"New Task Available";
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-    
-    
 }
 
+// dismiss keyboard
+-(void)dismissKeyboard {
+    NSLog(@"dismissKeyboard");
+    [name1 resignFirstResponder];
+    [notesBox resignFirstResponder];
+}
 
 // Alerts ************
 -(IBAction)alertbutton{
@@ -138,6 +149,24 @@
     NSLog(@"textFieldShouldReturn:");
     [textField resignFirstResponder];
     return YES;
+}
+
+// UITextView stuff
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
+    NSLog(@"textFieldShouldBeginEditing");
+    textView.backgroundColor = [UIColor colorWithRed:220.0f/255.0f green:220.0f/255.0f blue:220.0f/255.0f alpha:1.0f];
+    return YES;
+}
+
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView{
+    NSLog(@"textFieldShouldEndEditing");
+    textView.backgroundColor = [UIColor whiteColor];
+    return YES;
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView{
+    NSLog(@"textFieldDidEndEditing");
+    toDoItem.itemNotes = self.notesBox.text;
 }
 
 // Location switch stuff

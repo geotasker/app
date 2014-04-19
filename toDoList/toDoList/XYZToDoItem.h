@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
+#import "FlatUIKit.h"
 
 @interface XYZToDoItem : NSObject
 @property NSString *itemName;
