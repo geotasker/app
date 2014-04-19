@@ -134,6 +134,7 @@ NSMutableArray *toDoItems = nil;
 -(void)viewDidAppear:(BOOL)animated{
     NSLog(@"gothere");
     [self.tableView reloadData];
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
