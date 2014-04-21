@@ -173,8 +173,12 @@ NSMutableArray *toDoItems = nil;
         XYZDetailsViewController *destViewController = segue.destinationViewController;
         destViewController.toDoItem = [toDoItems objectAtIndex:indexPath.row];
     }
+    if ([segue.identifier isEqualToString:@"showDetailfromDelegate"])
+    {
+        XYZDetailsViewController *destViewController = segue.destinationViewController;
+        destViewController.toDoItem = oneAlert;
+    }
 }
-
 
 
 

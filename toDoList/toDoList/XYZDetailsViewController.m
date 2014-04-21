@@ -35,6 +35,10 @@
     return self;
 }
 
+- (NSString *)description {
+    return toDoItem.itemName;
+}
+
 - (void)viewDidLoad
 {   // Initialization
     [super viewDidLoad];
@@ -186,6 +190,11 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ( [segue.identifier isEqualToString:@"mapView"] ) {
+        XYZDetailsViewController *destViewController = segue.destinationViewController;
+        destViewController.toDoItem = toDoItem;
+    }
+    if ([segue.identifier isEqualToString:@"showMapfromDelegate"])
+    {
         XYZDetailsViewController *destViewController = segue.destinationViewController;
         destViewController.toDoItem = toDoItem;
     }

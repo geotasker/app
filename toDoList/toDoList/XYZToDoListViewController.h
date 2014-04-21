@@ -8,6 +8,7 @@
 #import "XYZDetailsViewController.h"
 #import <UIKit/UIKit.h>
 #import "FlatUIKit.h"
+#import "XYZAppDelegate.h"
 
 extern NSMutableArray *toDoItems;
 

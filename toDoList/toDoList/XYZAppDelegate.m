@@ -19,6 +19,9 @@
 // This is a global that can be accessed in any file that imports app delegate
 CLLocation *currentLoc;
 
+//This is a global that keeps track of how user opened the app. 0 means normally, 1 means through notification
+bool openedMethod;
+
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
     NSDate* eventDate = newLocation.timestamp;
@@ -79,11 +82,31 @@ CLLocation *currentLoc;
     return YES;
 }
 
++ (UINavigationController*) topMostController
+{
+    UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    
+    while (topController.presentedViewController) {
+        topController = topController.presentedViewController;
+    }
+    
+    return topController;
+}
 
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(NSDictionary *)userInfo {
     
-    if (oneAlert != nil){
-        [findMatches localDirections];
+    UINavigationController *top = [XYZAppDelegate topMostController];
+    
+    //NSLog(@"%@", root.visibleViewController);
+    
+    NSLog(@"%@", top.visibleViewController.description);
+    
+    [top popToRootViewControllerAnimated:YES];
+    
+    if (oneAlert != nil)
+    {
+        [top.visibleViewController performSegueWithIdentifier:@"showDetailfromDelegate" sender:self];
+        //[top.visibleViewController performSegueWithIdentifier:@"showMapfromDelegate" sender:self];
     }
     
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
@@ -125,6 +148,7 @@ CLLocation *currentLoc;
                                initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [errorAlert show];
 }
+
 
 
 @end

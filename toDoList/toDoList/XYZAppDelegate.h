@@ -13,6 +13,7 @@
 #define UIAppDelegate ((MyAppDelegate *)[UIApplication sharedApplication].delegate)
 
 extern CLLocation *currentLoc;
+extern bool openedMethod;
 
 @interface XYZAppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate>
 
@@ -21,5 +22,7 @@ extern CLLocation *currentLoc;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
 @property(nonatomic, retain) UIViewController *rootView;
+
++ (UIViewController*) topMostController;
 
 @end

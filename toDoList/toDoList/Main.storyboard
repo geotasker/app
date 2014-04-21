@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Qng-VJ-PSo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Qng-VJ-PSo">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -34,10 +34,13 @@
                     <navigationItem key="navigationItem" title="To-Do List" id="eS3-Ew-aPV">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Im9-pe-8WF">
                             <connections>
-                                <segue destination="r8W-TD-FX1" kind="modal" id="eRc-8R-rOP"/>
+                                <segue destination="r8W-TD-FX1" kind="modal" identifier="addItem" id="eRc-8R-rOP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="81n-Mc-QRL" kind="push" identifier="showDetailfromDelegate" id="qHE-3O-lcx"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5A9-fb-6GI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -125,16 +128,17 @@
                         <outlet property="name1" destination="rgG-vE-cDx" id="LWL-n5-4T2"/>
                         <outlet property="notesBox" destination="3KO-uY-lCb" id="vW7-1e-iQf"/>
                         <outlet property="scrollView" destination="MRP-ZW-Hb5" id="3KK-7g-eF2"/>
+                        <segue destination="Wr6-66-6MG" kind="push" identifier="showMapfromDelegate" id="knR-kP-jWk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QNU-6L-lDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="112" y="1022"/>
         </scene>
-        <!--Add To Do Item View Controller - Add To-Do Item-->
+        <!--Add To Do Item View Controller - addItemView-->
         <scene sceneID="TKV-b4-mjz">
             <objects>
-                <viewController id="47g-aI-4WV" customClass="XYZAddToDoItemViewController" sceneMemberID="viewController">
+                <viewController title="addItemView" id="47g-aI-4WV" customClass="XYZAddToDoItemViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GDh-e7-pb9"/>
                         <viewControllerLayoutGuide type="bottom" id="Aqi-yA-gw4"/>
@@ -288,4 +292,8 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="knR-kP-jWk"/>
+        <segue reference="qHE-3O-lcx"/>
+    </inferredMetricsTieBreakers>
 </document>
