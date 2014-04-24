@@ -19,17 +19,13 @@
 - (IBAction)localalertbutton:(id)sender;
 // end allerta**
 
-
-
 @property (weak, nonatomic) IBOutlet UITextView *name;
 @property (weak, nonatomic) IBOutlet UITextView *radius;
 @property (weak, nonatomic) IBOutlet UILabel *notes;
 @property (weak, nonatomic) IBOutlet UITextView *scrollNotes;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+//@property (weak, nonatomic) IBOutlet UILabel *hasLocationBool;
 
 @property XYZToDoItem *toDoItem;
-
-
-
 
 @end

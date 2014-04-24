@@ -50,6 +50,7 @@ NSMutableArray *toDoItems = nil;
     item1.itemRadius = @"25";
     item1.itemNotes = @"This is a preloaded item to show that it is possible,this may or may not be a final feature.";
     item1.radius = 1300;
+    item1.hasLocation = true;
     [toDoItems addObject:item1];
     
     XYZToDoItem *item2 = [[XYZToDoItem alloc] init];
@@ -57,6 +58,7 @@ NSMutableArray *toDoItems = nil;
     item2.itemRadius = @"25";
     item2.itemNotes = @"This is a preloaded item to show that it is possible, this may or may not be a final feature.";
     item2.radius = 1300;
+    item2.hasLocation = true;
     [toDoItems addObject:item2];
     
 }

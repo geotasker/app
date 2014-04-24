@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *notesField;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 @property (weak, nonatomic) IBOutlet UIPickerView *picker;
+@property (weak, nonatomic) IBOutlet UISwitch *locationOn;
 
 @end
 
@@ -29,6 +30,7 @@
         self.toDoItem = [[XYZToDoItem alloc] init];
         self.toDoItem.itemName = self.textField.text;
         self.toDoItem.completed = NO;
+        self.toDoItem.hasLocation = self.locationOn.isOn;
     
         if (self.radiusField.text.length > 0) {
             self.toDoItem.itemRadius = self.radiusField.text;
