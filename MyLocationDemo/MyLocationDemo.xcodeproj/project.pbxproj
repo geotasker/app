@@ -22,7 +22,6 @@
 		2D3CF58D18EBC2F500B342EF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D3CF58B18EBC2F500B342EF /* InfoPlist.strings */; };
 		2D3CF58F18EBC2F500B342EF /* MyLocationDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D3CF58E18EBC2F500B342EF /* MyLocationDemoTests.m */; };
 		2D3CF59918EBC30A00B342EF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D3CF59818EBC30A00B342EF /* CoreLocation.framework */; };
-		9EB3930918ED37AE00BECAAD /* fells_loop.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9EB3930818ED37AE00BECAAD /* fells_loop.gpx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
