@@ -55,7 +55,6 @@
 		2D3CF58C18EBC2F500B342EF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2D3CF58E18EBC2F500B342EF /* MyLocationDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyLocationDemoTests.m; sourceTree = "<group>"; };
 		2D3CF59818EBC30A00B342EF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		9EB3930818ED37AE00BECAAD /* fells_loop.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = fells_loop.gpx; path = ../../../../../../Downloads/fells_loop.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +85,6 @@
 		2D3CF55718EBC2F500B342EF = {
 			isa = PBXGroup;
 			children = (
-				9EB3930818ED37AE00BECAAD /* fells_loop.gpx */,
 				2D3CF56918EBC2F500B342EF /* MyLocationDemo */,
 				2D3CF58818EBC2F500B342EF /* MyLocationDemoTests */,
 				2D3CF56218EBC2F500B342EF /* Frameworks */,
@@ -237,7 +235,6 @@
 			files = (
 				2D3CF57C18EBC2F500B342EF /* Images.xcassets in Resources */,
 				2D3CF56E18EBC2F500B342EF /* InfoPlist.strings in Resources */,
-				9EB3930918ED37AE00BECAAD /* fells_loop.gpx in Resources */,
 				2D3CF57718EBC2F500B342EF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
