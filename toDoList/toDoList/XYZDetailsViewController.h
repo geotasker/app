@@ -27,11 +27,12 @@
 
 - (IBAction)switchAction:(id)sender;
 
-//@property (weak, nonatomic) IBOutlet UITextField *notesBox;
 @property (weak, nonatomic) IBOutlet UITextView *notesBox;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *TextViewHeightConstraint;
+
 // not in use
-@property (weak, nonatomic) IBOutlet UITextView *radius;
+
 @property XYZToDoItem *toDoItem;
 
 

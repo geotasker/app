@@ -43,8 +43,6 @@ NSMutableArray *toDoItems = nil;
     [super viewDidLoad];
     self.title = @"To-Do List";
     
-    [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor silverColor]];
-    
     //set the separator color
     self.tableView.separatorColor = [UIColor cloudsColor];
     
@@ -62,10 +60,6 @@ NSMutableArray *toDoItems = nil;
 }
 
 - (void)loadInitialData {
-    
-    [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor silverColor]];
-    
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor blackColor]};
     
     XYZToDoItem *item1 = [[XYZToDoItem alloc] init];
     item1.itemName = @"starbucks";
@@ -105,7 +99,7 @@ NSMutableArray *toDoItems = nil;
     
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        [cell configureFlatCellWithColor:[UIColor midnightBlueColor] selectedColor:[UIColor cloudsColor]];
+      //  [cell configureFlatCellWithColor:[UIColor midnightBlueColor] selectedColor:[UIColor cloudsColor]];
         cell.cornerRadius = 5.f; //Optional
         if (self.tableView.style == UITableViewStyleGrouped) {
             cell.separatorHeight = 2.f; //Optional

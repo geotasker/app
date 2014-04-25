@@ -22,12 +22,12 @@
 @synthesize name1;
 @synthesize locationSwitch;
 @synthesize scrollView;
-@synthesize radius;
 @synthesize notesBox;
 @synthesize toDoItem;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
+    NSLog(@"init");
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -37,7 +37,9 @@
 
 - (void)viewDidLoad
 {   // Initialization
-    [super viewDidLoad];
+    NSLog(@"viewDidLoad");
+
+    //[super viewDidLoad];
     
     name1.delegate = self;
     [self.view addSubview:name1];
@@ -46,10 +48,6 @@
     [self.view addSubview:notesBox];
     
     [locationSwitch addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
-    
-    [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor myNavyColor]];
-    
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor cloudsColor]};
 
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     
@@ -67,19 +65,46 @@
     self.notesBox.layer.cornerRadius = 5.0f;
     self.notesBox.layer.borderColor = [[UIColor blackColor] CGColor];
     self.notesBox.layer.borderWidth = 0.1;
-    
-//    self.scrollNotes.text = toDoItem.itemNotes;
-//    self.scrollNotes.layer.borderColor = [[UIColor blackColor] CGColor];
-//    self.scrollNotes.layer.borderWidth = 1.0;
-//    self.scrollNotes.layer.cornerRadius = 5.0;
-//    self.scrollNotes.clipsToBounds = YES;
+   
+  //  [notesBox setScrollEnabled:NO];
+    CGSize sizeThatFitsTextView = [notesBox sizeThatFits:CGSizeMake(notesBox.frame.size.width, MAXFLOAT)];
+    _TextViewHeightConstraint.constant = ceilf(sizeThatFitsTextView.height);
 
-//    self.radius.text = toDoItem.itemRadius;
-//    self.radius.layer.borderColor = [[UIColor blackColor] CGColor];
-//    self.radius.layer.borderWidth = 1.0;
-//    self.radius.layer.cornerRadius = 5.0;
-//    self.radius.clipsToBounds = YES;
 }
+
+//  [notesBox setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+//    [name1 setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+//    
+//    NSRange range = NSMakeRange(notesBox.text.length - 1, 1);
+//    [notesBox scrollRangeToVisible:range];
+//    
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                                 selector:@selector(keyboardWillShow:)
+//                                                     name:UIKeyboardWillShowNotification
+//                                                   object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                                 selector:@selector(keyboardWillHide:)
+//                                                     name:UIKeyboardWillHideNotification
+//                                                   object:nil];
+//
+//}
+//
+//- (void)keyboardWillShow:(NSNotification *)notification
+//{
+//    [UIView beginAnimations:nil context:nil];
+//    CGRect endRect = [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+//    CGRect newRect = notesBox.frame;
+//    //Down size your text view
+//    newRect.size.height -= endRect.size.height;
+//    notesBox.frame = newRect;
+//    [UIView commitAnimations];
+//}
+//
+//- (void)keyboardWillHide:(NSNotification *)notification
+//{
+//    [notesBox sizeToFit];
+//}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -126,12 +151,16 @@
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     NSLog(@"textFieldShouldBeginEditing");
     textField.backgroundColor = [UIColor colorWithRed:220.0f/255.0f green:220.0f/255.0f blue:220.0f/255.0f alpha:1.0f];
+    
     return YES;
 }
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
     NSLog(@"textFieldShouldEndEditing");
     textField.backgroundColor = [UIColor whiteColor];
+    
+    //[notesBox setScrollEnabled:NO];
+
     return YES;
 }
 
@@ -146,6 +175,11 @@
     toDoItem.itemName = self.name1.text;
 }
 
+
+
+// move view while you type so keyboard doesn't cover
+// make notes part fixed view with scrolling
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     NSLog(@"textFieldShouldReturn:");
     [textField resignFirstResponder];
@@ -157,6 +191,21 @@
     NSLog(@"textFieldShouldBeginEditing");
     textView.backgroundColor = [UIColor colorWithRed:220.0f/255.0f green:220.0f/255.0f blue:220.0f/255.0f alpha:1.0f];
     return YES;
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView{
+    NSLog(@"textFieldDidBeginEditing");
+}
+
+- (void)textViewDidChange:(UITextView *) textView {
+    
+    NSLog(@"viewDidChange");
+    
+    // [notesBox sizeToFit];
+    CGRect frame = notesBox.frame;
+    frame.size.height = notesBox.contentSize.height+14;
+    notesBox.frame = frame;
+    
 }
 
 - (BOOL)textViewShouldEndEditing:(UITextView *)textView{
@@ -189,11 +238,6 @@
         XYZDetailsViewController *destViewController = segue.destinationViewController;
         destViewController.toDoItem = toDoItem;
     }
-}
-
--(void) viewDidDisappear:(BOOL)animated{
-
-    
 }
 
 @end
