@@ -238,6 +238,7 @@
     NSLog(@"locationSwitch");
     if(locationSwitch.on) {
         toDoItem.hasLocation = true;
+        [findMatches find: currentLoc];
     }
     else {
         toDoItem.hasLocation = false;
