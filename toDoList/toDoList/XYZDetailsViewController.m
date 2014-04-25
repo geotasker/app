@@ -69,6 +69,20 @@
   //  [notesBox setScrollEnabled:NO];
     CGSize sizeThatFitsTextView = [notesBox sizeThatFits:CGSizeMake(notesBox.frame.size.width, MAXFLOAT)];
     _TextViewHeightConstraint.constant = ceilf(sizeThatFitsTextView.height);
+    
+   // closest match
+  
+    
+    if(toDoItem.closeMatch != nil){
+          NSString *str = [NSString stringWithFormat: @"Closest match found at: %@", toDoItem.closeMatch.name];
+        _closeMatchFeild.text = str;
+    }
+    
+    else{
+        NSString *str = [NSString stringWithFormat: @"No match has been found."];
+        _closeMatchFeild.text = str;
+    }
+    
 
 }
 

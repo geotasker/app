@@ -20,6 +20,8 @@ CLLocationManager *locationManager;
 
 + (int)find:(CLLocation *)currentLoc {
     
+    [findMatches setRadius];
+    
     __block dispatch_queue_t queue;
     queue = dispatch_queue_create("com.example.myQueueForMaps", DISPATCH_QUEUE_CONCURRENT);
     
@@ -43,18 +45,23 @@ CLLocationManager *locationManager;
                     
                     double minimum = INFINITY;
                     MKMapItem *closest;
-                    for (MKMapItem *item in response.mapItems) {
+                    for (MKMapItem *mapitem in response.mapItems) {
                         
-                        CLLocation *loc = item.placemark.location;
+                        CLLocation *loc = mapitem.placemark.location;
                         CLLocationDistance dist = [currentLoc distanceFromLocation:loc];
                         
                         if (dist < minimum) {
                             minimum = dist;
-                            closest = item;
+                            closest = mapitem;
                         }
+                        if(dist <= item.radius){
+                            [item.matches addObject:mapitem];
+                            NSLog(@"%d", [item.matches count]);
+                        }
+                       // NSLog(@"%d", item.radius);
                     }
                     
-                    if (minimum < item.radius) {
+                    if (minimum <= item.radius) {
                         item.closeMatch = closest;
                         item.match = true;
                         pos++;
@@ -138,6 +145,29 @@ CLLocationManager *locationManager;
             [alert show];
         }
     }
+}
+
+
++ (void) setRadius{
+    
+    double speed = currentLoc.speed;
+    
+    for(XYZToDoItem *item in toDoItems){
+        
+        [item.matches removeAllObjects];
+        item.closeMatch = nil;
+    
+        if (speed < 1)
+        {
+            item.radius = 500;
+        }
+        else
+        {
+            item.radius = speed*300;
+        }
+        NSLog(@"%d",item.radius);
+    }
+    
 }
 
 

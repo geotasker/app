@@ -12,7 +12,6 @@
 
 @interface XYZToDoItem : NSObject
 @property NSString *itemName;
-@property NSString *itemRadius;
 @property NSString *itemNotes;
 
 // whether or not there is a search result.
@@ -29,8 +28,7 @@
 @property (readonly) NSDate *creationDate;
 @property bool completed;
 
-
-
+@property NSMutableArray * matches;
 
 @property NSInteger radius;
 

@@ -37,21 +37,6 @@ CLLocation *currentLoc;
                 
             }
             
-            double speed = currentLoc.speed;
-            
-            if (speed < 1)
-            {
-                for (XYZToDoItem *item in toDoItems)
-                {item.radius = 500;}
-            }
-            else
-            {
-                for (XYZToDoItem *item in toDoItems)
-                {item.radius = speed*300;}
-            }
-            NSLog(@"%.8ld", (long)oneAlert.radius);
-            
-            
         [findMatches find:currentLoc];
             
         }

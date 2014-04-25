@@ -31,7 +31,10 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *TextViewHeightConstraint;
 
-// not in use
+@property (weak, nonatomic) IBOutlet UILabel *closeMatchFeild;
+
+
+
 
 @property XYZToDoItem *toDoItem;
 

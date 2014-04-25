@@ -60,15 +60,17 @@
     
     [self.map setRegion:region animated:YES];
     
-    CLLocationCoordinate2D close = CLLocationCoordinate2DMake(toDoItem.closeMatch.placemark.coordinate.latitude, toDoItem.closeMatch.placemark.coordinate.longitude);
     
-    MKPointAnnotation *point = [[MKPointAnnotation alloc]init];
-    point.coordinate = close;
-    point.title = toDoItem.closeMatch.name;
+    for(MKMapItem* mapitem in toDoItem.matches){
+        CLLocationCoordinate2D close = CLLocationCoordinate2DMake(mapitem.placemark.coordinate.latitude, mapitem.placemark.coordinate.longitude);
+        
+        MKPointAnnotation *point = [[MKPointAnnotation alloc]init];
+        point.coordinate = close;
+        point.title = mapitem.name;
+        
+        [self.map addAnnotation:point];
     
-    [self.map addAnnotation:point];
-    
-    
+    }
     
     
 }

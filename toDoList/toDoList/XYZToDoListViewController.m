@@ -30,10 +30,10 @@ NSMutableArray *toDoItems = nil;
     XYZAddToDoItemViewController *source = [segue sourceViewController];
     XYZToDoItem *item = source.toDoItem;
     // Make query after item is added
-    [findMatches find:currentLoc];
     if (item != nil) {
         [toDoItems addObject:item];
         [self.tableView reloadData];
+        [findMatches find:currentLoc];
     }
 }
 
@@ -62,10 +62,9 @@ NSMutableArray *toDoItems = nil;
 - (void)loadInitialData {
     
     XYZToDoItem *item1 = [[XYZToDoItem alloc] init];
+    item1.matches = [[NSMutableArray alloc] init];
     item1.itemName = @"starbucks";
-    item1.itemRadius = @"25";
     item1.itemNotes = @"This is a preloaded item to show that it is possible, this may or may not be a final feature.";
-    item1.radius = 1300;
     item1.hasLocation = true;
     [toDoItems addObject:item1];
 }
