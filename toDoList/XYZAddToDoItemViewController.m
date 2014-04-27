@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 @property (weak, nonatomic) IBOutlet UIPickerView *picker;
 @property (weak, nonatomic) IBOutlet UISwitch *locationOn;
+@property (weak, nonatomic) IBOutlet UITextField *locationField;
 
 @end
 
@@ -44,6 +45,13 @@
         else {
             self.toDoItem.itemNotes = @"";
         }
+        if (self.locationField.text.length > 0){
+            self.toDoItem.itemLocation = self.locationField.text;
+        }
+        else {
+            (self.toDoItem.itemLocation = nil);
+        }
+        
     }
 }
 

@@ -34,6 +34,7 @@ CLLocationManager *locationManager;
             
             if (item.hasLocation==true) {
                 
+                
                 MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];
                 request.naturalLanguageQuery = item.itemName;
                 // somehow deal with radius
