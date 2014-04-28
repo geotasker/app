@@ -69,20 +69,14 @@
     CLLocationCoordinate2DMake(currentLoc.coordinate.latitude, currentLoc.coordinate.longitude), 3100, 3100);
     
     [mapView setRegion:region animated:YES];
-    //NSLog(@"%f", currentLoc.coordinate.latitude);
-    //NSLog(@"%f", currentLoc.coordinate.longitude);
-    //[mapView setCenterCoordinate:currentLoc.coordinate animated:YES];
     
     
     for(MKMapItem* mapitem in toDoItem.matches){
         CLLocationCoordinate2D close = CLLocationCoordinate2DMake(mapitem.placemark.coordinate.latitude, mapitem.placemark.coordinate.longitude);
         
-        /*MKPointAnnotation *point = [[MKPointAnnotation alloc]init];
-        point.coordinate = close;
-        point.title = mapitem.name;*/
-        
         Annotation *pin = [[Annotation alloc] init];
         pin.title = mapitem.name;
+        pin.subtitle = @"Press here to get directions";
         pin.coordinate = close;
         
         [mapView addAnnotation:pin];
@@ -106,7 +100,7 @@
         
         UIButton *advertButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         
-        [advertButton addTarget:self action:@selector(directionsButton:) forControlEvents:UIControlEventTouchUpInside];
+        //[advertButton addTarget:self action:@selector(directionsButton:) forControlEvents:UIControlEventTouchUpInside];
         
         MyPin.rightCalloutAccessoryView = advertButton;
         MyPin.draggable = NO;
@@ -118,23 +112,20 @@
     }
 }
 
--(void)directionsButton:(id)sender {
-    
-    NSLog(@"Button action");
-    
-    NSDictionary *options = @{MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeWalking};
-    MKMapItem *currentLocationMapItem = [MKMapItem mapItemForCurrentLocation];
-    //MKMapItem *destinationLocation = [[MKMapItem alloc] init];
-
-    
-    //CLLocationCoordinate2DMake(mapitem, <#CLLocationDegrees longitude#>)
-    //MKPlacemark *pmark = [pmark initWithCoordinate:<#(CLLocationCoordinate2D)#> addressDictionary:<#(NSDictionary *)#>]
-    
-    
-    [MKMapItem openMapsWithItems:@[currentLocationMapItem, toDoItem.closeMatch] launchOptions:options];
-    
-    
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    if ([view.annotation isKindOfClass:[Annotation class]])
+    {
+        NSDictionary *options = @{MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeWalking};
+        MKMapItem *currentLocationMapItem = [MKMapItem mapItemForCurrentLocation];
+        Annotation *ann = (Annotation *)view.annotation;
+        MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:ann.coordinate addressDictionary:nil];
+        MKMapItem *destLocation = [[MKMapItem alloc] initWithPlacemark:placemark];
+        
+        [MKMapItem openMapsWithItems:@[currentLocationMapItem, destLocation] launchOptions:options];
+    }
 }
+
 
 - (void)didReceiveMemoryWarning
 {
