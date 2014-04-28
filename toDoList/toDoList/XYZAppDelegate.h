@@ -13,6 +13,7 @@
 #define UIAppDelegate ((MyAppDelegate *)[UIApplication sharedApplication].delegate)
 
 extern CLLocation *currentLoc;
+extern BOOL alertsOn;
 
 @interface XYZAppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate>
 
