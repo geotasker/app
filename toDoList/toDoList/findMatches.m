@@ -36,7 +36,13 @@ CLLocationManager *locationManager;
                 
                 
                 MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];
+                
+                if (item.itemLocation != nil){
+                    request.naturalLanguageQuery = item.itemLocation;
+                }
+                else{
                 request.naturalLanguageQuery = item.itemName;
+                }
                 // somehow deal with radius
                 MKCoordinateSpan span = MKCoordinateSpanMake(0.1, 0.1);
                 request.region = MKCoordinateRegionMake(currentLoc.coordinate, span);
