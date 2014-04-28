@@ -13,6 +13,7 @@
 @interface XYZToDoItem : NSObject
 @property NSString *itemName;
 @property NSString *itemNotes;
+@property NSString *itemLocation;
 
 // whether or not there is a search result.
 @property BOOL match;

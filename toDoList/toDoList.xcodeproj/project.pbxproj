@@ -31,6 +31,7 @@
 		9EB3930718ECD60800BECAAD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EB3930618ECD60800BECAAD /* MapKit.framework */; };
 		9EB3930D18F1D7F100BECAAD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EB3930C18F1D7F100BECAAD /* CoreLocation.framework */; };
 		9ECDEDEB18F4CC870034D2C0 /* findMatches.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECDEDEA18F4CC870034D2C0 /* findMatches.m */; };
+		9ED815FF190B4EA300940425 /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ED815FE190B4EA300940425 /* Annotation.m */; };
 		A242AD3618F8915800F1AA70 /* XYZMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A242AD3418F8915800F1AA70 /* XYZMapViewController.m */; };
 		A242AD3718F8915800F1AA70 /* XYZMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A242AD3518F8915800F1AA70 /* XYZMapViewController.xib */; };
 		A278E88818D9FE6A00D75E03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A278E88718D9FE6A00D75E03 /* Foundation.framework */; };
@@ -110,7 +111,9 @@
 		9EB3930C18F1D7F100BECAAD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		9ECDEDE918F4CC7B0034D2C0 /* findMatches.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = findMatches.h; sourceTree = "<group>"; };
 		9ECDEDEA18F4CC870034D2C0 /* findMatches.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = findMatches.m; sourceTree = "<group>"; };
-		A242AD3318F8915800F1AA70 /* XYZMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZMapViewController.h; sourceTree = "<group>"; };
+		9ED815FD190B4EA300940425 /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
+		9ED815FE190B4EA300940425 /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotation.m; sourceTree = "<group>"; };
+		9ED81600190B541C00940425 /* XYZMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZMapViewController.h; sourceTree = "<group>"; };
 		A242AD3418F8915800F1AA70 /* XYZMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZMapViewController.m; sourceTree = "<group>"; };
 		A242AD3518F8915800F1AA70 /* XYZMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYZMapViewController.xib; sourceTree = "<group>"; };
 		A278E88418D9FE6A00D75E03 /* toDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = toDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -269,9 +272,11 @@
 				A278E8BD18DA2D8000D75E03 /* XYZToDoListViewController.h */,
 				A278E8BE18DA2D8000D75E03 /* XYZToDoListViewController.m */,
 				A278E8BF18DA2D8000D75E03 /* XYZToDoListViewController.xib */,
-				A242AD3318F8915800F1AA70 /* XYZMapViewController.h */,
+				9ED81600190B541C00940425 /* XYZMapViewController.h */,
 				A242AD3418F8915800F1AA70 /* XYZMapViewController.m */,
 				A242AD3518F8915800F1AA70 /* XYZMapViewController.xib */,
+				9ED815FD190B4EA300940425 /* Annotation.h */,
+				9ED815FE190B4EA300940425 /* Annotation.m */,
 				A278E89918D9FE6A00D75E03 /* Images.xcassets */,
 				A278E88E18D9FE6A00D75E03 /* Supporting Files */,
 			);
@@ -419,6 +424,7 @@
 				A278E8C418DA3C4F00D75E03 /* XYZToDoItem.m in Sources */,
 				35393ABA190203FD003E2D99 /* UIFont+FlatUI.m in Sources */,
 				35393AB4190203FD003E2D99 /* FUIPopoverBackgroundView.m in Sources */,
+				9ED815FF190B4EA300940425 /* Annotation.m in Sources */,
 				A278E89418D9FE6A00D75E03 /* main.m in Sources */,
 				35393AB2190203FD003E2D99 /* FUIButton.m in Sources */,
 				35393ABF190203FD003E2D99 /* UISlider+FlatUI.m in Sources */,

@@ -13,6 +13,7 @@
 #import "XYZAppDelegate.h"
 
 XYZToDoItem *oneAlert = nil;
+BOOL show;
 
 @implementation findMatches
 
@@ -34,8 +35,15 @@ CLLocationManager *locationManager;
             
             if (item.hasLocation==true) {
                 
+                
                 MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];
+                
+                if (item.itemLocation != nil){
+                    request.naturalLanguageQuery = item.itemLocation;
+                }
+                else{
                 request.naturalLanguageQuery = item.itemName;
+                }
                 // somehow deal with radius
                 MKCoordinateSpan span = MKCoordinateSpanMake(0.1, 0.1);
                 request.region = MKCoordinateRegionMake(currentLoc.coordinate, span);
@@ -90,8 +98,6 @@ CLLocationManager *locationManager;
 }
 
 
-
-
 + (void)notifyNearbyTasks
 {
     int x = 0;
@@ -113,7 +119,7 @@ CLLocationManager *locationManager;
     
     if (x>0) {
         
-        if ([UIApplication sharedApplication].applicationState == UIApplicationStateBackground)
+        if ([UIApplication sharedApplication].applicationState == UIApplicationStateBackground && alertsOn)
         {
             //NSLog(@"\n A Wild Alert Window Appears!\n");
             
@@ -129,7 +135,7 @@ CLLocationManager *locationManager;
             [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
         }
         
-        if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive)
+        if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive && alertsOn)
         {
             if( x >1 ){
                 alert = [[UIAlertView alloc] initWithTitle:@"GeoTasker" message:str delegate:self
@@ -142,8 +148,28 @@ CLLocationManager *locationManager;
                                          cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
                 
             }
-            [alert show];
+            
+            /*show = YES;
+            
+            for (UIWindow* window in [UIApplication sharedApplication].windows) {
+                NSArray* subviews = window.subviews;
+                if ([subviews count] > 0) {
+                    
+                    BOOL alert = [[subviews objectAtIndex:0] isKindOfClass:[UIAlertView class]];
+                    BOOL action = [[subviews objectAtIndex:0] isKindOfClass:[UIActionSheet class]];
+                    
+                    if (alert || action)
+                        show = NO;
+                }
+            }*/
+            
+            //if (show)
+                //{
+                    [alert show];
+                  //  show = NO;
+               // }
         }
+        
     }
 }
 
@@ -172,16 +198,9 @@ CLLocationManager *locationManager;
 
 
 
-/*+(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    //NSLog(@"going to apple maps");
-    if (buttonIndex == 1) {
-        NSLog(@"going to apple maps");
-        //bring up apple maps directions
-        NSDictionary *options = @{MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeWalking};
-        MKMapItem *currentLocationMapItem = [MKMapItem mapItemForCurrentLocation];
-        [MKMapItem openMapsWithItems:@[currentLocationMapItem, oneAlert.closeMatch] launchOptions:options];
-        
-    }
+/*+(void)alertView:(UIAlertView *)alert clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    show = YES;
 }*/
 
 

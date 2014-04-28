@@ -35,6 +35,7 @@ NSMutableArray *toDoItems = nil;
         [self.tableView reloadData];
         [findMatches find:currentLoc];
     }
+    //NSLog(@"%@", item.itemLocation);
 }
 
 
@@ -125,7 +126,6 @@ NSMutableArray *toDoItems = nil;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    NSLog(@"gothere");
     [self.tableView reloadData];
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
 }

@@ -83,7 +83,17 @@
         _closeMatchFeild.text = str;
     }
     
-
+    if(toDoItem.itemLocation != nil){
+        NSString *str = [NSString stringWithFormat:@"Only remind me at %@", toDoItem.itemLocation];
+        _LocationField.text = str;
+        //_LocationField.lineBreakMode = NSLineBreakByWordWrapping;
+    }
+    else {
+        NSString *str = [NSString stringWithFormat: @"Remind me anywhere I can do this task."];
+        _LocationField.text = str;
+        //_LocationField.lineBreakMode = NSLineBreakByWordWrapping;
+    }
+    
 }
 
 //  [notesBox setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];

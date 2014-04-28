@@ -33,6 +33,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *closeMatchFeild;
 
+@property (weak, nonatomic) IBOutlet UILabel *LocationField;
+
 
 
 

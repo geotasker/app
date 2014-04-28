@@ -18,6 +18,7 @@
 
 // This is a global that can be accessed in any file that imports app delegate
 CLLocation *currentLoc;
+BOOL alertsOn = YES;
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {

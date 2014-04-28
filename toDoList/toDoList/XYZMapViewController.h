@@ -10,12 +10,15 @@
 #import "XYZToDoItem.h"
 #import "FlatUIKit.h"
 
-@interface XYZMapViewController : UIViewController
+@interface XYZMapViewController : UIViewController <MKMapViewDelegate> {
+    
+    IBOutlet MKMapView *mapView;
+}
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *getDirections;
 
-@property XYZToDoItem *toDoItem;
+@property (nonatomic, retain) IBOutlet MKMapView *mapView;
 
-@property (weak, nonatomic) IBOutlet MKMapView *map;
+@property XYZToDoItem *toDoItem;
 
 @end
