@@ -14,7 +14,10 @@
 
 {
     IBOutlet UIAlertView *alert;
+    CGFloat animatedDistance;
+    
 }
+
 - (IBAction)alertbutton;
 
 - (IBAction)localalertbutton:(id)sender;
@@ -34,8 +37,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *closeMatchFeild;
 
 @property (weak, nonatomic) IBOutlet UILabel *LocationField;
-
-
 
 
 @property XYZToDoItem *toDoItem;

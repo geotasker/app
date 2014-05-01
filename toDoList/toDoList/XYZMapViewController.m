@@ -60,8 +60,6 @@
     [mapView setScrollEnabled:YES];
     [mapView setDelegate:self];
     [mapView setShowsUserLocation:YES];
-    
-    [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor myNavyColor]];
 
     // note make the view size dynamic
     

@@ -12,9 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 
-
-
-
 @property (weak, nonatomic) IBOutlet UITextField *notesField;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 @property (weak, nonatomic) IBOutlet UIPickerView *picker;
@@ -85,6 +82,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [self.locationOn setOnTintColor:[UIColor midnightBlueColor]];
 }
 
 - (void)didReceiveMemoryWarning

@@ -168,34 +168,4 @@ NSMutableArray *toDoItems = nil;
     }
 }
 
-
-
-
-/*
-- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"reaching accessoryButtonTappedForRowWithIndexPath:");
-    [self performSegueWithIdentifier:@"showDetail" sender:[self.tableView cellForRowAtIndexPath:indexPath]];
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-     XYZToDoItem *tappedItem = [toDoItems objectAtIndex:indexPath.row];
-    tappedItem.completed = !tappedItem.completed;
-    
-    if(tappedItem.completed){
-        tappedItem.match = false;
-        tappedItem.closeMatch = nil;
-        tappedItem.hasLocation = false;
-    }
-    else{
-        tappedItem.hasLocation = true;
-        [findMatches find:currentLoc];
-    }
-    
-    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-    
-}
-*/
-
 @end

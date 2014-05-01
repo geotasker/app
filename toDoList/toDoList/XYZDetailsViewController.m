@@ -10,6 +10,7 @@
 #import "XYZToDoItem.h"
 #import "findMatches.h"
 #import "XYZToDoListViewController.h"
+#import "FUISwitch.h"
 
 @interface XYZDetailsViewController ()
 
@@ -18,6 +19,12 @@
 @end
 
 @implementation XYZDetailsViewController
+
+static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
+static const CGFloat MINIMUM_SCROLL_FRACTION = 0.2;
+static const CGFloat MAXIMUM_SCROLL_FRACTION = 0.8;
+static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
+static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 
 @synthesize name1;
 @synthesize locationSwitch;
@@ -31,6 +38,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
     }
     return self;
 }
@@ -47,6 +55,7 @@
     notesBox.delegate = self;
     [self.view addSubview:notesBox];
     
+    [locationSwitch setOnTintColor:[UIColor midnightBlueColor]];
     [locationSwitch addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
 
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
@@ -63,71 +72,33 @@
     
     self.notesBox.clipsToBounds = YES;
     self.notesBox.layer.cornerRadius = 5.0f;
-    self.notesBox.layer.borderColor = [[UIColor blackColor] CGColor];
-    self.notesBox.layer.borderWidth = 0.1;
-   
-  //  [notesBox setScrollEnabled:NO];
+
     CGSize sizeThatFitsTextView = [notesBox sizeThatFits:CGSizeMake(notesBox.frame.size.width, MAXFLOAT)];
     _TextViewHeightConstraint.constant = ceilf(sizeThatFitsTextView.height);
-    
-   // closest match
   
     
     if(toDoItem.closeMatch != nil){
-          NSString *str = [NSString stringWithFormat: @"Closest match found at: %@", toDoItem.closeMatch.name];
-        _closeMatchFeild.text = str;
+       //   NSString *str = [NSString stringWithFormat: @"Closest match found at: %@", toDoItem.closeMatch.name];
+        _closeMatchFeild.text = toDoItem.closeMatch.name;
     }
     
     else{
-        NSString *str = [NSString stringWithFormat: @"No match has been found."];
+        NSString *str = [NSString stringWithFormat: @"None found."];
         _closeMatchFeild.text = str;
     }
     
     if(toDoItem.itemLocation != nil){
-        NSString *str = [NSString stringWithFormat:@"Only remind me at %@", toDoItem.itemLocation];
+        NSString *str = [NSString stringWithFormat:@"[Remind me at %@]", toDoItem.itemLocation];
         _LocationField.text = str;
         //_LocationField.lineBreakMode = NSLineBreakByWordWrapping;
     }
     else {
-        NSString *str = [NSString stringWithFormat: @"Remind me anywhere I can do this task."];
+        NSString *str = [NSString stringWithFormat: @"[Remind me anywhere]"];
         _LocationField.text = str;
         //_LocationField.lineBreakMode = NSLineBreakByWordWrapping;
     }
     
 }
-
-//  [notesBox setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
-//    [name1 setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
-//    
-//    NSRange range = NSMakeRange(notesBox.text.length - 1, 1);
-//    [notesBox scrollRangeToVisible:range];
-//    
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                                 selector:@selector(keyboardWillShow:)
-//                                                     name:UIKeyboardWillShowNotification
-//                                                   object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                                 selector:@selector(keyboardWillHide:)
-//                                                     name:UIKeyboardWillHideNotification
-//                                                   object:nil];
-//
-//}
-//
-//- (void)keyboardWillShow:(NSNotification *)notification
-//{
-//    [UIView beginAnimations:nil context:nil];
-//    CGRect endRect = [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-//    CGRect newRect = notesBox.frame;
-//    //Down size your text view
-//    newRect.size.height -= endRect.size.height;
-//    notesBox.frame = newRect;
-//    [UIView commitAnimations];
-//}
-//
-//- (void)keyboardWillHide:(NSNotification *)notification
-//{
-//    [notesBox sizeToFit];
-//}
 
 
 - (void)didReceiveMemoryWarning
@@ -154,7 +125,7 @@
 
 // Alerts ************
 -(IBAction)alertbutton{
-    alert = [[UIAlertView alloc] initWithTitle:@"GeoTasker" message:@"Press Accept Directions" delegate:self
+    alert = [[UIAlertView alloc] initWithTitle:@"GeoTansker" message:@"Press Accept Directions" delegate:self
                              cancelButtonTitle:@"Dismiss" otherButtonTitles:@"Accept", nil];
     
     [alert show];
@@ -174,14 +145,14 @@
 // UITextField Stuff
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     NSLog(@"textFieldShouldBeginEditing");
-    textField.backgroundColor = [UIColor colorWithRed:220.0f/255.0f green:220.0f/255.0f blue:220.0f/255.0f alpha:1.0f];
+    textField.backgroundColor = [UIColor lightTextColor];
     
     return YES;
 }
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
     NSLog(@"textFieldShouldEndEditing");
-    textField.backgroundColor = [UIColor whiteColor];
+    textField.backgroundColor = [UIColor clearColor];
     
     //[notesBox setScrollEnabled:NO];
 
@@ -199,9 +170,6 @@
     toDoItem.itemName = self.name1.text;
 }
 
-
-
-// move view while you type so keyboard doesn't cover
 // make notes part fixed view with scrolling
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
@@ -211,41 +179,120 @@
 }
 
 // UITextView stuff
+
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
     NSLog(@"textFieldShouldBeginEditing");
-    textView.backgroundColor = [UIColor colorWithRed:220.0f/255.0f green:220.0f/255.0f blue:220.0f/255.0f alpha:1.0f];
+    
     return YES;
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView{
     NSLog(@"textFieldDidBeginEditing");
+    
+    textView.backgroundColor = [UIColor lightTextColor];
+    
+    CGRect textFieldRect = [self.view.window convertRect:textView.bounds fromView:textView];
+    CGRect viewRect = [self.view.window convertRect:self.view.bounds fromView:self.view];
+    
+    CGFloat midline = textFieldRect.origin.y + 0.5 * textFieldRect.size.height;
+    CGFloat numerator = midline - viewRect.origin.y - MINIMUM_SCROLL_FRACTION * viewRect.size.height;
+    CGFloat denominator = (MAXIMUM_SCROLL_FRACTION - MINIMUM_SCROLL_FRACTION) * viewRect.size.height;
+    CGFloat heightFraction = numerator / denominator;
+    
+    if(heightFraction < 0.0){
+        
+        heightFraction = 0.0;
+        
+    }else if(heightFraction > 1.0){
+        
+        heightFraction = 1.0;
+    }
+    
+    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+    
+    if(orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown){
+        
+        animatedDistance = floor(PORTRAIT_KEYBOARD_HEIGHT * heightFraction);
+        
+    }else{
+        
+        animatedDistance = floor(LANDSCAPE_KEYBOARD_HEIGHT * heightFraction);
+    }
+    
+    CGRect viewFrame = self.view.frame;
+    viewFrame.origin.y -= animatedDistance;
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
+    
+    [self.view setFrame:viewFrame];
+    
+    [UIView commitAnimations];
+    
 }
+
+//- (void)scrollToCaretInTextView:(UITextView *)textView animated:(BOOL)animated
+//{
+//    CGRect rect = [textView caretRectForPosition:textView.selectedTextRange.end];
+//    rect.size.height += textView.textContainerInset.bottom;
+//    [textView scrollRectToVisible:rect animated:animated];
+//}
+
 
 - (void)textViewDidChange:(UITextView *) textView {
     
     NSLog(@"viewDidChange");
     
-    // [notesBox sizeToFit];
-    CGRect frame = notesBox.frame;
-    frame.size.height = notesBox.contentSize.height+14;
-    notesBox.frame = frame;
+//    CGRect frame = notesBox.frame;
+//    frame.size.height = notesBox.contentSize.height+14;
+//    notesBox.frame = frame;
+
+    CGRect line = [notesBox caretRectForPosition:
+                   notesBox.selectedTextRange.start];
+    CGFloat overflow = line.origin.y + line.size.height
+    - ( notesBox.contentOffset.y + notesBox.bounds.size.height
+       - notesBox.contentInset.bottom - notesBox.contentInset.top );
+    if ( overflow > 0 ) {
+        NSLog(@"got to overflow");
+        // Scroll caret to visible area
+        CGPoint offset = notesBox.contentOffset;
+        offset.y += overflow + 7; // leave 7 pixels margin
+        // Cannot animate with setContentOffset:animated: or caret will not appear
+        [UIView animateWithDuration:.2 animations:^{
+            [notesBox setContentOffset:offset];
+        }];
+    }
+    
+    //[notesBox sizeToFit];
     
 }
 
+
 - (BOOL)textViewShouldEndEditing:(UITextView *)textView{
     NSLog(@"textFieldShouldEndEditing");
-    textView.backgroundColor = [UIColor whiteColor];
+    textView.backgroundColor = [UIColor clearColor];
     return YES;
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView{
     NSLog(@"textFieldDidEndEditing");
     toDoItem.itemNotes = self.notesBox.text;
+    
+    CGRect viewFrame = self.view.frame;
+    viewFrame.origin.y += animatedDistance;
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
+    
+    [self.view setFrame:viewFrame];
+    [UIView commitAnimations];
 }
 
 // Location switch stuff
 -(IBAction)switchAction:(id)sender{
     NSLog(@"locationSwitch");
+    
     if(locationSwitch.on) {
         toDoItem.hasLocation = true;
         [findMatches find: currentLoc];
