@@ -14,8 +14,6 @@
 
 @interface XYZDetailsViewController ()
 
-- (IBAction)localalertbutton:(id)sender;
-
 @end
 
 @implementation XYZDetailsViewController

@@ -166,6 +166,22 @@ NSMutableArray *toDoItems = nil;
         XYZDetailsViewController *destViewController = segue.destinationViewController;
         destViewController.toDoItem = [toDoItems objectAtIndex:indexPath.row];
     }
+    
+    if ( [segue.identifier isEqualToString:@"oneAlertShow"] ) {
+        XYZDetailsViewController *destViewController = segue.destinationViewController;
+        destViewController.toDoItem = oneAlert;
+        NSLog(@"double");
+    }
+
 }
+
++ (void) alertSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ( [segue.identifier isEqualToString:@"oneAlertShow"] ) {
+        XYZDetailsViewController *destViewController = segue.destinationViewController;
+        destViewController.toDoItem = oneAlert;
+    }
+}
+
+
 
 @end

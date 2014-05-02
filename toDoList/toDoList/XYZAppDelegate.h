@@ -17,6 +17,8 @@ extern BOOL alertsOn;
 
 @interface XYZAppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate>
 
++ (UIViewController*) topMostController;
+
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
