@@ -27,18 +27,61 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hc1-bE-dLb">
+                                <rect key="frame" x="123" y="400" width="85" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="tJS-XD-x3m"/>
+                                </constraints>
+                                <state key="normal" title="Our Website">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="32" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="233" translatesAutoresizingMaskIntoConstraints="NO" id="5wV-2f-h0b">
+                                <rect key="frame" x="49" y="177" width="233" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="WhN-8e-9L9"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="GeoTasker geographically optimizes your to-do list so you never have to go out of your way to run an errand. ">
+                                        <attributes>
+                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="13" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="233" translatesAutoresizingMaskIntoConstraints="NO" id="Lts-gR-hfm">
+                                <rect key="frame" x="49" y="243" width="233" height="149"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Other geolocation based to do lists require the user to manually input the location where they want to be alerted, which makes it difficult to use in areas that the user is unfamiliar with. We take your to-do list, and alert you when you are near any store that will help you complete one of your tasks. Find out more at our website. </string>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.5747070312" green="0.81832617519999995" blue="0.76207363610000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="iDF-8v-eiV" firstAttribute="top" secondItem="aLq-wJ-ReD" secondAttribute="bottom" constant="47" id="eRE-Xn-IkH"/>
-                            <constraint firstItem="oKQ-Xo-g8M" firstAttribute="leading" secondItem="0Kf-E5-T3N" secondAttribute="leading" constant="49" id="oul-j4-vgX"/>
-                            <constraint firstItem="oKQ-Xo-g8M" firstAttribute="centerY" secondItem="iDF-8v-eiV" secondAttribute="centerY" id="qI3-v0-Tyn"/>
-                            <constraint firstItem="iDF-8v-eiV" firstAttribute="leading" secondItem="oKQ-Xo-g8M" secondAttribute="trailing" constant="79" id="tee-H2-vI6"/>
+                            <constraint firstItem="5wV-2f-h0b" firstAttribute="top" secondItem="iDF-8v-eiV" secondAttribute="bottom" constant="35" id="0WN-4k-64o"/>
+                            <constraint firstItem="Lts-gR-hfm" firstAttribute="centerX" secondItem="Hc1-bE-dLb" secondAttribute="centerX" id="K2t-bh-q5y"/>
+                            <constraint firstItem="1ka-yd-CnW" firstAttribute="top" secondItem="Hc1-bE-dLb" secondAttribute="bottom" constant="50" id="Md5-Fz-VkD"/>
+                            <constraint firstItem="Lts-gR-hfm" firstAttribute="top" secondItem="5wV-2f-h0b" secondAttribute="bottom" constant="8" id="Pjp-ec-bmr"/>
+                            <constraint firstItem="oKQ-Xo-g8M" firstAttribute="centerY" secondItem="iDF-8v-eiV" secondAttribute="centerY" id="QZg-Z5-ack"/>
+                            <constraint firstItem="iDF-8v-eiV" firstAttribute="top" secondItem="aLq-wJ-ReD" secondAttribute="bottom" constant="47" id="VFV-s1-zAh"/>
+                            <constraint firstItem="5wV-2f-h0b" firstAttribute="leading" secondItem="oKQ-Xo-g8M" secondAttribute="leading" id="dWL-0X-2gH"/>
+                            <constraint firstItem="Lts-gR-hfm" firstAttribute="trailing" secondItem="5wV-2f-h0b" secondAttribute="trailing" id="h3c-Ku-yMZ"/>
+                            <constraint firstItem="Lts-gR-hfm" firstAttribute="leading" secondItem="5wV-2f-h0b" secondAttribute="leading" id="qap-FU-WId"/>
+                            <constraint firstItem="Hc1-bE-dLb" firstAttribute="top" secondItem="Lts-gR-hfm" secondAttribute="bottom" constant="8" symbolic="YES" id="qm5-90-cuc"/>
+                            <constraint firstItem="5wV-2f-h0b" firstAttribute="trailing" secondItem="iDF-8v-eiV" secondAttribute="trailing" id="xFx-e0-5kq"/>
+                            <constraint firstItem="oKQ-Xo-g8M" firstAttribute="leading" secondItem="0Kf-E5-T3N" secondAttribute="leading" constant="49" id="yLA-LK-WiO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="sAa-MW-YF1"/>
                     <connections>
                         <outlet property="locationSwitch" destination="iDF-8v-eiV" id="VBB-ja-p6z"/>
+                        <outlet property="website" destination="Hc1-bE-dLb" id="NvD-Ec-QS4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ocq-1j-it7" userLabel="First Responder" sceneMemberID="firstResponder"/>

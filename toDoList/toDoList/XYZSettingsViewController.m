@@ -18,6 +18,7 @@
 @implementation XYZSettingsViewController
 
 @synthesize locationSwitch;
+@synthesize website;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,9 +42,16 @@
     }
 }
 
+-(void)toWebsite
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://sites.google.com/site/geotasker333/home"]];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [website addTarget:self action:@selector(toWebsite) forControlEvents:UIControlEventTouchUpInside];
     
     [locationSwitch setOnTintColor:[UIColor midnightBlueColor]];
     [locationSwitch addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];

@@ -135,9 +135,13 @@ CLLocationManager *locationManager;
             [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
         }
         
-        if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive && alertsOn)
+        UINavigationController *topController = (UINavigationController *)[XYZAppDelegate topMostController];
+        
+        if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive && alertsOn && [topController.visibleViewController class] != [XYZToDoListViewController class])
         {
-            if( x >1 ){
+            [alert dismissWithClickedButtonIndex:0 animated:false];
+            
+            if(x > 1){
                 alert = [[UIAlertView alloc] initWithTitle:@"GeoTasker" message:str delegate:self
                                          cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
             }

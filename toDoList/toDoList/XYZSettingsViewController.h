@@ -16,4 +16,7 @@
 
 - (IBAction)switchAction:(id)sender;
 
+
+@property (weak, nonatomic) IBOutlet UIButton *website;
+
 @end
