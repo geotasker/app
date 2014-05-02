@@ -2,12 +2,21 @@
 //  XYZSettingsViewController.h
 //  toDoList
 //
-//  Created by Shreya Nathan on 5/1/14.
+//  Created by Dean Makino on 5/2/14.
 //
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface XYZSettingsViewController : NSObject
+@interface XYZSettingsViewController : UIViewController{
+    
+}
+
+@property (weak, nonatomic) IBOutlet UISwitch *locationSwitch;
+
+- (IBAction)switchAction:(id)sender;
+
+
+@property (weak, nonatomic) IBOutlet UIButton *website;
 
 @end

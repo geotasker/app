@@ -15,6 +15,8 @@ extern NSMutableArray *toDoItems;
 
 +(void)rtnToDoItems;
 
++ (void) alertSegue:(UIStoryboardSegue *)segue sender:(id)sender;
+
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue;
 
 @end

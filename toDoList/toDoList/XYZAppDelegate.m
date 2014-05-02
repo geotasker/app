@@ -65,11 +65,28 @@ BOOL alertsOn = YES;
     return YES;
 }
 
++ (UIViewController*) topMostController
+{
+    UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    
+    while (topController.presentedViewController) {
+        topController = topController.presentedViewController;
+    }
+    
+    return topController;
+}
+
 
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(NSDictionary *)userInfo {
     
     if (oneAlert != nil){
-        [findMatches localDirections];
+        UINavigationController *topController = (UINavigationController  *)[XYZAppDelegate topMostController];
+        [topController popToRootViewControllerAnimated:NO];
+        
+        if([topController.visibleViewController class] == [XYZToDoListViewController class]){
+            NSLog(@"%@", topController.visibleViewController.class);
+            [topController.visibleViewController performSegueWithIdentifier:@"oneAlertShow" sender:topController.visibleViewController ];
+        }
     }
     
     [[UIApplication sharedApplication] cancelAllLocalNotifications];

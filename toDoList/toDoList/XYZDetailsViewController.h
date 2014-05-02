@@ -18,10 +18,6 @@
     
 }
 
-- (IBAction)alertbutton;
-
-- (IBAction)localalertbutton:(id)sender;
-
 @property (weak, nonatomic) IBOutlet UITextField *name1;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
