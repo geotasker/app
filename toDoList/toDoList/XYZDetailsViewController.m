@@ -72,6 +72,8 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     
     self.notesBox.clipsToBounds = YES;
     self.notesBox.layer.cornerRadius = 5.0f;
+    self.notesBox.layer.borderColor = [[UIColor midnightBlueColor] CGColor];
+    self.notesBox.layer.borderWidth = 0.1;
 
     CGSize sizeThatFitsTextView = [notesBox sizeThatFits:CGSizeMake(notesBox.frame.size.width, MAXFLOAT)];
     _TextViewHeightConstraint.constant = ceilf(sizeThatFitsTextView.height);
@@ -216,7 +218,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
         
     }else{
         
-        animatedDistance = floor(LANDSCAPE_KEYBOARD_HEIGHT * heightFraction);
+        animatedDistance = floor(LANDSCAPE_KEYBOARD_HEIGHT * heightFraction * 1.9);
     }
     
     CGRect viewFrame = self.view.frame;
