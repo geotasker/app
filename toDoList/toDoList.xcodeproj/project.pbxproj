@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		350A7A05191328C700974AE3 /* thinblackline2.png in Resources */ = {isa = PBXBuildFile; fileRef = 350A7A04191328C700974AE3 /* thinblackline2.png */; };
 		35393AB1190203FD003E2D99 /* FUIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35393A8C190203FD003E2D99 /* FUIAlertView.m */; };
 		35393AB2190203FD003E2D99 /* FUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 35393A8E190203FD003E2D99 /* FUIButton.m */; };
 		35393AB3190203FD003E2D99 /* FUICellBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35393A90190203FD003E2D99 /* FUICellBackgroundView.m */; };
@@ -67,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		350A7A04191328C700974AE3 /* thinblackline2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thinblackline2.png; sourceTree = "<group>"; };
 		35393A8A190203FD003E2D99 /* FlatUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatUIKit.h; sourceTree = "<group>"; };
 		35393A8B190203FD003E2D99 /* FUIAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIAlertView.h; sourceTree = "<group>"; };
 		35393A8C190203FD003E2D99 /* FUIAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUIAlertView.m; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 		A278E87B18D9FE6A00D75E03 = {
 			isa = PBXGroup;
 			children = (
+				350A7A04191328C700974AE3 /* thinblackline2.png */,
 				35BED808190EB72B00FF49EF /* black line.png */,
 				35393AC41902040C003E2D99 /* GeoLaunch.png */,
 				35393AC51902040C003E2D99 /* GeoLaunch1@2x.png */,
@@ -396,6 +399,7 @@
 				A278E8C118DA2D8000D75E03 /* XYZToDoListViewController.xib in Resources */,
 				A278E89218D9FE6A00D75E03 /* InfoPlist.strings in Resources */,
 				A278E8BC18DA2BBA00D75E03 /* XYZAddToDoItemViewController.xib in Resources */,
+				350A7A05191328C700974AE3 /* thinblackline2.png in Resources */,
 				A278E89A18D9FE6A00D75E03 /* Images.xcassets in Resources */,
 				35393AC71902040C003E2D99 /* GeoLaunch1@2x.png in Resources */,
 				A242AD3718F8915800F1AA70 /* XYZMapViewController.xib in Resources */,
