@@ -29,7 +29,6 @@
 		35393AC3190203FD003E2D99 /* UIToolbar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 35393AB0190203FD003E2D99 /* UIToolbar+FlatUI.m */; };
 		35393AC61902040C003E2D99 /* GeoLaunch.png in Resources */ = {isa = PBXBuildFile; fileRef = 35393AC41902040C003E2D99 /* GeoLaunch.png */; };
 		35393AC71902040C003E2D99 /* GeoLaunch1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35393AC51902040C003E2D99 /* GeoLaunch1@2x.png */; };
-		35BED809190EB72B00FF49EF /* black line.png in Resources */ = {isa = PBXBuildFile; fileRef = 35BED808190EB72B00FF49EF /* black line.png */; };
 		9EB3930718ECD60800BECAAD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EB3930618ECD60800BECAAD /* MapKit.framework */; };
 		9EB3930D18F1D7F100BECAAD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EB3930C18F1D7F100BECAAD /* CoreLocation.framework */; };
 		9ECDEDEB18F4CC870034D2C0 /* findMatches.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECDEDEA18F4CC870034D2C0 /* findMatches.m */; };
@@ -110,7 +109,6 @@
 		35393AB0190203FD003E2D99 /* UIToolbar+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIToolbar+FlatUI.m"; sourceTree = "<group>"; };
 		35393AC41902040C003E2D99 /* GeoLaunch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GeoLaunch.png; sourceTree = "<group>"; };
 		35393AC51902040C003E2D99 /* GeoLaunch1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GeoLaunch1@2x.png"; sourceTree = "<group>"; };
-		35BED808190EB72B00FF49EF /* black line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "black line.png"; sourceTree = "<group>"; };
 		9EB3930618ECD60800BECAAD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9EB3930C18F1D7F100BECAAD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		9ECDEDE918F4CC7B0034D2C0 /* findMatches.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = findMatches.h; sourceTree = "<group>"; };
@@ -226,7 +224,6 @@
 			isa = PBXGroup;
 			children = (
 				350A7A04191328C700974AE3 /* thinblackline2.png */,
-				35BED808190EB72B00FF49EF /* black line.png */,
 				35393AC41902040C003E2D99 /* GeoLaunch.png */,
 				35393AC51902040C003E2D99 /* GeoLaunch1@2x.png */,
 				35393A89190203FD003E2D99 /* FlatUI */,
@@ -393,7 +390,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35BED809190EB72B00FF49EF /* black line.png in Resources */,
 				35393AC61902040C003E2D99 /* GeoLaunch.png in Resources */,
 				A278E8B718DA03B400D75E03 /* Main.storyboard in Resources */,
 				A278E8C118DA2D8000D75E03 /* XYZToDoListViewController.xib in Resources */,
