@@ -145,7 +145,7 @@
 		A278E8C318DA3C4F00D75E03 /* XYZToDoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZToDoItem.m; sourceTree = "<group>"; };
 		A278E8C918DB47BD00D75E03 /* XYZDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYZDetailsViewController.xib; sourceTree = "<group>"; };
 		A27995211901B72000B50584 /* XYZDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZDetailsViewController.h; sourceTree = "<group>"; };
-		A27995221901B72000B50584 /* XYZDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZDetailsViewController.m; sourceTree = "<group>"; tabWidth = 5; };
+		A27995221901B72000B50584 /* XYZDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 6; lastKnownFileType = sourcecode.c.objc; path = XYZDetailsViewController.m; sourceTree = "<group>"; tabWidth = 5; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

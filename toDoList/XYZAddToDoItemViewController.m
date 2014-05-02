@@ -12,11 +12,13 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 
-@property (weak, nonatomic) IBOutlet UITextField *notesField;
+@property (weak, nonatomic) IBOutlet UITextView *notesField;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 @property (weak, nonatomic) IBOutlet UIPickerView *picker;
 @property (weak, nonatomic) IBOutlet UISwitch *locationOn;
 @property (weak, nonatomic) IBOutlet UITextField *locationField;
+
+@property (weak, nonatomic) IBOutlet UITextView *notesBox;
 
 @end
 
@@ -36,8 +38,8 @@
 
         self.toDoItem.matches = [[NSMutableArray alloc] init];
 
-        if (self.notesField.text.length > 0) {
-            self.toDoItem.itemNotes = self.notesField.text;
+        if (self.notesBox.text.length > 0) {
+            self.toDoItem.itemNotes = self.notesBox.text;
         }
         else {
             self.toDoItem.itemNotes = @"";
@@ -66,7 +68,47 @@
     return 6;
 }
 
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView{
+    NSLog(@"textFieldShouldEndEditing");
+    textView.backgroundColor = [UIColor clearColor];
+    return YES;
+}
 
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    NSLog(@"textFieldDidEndEditing");
+    self.toDoItem.itemNotes = self.notesBox.text;
+    
+}
+
+- (void)textViewDidChange:(UITextView *) textView {
+    
+    NSLog(@"viewDidChange");
+    
+    CGRect line = [self.notesBox caretRectForPosition:
+                   self.notesBox.selectedTextRange.start];
+    CGFloat overflow = line.origin.y + line.size.height
+    - ( self.notesBox.contentOffset.y + self.notesBox.bounds.size.height
+       - self.notesBox.contentInset.bottom - self.notesBox.contentInset.top );
+    if ( overflow > 0 ) {
+        NSLog(@"got to overflow");
+        // Scroll caret to visible area
+        CGPoint offset = self.notesBox.contentOffset;
+        offset.y += overflow + 7; // leave 7 pixels margin
+        // Cannot animate with setContentOffset:animated: or caret will not appear
+        [UIView animateWithDuration:.2 animations:^{
+            [self.notesBox setContentOffset:offset];
+        }];
+    }
+    
+    [self.notesBox sizeToFit];
+    
+}
+
+-(void)dismissKeyboard {
+    NSLog(@"dismissKeyboard");
+    [self.textField resignFirstResponder];
+    [self.notesBox resignFirstResponder];
+}
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -81,9 +123,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
+    self.notesBox.clipsToBounds = YES;
+    self.notesBox.layer.cornerRadius = 5.0f;
+    
+    self.locationOn.transform = CGAffineTransformMakeScale(0.8, 0.8);
     [self.locationOn setOnTintColor:[UIColor midnightBlueColor]];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
 }
 
 - (void)didReceiveMemoryWarning

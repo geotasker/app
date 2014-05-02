@@ -31,6 +31,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 @synthesize scrollView;
 @synthesize notesBox;
 @synthesize toDoItem;
+@synthesize closeMatchFeild;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -55,6 +56,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     notesBox.delegate = self;
     [self.view addSubview:notesBox];
     
+    locationSwitch.transform = CGAffineTransformMakeScale(0.8, 0.8);
     [locationSwitch setOnTintColor:[UIColor midnightBlueColor]];
     [locationSwitch addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
 
@@ -69,37 +71,37 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     
     self.name1.clipsToBounds = YES;
     self.name1.layer.cornerRadius = 5.0f;
+    self.name1.layer.borderColor = [[UIColor midnightBlueColor] CGColor];
+    self.name1.layer.borderWidth = 0.1;
     
     self.notesBox.clipsToBounds = YES;
     self.notesBox.layer.cornerRadius = 5.0f;
     self.notesBox.layer.borderColor = [[UIColor midnightBlueColor] CGColor];
     self.notesBox.layer.borderWidth = 0.1;
-
+    
+   // [self.notesBox setTextContainerInset:UIEdgeInsetsMake(4,4,4,4)];
+    
     CGSize sizeThatFitsTextView = [notesBox sizeThatFits:CGSizeMake(notesBox.frame.size.width, MAXFLOAT)];
     _TextViewHeightConstraint.constant = ceilf(sizeThatFitsTextView.height);
   
     
     if(toDoItem.closeMatch != nil){
        //   NSString *str = [NSString stringWithFormat: @"Closest match found at: %@", toDoItem.closeMatch.name];
-        _closeMatchFeild.text = toDoItem.closeMatch.name;
+        //_closeMatchFeild.text = toDoItem.closeMatch.name;
+          
+          // Getting the address
+          CLPlacemark *placemark = toDoItem.closeMatch.placemark;
+          closeMatchFeild.text = [NSString stringWithFormat:@"%@\n%@ %@\n%@, %@",
+                                   placemark.name, placemark.subThoroughfare, placemark.thoroughfare,
+                                   placemark.locality, placemark.administrativeArea];
     }
-    
-    else{
-        NSString *str = [NSString stringWithFormat: @"None found."];
-        _closeMatchFeild.text = str;
-    }
-    
-    if(toDoItem.itemLocation != nil){
-        NSString *str = [NSString stringWithFormat:@"[Remind me at %@]", toDoItem.itemLocation];
-        _LocationField.text = str;
-        //_LocationField.lineBreakMode = NSLineBreakByWordWrapping;
-    }
+      
+      
     else {
-        NSString *str = [NSString stringWithFormat: @"[Remind me anywhere]"];
-        _LocationField.text = str;
-        //_LocationField.lineBreakMode = NSLineBreakByWordWrapping;
+        NSString *str = [NSString stringWithFormat: @"None found."];
+        closeMatchFeild.text = str;
     }
-    
+      
 }
 
 
@@ -147,17 +149,14 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 // UITextField Stuff
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     NSLog(@"textFieldShouldBeginEditing");
-    textField.backgroundColor = [UIColor lightTextColor];
+   // textField.backgroundColor = [UIColor lightTextColor];
     
     return YES;
 }
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
     NSLog(@"textFieldShouldEndEditing");
-    textField.backgroundColor = [UIColor clearColor];
-    
-    //[notesBox setScrollEnabled:NO];
-
+   //   textField.backgroundColor = [UIColor clearColor];
     return YES;
 }
 
@@ -191,7 +190,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 - (void)textViewDidBeginEditing:(UITextView *)textView{
     NSLog(@"textFieldDidBeginEditing");
     
-    textView.backgroundColor = [UIColor lightTextColor];
+  //  textView.backgroundColor = [UIColor lightTextColor];
     
     CGRect textFieldRect = [self.view.window convertRect:textView.bounds fromView:textView];
     CGRect viewRect = [self.view.window convertRect:self.view.bounds fromView:self.view];
@@ -273,7 +272,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 
 - (BOOL)textViewShouldEndEditing:(UITextView *)textView{
     NSLog(@"textFieldShouldEndEditing");
-    textView.backgroundColor = [UIColor clearColor];
+   //   textView.backgroundColor = [UIColor clearColor];
     return YES;
 }
 
