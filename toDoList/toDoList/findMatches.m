@@ -121,8 +121,6 @@ CLLocationManager *locationManager;
         
         if ([UIApplication sharedApplication].applicationState == UIApplicationStateBackground && alertsOn)
         {
-            //NSLog(@"\n A Wild Alert Window Appears!\n");
-            
             if (x==1)
             {
                 str = [NSString stringWithFormat: @"Do \"%@\" at %@", oneAlert.itemName, oneAlert.closeMatch.name];
