@@ -48,6 +48,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    if(toDoItem.closeMatch == nil){
+        self.navigationItem.rightBarButtonItem = nil;
+    }
+    
     // Do any additional setup after loading the view from its nib.
     // NSLog(@"%@", toDoItem.itemName);
     
