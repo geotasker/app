@@ -109,14 +109,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)localalertbutton:(id)sender {
-    
-    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
-    localNotification.alertBody = @"New Task Available";
-    localNotification.timeZone = [NSTimeZone defaultTimeZone];
-    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-}
 
 // dismiss keyboard
 -(void)dismissKeyboard {
@@ -124,24 +116,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     [name1 resignFirstResponder];
     [notesBox resignFirstResponder];
 }
-
-// Alerts ************
--(IBAction)alertbutton{
-    alert = [[UIAlertView alloc] initWithTitle:@"GeoTansker" message:@"Press Accept Directions" delegate:self
-                             cancelButtonTitle:@"Dismiss" otherButtonTitles:@"Accept", nil];
-    
-    [alert show];
-}
-
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 1) {
-        NSString * storyboardName = @"Main";
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
-        UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"NotificationView"];
-        [self presentViewController:vc animated:YES completion:nil];
-    }
-}
-// end alerts ******
 
 
 // UITextField Stuff

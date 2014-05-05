@@ -113,6 +113,9 @@ CLLocationManager *locationManager;
     UIViewController *root = [[[UIApplication sharedApplication] keyWindow] rootViewController];
     [root viewDidAppear:true];
     
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    [alert dismissWithClickedButtonIndex:0 animated:false];
+    
     if(x>1){
         oneAlert = nil;
     }
@@ -121,8 +124,6 @@ CLLocationManager *locationManager;
         
         if ([UIApplication sharedApplication].applicationState == UIApplicationStateBackground && alertsOn)
         {
-            //NSLog(@"\n A Wild Alert Window Appears!\n");
-            
             if (x==1)
             {
                 str = [NSString stringWithFormat: @"Do \"%@\" at %@", oneAlert.itemName, oneAlert.closeMatch.name];
@@ -135,11 +136,11 @@ CLLocationManager *locationManager;
             [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
         }
         
-        UINavigationController *topController = (UINavigationController *)[XYZAppDelegate topMostController];
+        //UINavigationController *topController = (UINavigationController *)[XYZAppDelegate topMostController];
         
-        if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive && alertsOn && [topController.visibleViewController class] != [XYZToDoListViewController class])
+        if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive && alertsOn)
+            //&& [topController.visibleViewController class] != [XYZToDoListViewController class])
         {
-            [alert dismissWithClickedButtonIndex:0 animated:false];
             
             if(x > 1){
                 alert = [[UIAlertView alloc] initWithTitle:@"GeoTasker" message:str delegate:self
@@ -152,6 +153,8 @@ CLLocationManager *locationManager;
                                          cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
                 
             }
+            
+            [alert show];
             
             /*show = YES;
             
@@ -169,11 +172,10 @@ CLLocationManager *locationManager;
             
             //if (show)
                 //{
-                    [alert show];
+            
                   //  show = NO;
                // }
         }
-        
     }
 }
 

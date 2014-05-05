@@ -274,7 +274,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New item, i.e. &quot;Costco&quot;" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TDo-RH-pVR">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New item, like &quot;groceries,&quot; or &quot;coffee&quot;" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TDo-RH-pVR">
                                 <rect key="frame" x="22" y="82" width="278" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>

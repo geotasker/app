@@ -367,6 +367,9 @@
 				CLASSPREFIX = XYZ;
 				LastUpgradeCheck = 0510;
 				TargetAttributes = {
+					A278E88318D9FE6A00D75E03 = {
+						DevelopmentTeam = WKRZ8G7B5R;
+					};
 					A278E89E18D9FE6A00D75E03 = {
 						TestTargetID = A278E88318D9FE6A00D75E03;
 					};
@@ -570,10 +573,12 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "toDoList/toDoList-Prefix.pch";
 				INFOPLIST_FILE = "toDoList/toDoList-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -585,10 +590,12 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "toDoList/toDoList-Prefix.pch";
 				INFOPLIST_FILE = "toDoList/toDoList-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

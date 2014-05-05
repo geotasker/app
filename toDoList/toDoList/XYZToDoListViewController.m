@@ -53,14 +53,14 @@ NSMutableArray *toDoItems = nil;
     
     toDoItems = [[NSMutableArray alloc] init];
     
-    [self loadInitialData];
+    //[self loadInitialData];
     
     //cancel outstanding notifications when the user sees all the to do items
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
 
 }
 
-- (void)loadInitialData {
+/*- (void)loadInitialData {
     
     XYZToDoItem *item1 = [[XYZToDoItem alloc] init];
     item1.matches = [[NSMutableArray alloc] init];
@@ -68,7 +68,7 @@ NSMutableArray *toDoItems = nil;
     item1.itemNotes = @"This is a preloaded item to show that it is possible, this may or may not be a final feature.";
     item1.hasLocation = true;
     [toDoItems addObject:item1];
-}
+}*/
 
 - (void)didReceiveMemoryWarning
 {
@@ -170,7 +170,6 @@ NSMutableArray *toDoItems = nil;
     if ( [segue.identifier isEqualToString:@"oneAlertShow"] ) {
         XYZDetailsViewController *destViewController = segue.destinationViewController;
         destViewController.toDoItem = oneAlert;
-        NSLog(@"double");
     }
 
 }

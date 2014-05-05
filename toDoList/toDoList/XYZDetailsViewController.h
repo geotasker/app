@@ -13,7 +13,6 @@
 @interface XYZDetailsViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate>
 
 {
-    IBOutlet UIAlertView *alert;
     CGFloat animatedDistance;
     
 }
