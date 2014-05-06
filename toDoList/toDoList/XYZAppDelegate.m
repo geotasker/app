@@ -48,7 +48,6 @@ BOOL alertsOn = YES;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     if(self.locationManager==nil){
-        NSLog(@"locationManager not nil\n");
         _locationManager=[[CLLocationManager alloc] init];
         //I'm using ARC with this project so no need to release
         
@@ -62,6 +61,11 @@ BOOL alertsOn = YES;
         [self.locationManager startUpdatingLocation];
     }
     
+    CLLocation *location = [_locationManager location];
+    CLLocationCoordinate2D coordinate = [location coordinate];
+    
+    currentLoc = [[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude];
+                  
     return YES;
 }
 
