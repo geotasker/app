@@ -53,10 +53,13 @@
     
     [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor myTurquoiseColor2]];
     
-//    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor midnightBlueColor]};
+    
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     
     [website addTarget:self action:@selector(toWebsite) forControlEvents:UIControlEventTouchUpInside];
     
+    locationSwitch.transform = CGAffineTransformMakeScale(0.8, 0.8);
     [locationSwitch setOnTintColor:[UIColor midnightBlueColor]];
     [locationSwitch addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
     if(alertsOn){

@@ -117,7 +117,8 @@
     static dispatch_once_t greenToken;
     
     dispatch_once(&greenToken, ^{
-        greenSea = [UIColor colorFromHexCode:@"16A085"];
+        //greenSea = [UIColor colorFromHexCode:@"16A085"];
+        greenSea = [UIColor colorFromHexCode:@"25A872"];
     });
     
     return greenSea;
@@ -205,7 +206,8 @@
     static dispatch_once_t midnightBlueToken;
     
     dispatch_once(&midnightBlueToken, ^{
-        midnightBlue = [UIColor colorFromHexCode:@"2C3E50"];
+        //midnightBlue = [UIColor colorFromHexCode:@"2C3E50"];
+        midnightBlue = [UIColor colorFromHexCode:@"141F57"];
     });
     
     return midnightBlue;

@@ -55,9 +55,9 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
       
       [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor myTurquoiseColor2]];
       
-    //CHRISTINE  self.navigationItem.leftBarButtonItem
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor midnightBlueColor]};
       
-//      self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+      [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
       
     locationSwitch.transform = CGAffineTransformMakeScale(0.8, 0.8);
     [locationSwitch setOnTintColor:[UIColor midnightBlueColor]];
@@ -139,7 +139,9 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     NSLog(@"textFieldDidEndEditing");
-    [textField resignFirstResponder];
+    textField.backgroundColor = [UIColor clearColor];
+      
+      [textField resignFirstResponder];
     
     if(![toDoItem.itemName isEqualToString:self.name1.text]){
         [findMatches find:currentLoc];
@@ -160,7 +162,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
     NSLog(@"textFieldShouldBeginEditing");
-    
+    textView.backgroundColor = [UIColor cloudsColor];
     return YES;
 }
 

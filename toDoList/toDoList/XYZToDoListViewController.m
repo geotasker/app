@@ -46,7 +46,9 @@ NSMutableArray *toDoItems = nil;
     
     [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor myTurquoiseColor2]];
     
-//    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor midnightBlueColor]};
+    
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     
     //set the separator color
     self.tableView.separatorColor = [UIColor cloudsColor];

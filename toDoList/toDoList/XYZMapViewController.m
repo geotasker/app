@@ -55,7 +55,7 @@
     
     [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor myTurquoiseColor2]];
     
-//    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor midnightBlueColor]};
     
     // Do any additional setup after loading the view from its nib.
     // NSLog(@"%@", toDoItem.itemName);

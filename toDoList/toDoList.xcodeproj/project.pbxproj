@@ -27,7 +27,9 @@
 		35393AC1190203FD003E2D99 /* UITabBar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 35393AAC190203FD003E2D99 /* UITabBar+FlatUI.m */; };
 		35393AC2190203FD003E2D99 /* UITableViewCell+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 35393AAE190203FD003E2D99 /* UITableViewCell+FlatUI.m */; };
 		35393AC3190203FD003E2D99 /* UIToolbar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 35393AB0190203FD003E2D99 /* UIToolbar+FlatUI.m */; };
-		35393AC61902040C003E2D99 /* GeoLaunch.png in Resources */ = {isa = PBXBuildFile; fileRef = 35393AC41902040C003E2D99 /* GeoLaunch.png */; };
+		35FC409819193C520066B5B1 /* GeoLaunch1.png in Resources */ = {isa = PBXBuildFile; fileRef = 35FC409619193C520066B5B1 /* GeoLaunch1.png */; };
+		35FC409919193C520066B5B1 /* GeoLaunch1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35FC409719193C520066B5B1 /* GeoLaunch1@2x.png */; };
+		35FC409D19193DED0066B5B1 /* icon3.png in Resources */ = {isa = PBXBuildFile; fileRef = 35FC409C19193DED0066B5B1 /* icon3.png */; };
 		9EA516C41913530B008433AA /* XYZSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA516C21913530B008433AA /* XYZSettingsViewController.m */; };
 		9EA516C51913530B008433AA /* XYZSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EA516C31913530B008433AA /* XYZSettingsViewController.xib */; };
 		9EB3930718ECD60800BECAAD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EB3930618ECD60800BECAAD /* MapKit.framework */; };
@@ -108,7 +110,9 @@
 		35393AAE190203FD003E2D99 /* UITableViewCell+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+FlatUI.m"; sourceTree = "<group>"; };
 		35393AAF190203FD003E2D99 /* UIToolbar+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIToolbar+FlatUI.h"; sourceTree = "<group>"; };
 		35393AB0190203FD003E2D99 /* UIToolbar+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIToolbar+FlatUI.m"; sourceTree = "<group>"; };
-		35393AC41902040C003E2D99 /* GeoLaunch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GeoLaunch.png; sourceTree = "<group>"; };
+		35FC409619193C520066B5B1 /* GeoLaunch1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GeoLaunch1.png; sourceTree = "<group>"; };
+		35FC409719193C520066B5B1 /* GeoLaunch1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GeoLaunch1@2x.png"; sourceTree = "<group>"; };
+		35FC409C19193DED0066B5B1 /* icon3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon3.png; sourceTree = "<group>"; };
 		9EA516C11913530B008433AA /* XYZSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZSettingsViewController.h; sourceTree = "<group>"; };
 		9EA516C21913530B008433AA /* XYZSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZSettingsViewController.m; sourceTree = "<group>"; };
 		9EA516C31913530B008433AA /* XYZSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYZSettingsViewController.xib; sourceTree = "<group>"; };
@@ -226,8 +230,10 @@
 		A278E87B18D9FE6A00D75E03 = {
 			isa = PBXGroup;
 			children = (
+				35FC409C19193DED0066B5B1 /* icon3.png */,
+				35FC409619193C520066B5B1 /* GeoLaunch1.png */,
+				35FC409719193C520066B5B1 /* GeoLaunch1@2x.png */,
 				350A7A04191328C700974AE3 /* thinblackline2.png */,
-				35393AC41902040C003E2D99 /* GeoLaunch.png */,
 				35393A89190203FD003E2D99 /* FlatUI */,
 				A278E88D18D9FE6A00D75E03 /* toDoList */,
 				A278E8A618D9FE6A00D75E03 /* toDoListTests */,
@@ -398,13 +404,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35393AC61902040C003E2D99 /* GeoLaunch.png in Resources */,
+				35FC409819193C520066B5B1 /* GeoLaunch1.png in Resources */,
 				A278E8B718DA03B400D75E03 /* Main.storyboard in Resources */,
 				A278E8C118DA2D8000D75E03 /* XYZToDoListViewController.xib in Resources */,
 				A278E89218D9FE6A00D75E03 /* InfoPlist.strings in Resources */,
 				A278E8BC18DA2BBA00D75E03 /* XYZAddToDoItemViewController.xib in Resources */,
+				35FC409919193C520066B5B1 /* GeoLaunch1@2x.png in Resources */,
 				350A7A05191328C700974AE3 /* thinblackline2.png in Resources */,
 				A278E89A18D9FE6A00D75E03 /* Images.xcassets in Resources */,
+				35FC409D19193DED0066B5B1 /* icon3.png in Resources */,
 				A242AD3718F8915800F1AA70 /* XYZMapViewController.xib in Resources */,
 				9EA516C51913530B008433AA /* XYZSettingsViewController.xib in Resources */,
 				A278E8CB18DB47BD00D75E03 /* XYZDetailsViewController.xib in Resources */,

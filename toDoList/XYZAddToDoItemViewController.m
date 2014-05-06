@@ -68,18 +68,6 @@
     return 6;
 }
 
-- (BOOL)textViewShouldEndEditing:(UITextView *)textView{
-    NSLog(@"textFieldShouldEndEditing");
-    textView.backgroundColor = [UIColor clearColor];
-    return YES;
-}
-
-- (void)textViewDidEndEditing:(UITextView *)textView {
-    NSLog(@"textFieldDidEndEditing");
-    self.toDoItem.itemNotes = self.notesBox.text;
-    
-}
-
 - (void)textViewDidChange:(UITextView *) textView {
     
     NSLog(@"viewDidChange");
@@ -123,7 +111,6 @@
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     NSLog(@"textFieldShouldBeginEditing");
     textField.backgroundColor = [UIColor cloudsColor];
-    
     return YES;
 }
 
@@ -133,10 +120,14 @@
     return YES;
 }
 
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    NSLog(@"textFieldDidEndEditing");
+    self.toDoItem.itemNotes = self.notesBox.text;
+    textView.backgroundColor = [UIColor clearColor];
+}
 
-
-- (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
-    NSLog(@"textFieldShouldEndEditing");
+- (BOOL)textViewDidBeginEditing:(UITextView *)textView{
+    NSLog(@"textViewDidBeginEditing");
     textView.backgroundColor = [UIColor cloudsColor];
     return YES;
 }
@@ -147,8 +138,10 @@
     [super viewDidLoad];
     
     [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor myTurquoiseColor2]];
-//    
-//    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+   
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor midnightBlueColor]};
+    
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     
     self.textField.clipsToBounds = YES;
     self.textField.layer.cornerRadius = 5.0f;
@@ -158,7 +151,7 @@
     self.notesBox.clipsToBounds = YES;
     self.notesBox.layer.cornerRadius = 5.0f;
     self.notesBox.layer.borderColor = [[UIColor midnightBlueColor] CGColor];
-    self.notesBox.layer.borderWidth = 0.1;
+    self.notesBox.layer.borderWidth = 0.2;
     
     self.locationOn.transform = CGAffineTransformMakeScale(0.8, 0.8);
     [self.locationOn setOnTintColor:[UIColor midnightBlueColor]];
