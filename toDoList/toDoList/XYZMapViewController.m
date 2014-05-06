@@ -75,6 +75,11 @@
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(
     CLLocationCoordinate2DMake(currentLoc.coordinate.latitude, currentLoc.coordinate.longitude), 3100, 3100);
     
+    //NSLog(@"CurrentLoc: ");
+    //NSLog(@"%d", currentLoc.coordinate.latitude);
+    //NSLog(@"%d", currentLoc.coordinate.longitude);
+    
+    
     [mapView setRegion:region animated:YES];
     
     
@@ -93,9 +98,15 @@
 
 -(MKAnnotationView *) mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
     
+    //NSLog(@"Annotation: ");
+    //NSLog(@"%d", annotation.coordinate.latitude);
+    //NSLog(@"%d", annotation.coordinate.longitude);
+    //NSLog(@"UserLocation: ");
+    //NSLog(@"%d", mapView.userLocation.coordinate.latitude);
+    //NSLog(@"%d", mapView.userLocation.coordinate.longitude);
     
     //need to check how to compare these two and good to go
-    if (annotation.coordinate.longitude == currentLoc.coordinate.longitude && annotation.coordinate.latitude == currentLoc.coordinate.latitude)
+    if (annotation == mapView.userLocation)
     {
         return nil;
     }
