@@ -51,6 +51,10 @@
 {
     [super viewDidLoad];
     
+    [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor myTurquoiseColor2]];
+    
+//    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    
     [website addTarget:self action:@selector(toWebsite) forControlEvents:UIControlEventTouchUpInside];
     
     [locationSwitch setOnTintColor:[UIColor midnightBlueColor]];

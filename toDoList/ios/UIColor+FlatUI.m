@@ -56,6 +56,39 @@
     return myTurquoise;
 }
 
++ (UIColor *) myTurquoiseColor {
+    static UIColor *myTurquoise = nil;
+    static dispatch_once_t dispatchToken;
+    
+    dispatch_once(&dispatchToken, ^{
+        myTurquoise = [UIColor colorFromHexCode:@"3A967E"];
+    });
+    
+    return myTurquoise;
+}
+
++ (UIColor *) myTurquoiseColor2 {
+    static UIColor *myTurquoise = nil;
+    static dispatch_once_t dispatchToken;
+    
+    dispatch_once(&dispatchToken, ^{
+        myTurquoise = [UIColor colorFromHexCode:@"007597"];
+    });
+    
+    return myTurquoise;
+}
+
++ (UIColor *) myGreenColor {
+    static UIColor *myTurquoise = nil;
+    static dispatch_once_t dispatchToken;
+    
+    dispatch_once(&dispatchToken, ^{
+        myTurquoise = [UIColor colorFromHexCode:@"00B945"];
+    });
+    
+    return myTurquoise;
+}
+
 + (UIColor *) mySalmonColor {
     static UIColor *salmon = nil;
     static dispatch_once_t dispatchToken;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Qng-VJ-PSo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Qng-VJ-PSo">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -24,16 +24,16 @@
                                 <rect key="frame" x="49" y="116" width="105" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hc1-bE-dLb">
-                                <rect key="frame" x="123" y="400" width="85" height="30"/>
+                                <rect key="frame" x="138" y="400" width="55" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="tJS-XD-x3m"/>
                                 </constraints>
-                                <state key="normal" title="Our Website">
+                                <state key="normal" title="Website">
+                                    <color key="titleColor" red="0.0" green="0.4605098084" blue="0.59032846719999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -62,7 +62,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.5747070312" green="0.81832617519999995" blue="0.76207363610000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="5wV-2f-h0b" firstAttribute="top" secondItem="iDF-8v-eiV" secondAttribute="bottom" constant="35" id="0WN-4k-64o"/>
                             <constraint firstItem="Lts-gR-hfm" firstAttribute="centerX" secondItem="Hc1-bE-dLb" secondAttribute="centerX" id="K2t-bh-q5y"/>
@@ -117,12 +117,14 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="To-Do List" id="eS3-Ew-aPV">
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="7pe-0v-Vu8">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="settingsButton:" destination="AcS-zy-Bjb" id="190-v7-HGt"/>
                                 <segue destination="2fl-Bs-zl0" kind="push" id="EkP-NX-Wsl"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Im9-pe-8WF">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="r8W-TD-FX1" kind="modal" id="eRc-8R-rOP"/>
                             </connections>
@@ -152,6 +154,7 @@
                                 <rect key="frame" x="30" y="385" width="159" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.4605098084" blue="0.59032846719999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="left" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rgG-vE-cDx">
@@ -187,7 +190,7 @@
                                     <constraint firstAttribute="width" constant="55" id="xpV-SU-QbE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.4605098084" blue="0.59032846719999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Closest Match:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLb-58-kP7">
@@ -198,7 +201,7 @@
                                     <constraint firstAttribute="width" constant="119" id="kpH-y3-q5K"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.46050980839416056" blue="0.59032846715328469" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.29999999999999999" contentMode="center" ambiguous="YES" misplaced="YES" image="thinblackline2.png" translatesAutoresizingMaskIntoConstraints="NO" id="27C-yU-3aI">
@@ -214,7 +217,7 @@
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.63921568630000003" green="0.87058823529999996" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="TXW-Fp-IIt" firstAttribute="top" secondItem="dLb-58-kP7" secondAttribute="bottom" constant="3" id="0KX-ZE-rsR"/>
                             <constraint firstItem="27C-yU-3aI" firstAttribute="leading" secondItem="HWc-ac-g3x" secondAttribute="leading" constant="32" id="1ft-f4-PbX"/>
@@ -246,6 +249,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Details" id="yhV-EO-ZSe">
                         <barButtonItem key="rightBarButtonItem" title="Map" id="hhU-m0-8D1">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="Wr6-66-6MG" kind="push" identifier="mapView" id="D1k-H8-Rzk"/>
                             </connections>
@@ -285,7 +289,7 @@
                                 <rect key="frame" x="20" y="311" width="196" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.4605098084" blue="0.59032846719999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GoJ-nn-1YG">
@@ -306,6 +310,7 @@
                                 <rect key="frame" x="22" y="152" width="45" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.4605098084" blue="0.59032846719999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.29999999999999999" contentMode="center" image="thinblackline2.png" translatesAutoresizingMaskIntoConstraints="NO" id="TGM-T3-dhe">
@@ -317,7 +322,7 @@
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.63921568627450975" green="0.87058823529411766" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="TDo-RH-pVR" firstAttribute="top" secondItem="c5v-RE-bZB" secondAttribute="bottom" constant="18" id="1d9-Dv-IlZ"/>
                             <constraint firstItem="wXt-O4-Jfr" firstAttribute="leading" secondItem="TDo-RH-pVR" secondAttribute="leading" constant="-2" id="4Rj-Ab-NBQ"/>
@@ -341,11 +346,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add To-Do Item" id="MW1-g7-7xU">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Igq-Ht-2Oa">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="6yU-fw-R9q" kind="unwind" unwindAction="unwindToList:" id="ian-8T-53j"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="uOE-N4-aYh">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="6yU-fw-R9q" kind="unwind" unwindAction="unwindToList:" id="IKD-Y7-84t"/>
                             </connections>

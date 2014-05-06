@@ -120,12 +120,45 @@
     return self;
 }
 
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    NSLog(@"textFieldShouldBeginEditing");
+    textField.backgroundColor = [UIColor cloudsColor];
+    
+    return YES;
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
+    NSLog(@"textFieldShouldEndEditing");
+    textField.backgroundColor = [UIColor clearColor];
+    return YES;
+}
+
+
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
+    NSLog(@"textFieldShouldEndEditing");
+    textView.backgroundColor = [UIColor cloudsColor];
+    return YES;
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor myTurquoiseColor2]];
+//    
+//    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    
+    self.textField.clipsToBounds = YES;
+    self.textField.layer.cornerRadius = 5.0f;
+    self.textField.layer.borderColor = [[UIColor midnightBlueColor] CGColor];
+    self.textField.layer.borderWidth = 0.1;
+    
     self.notesBox.clipsToBounds = YES;
     self.notesBox.layer.cornerRadius = 5.0f;
+    self.notesBox.layer.borderColor = [[UIColor midnightBlueColor] CGColor];
+    self.notesBox.layer.borderWidth = 0.1;
     
     self.locationOn.transform = CGAffineTransformMakeScale(0.8, 0.8);
     [self.locationOn setOnTintColor:[UIColor midnightBlueColor]];

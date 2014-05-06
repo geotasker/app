@@ -12,6 +12,9 @@
 
 + (UIColor *) colorFromHexCode:(NSString *)hexString;
 + (UIColor *) turquoiseColor;
++ (UIColor *) myTurquoiseColor;
++ (UIColor *) myTurquoiseColor2;
++ (UIColor *) myGreenColor;
 + (UIColor *) myLightTurquoiseColor;
 + (UIColor *) mySalmonColor;
 + (UIColor *) myNavyColor;

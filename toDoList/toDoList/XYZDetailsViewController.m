@@ -52,7 +52,13 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     
     notesBox.delegate = self;
     [self.view addSubview:notesBox];
-    
+      
+      [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor myTurquoiseColor2]];
+      
+    //CHRISTINE  self.navigationItem.leftBarButtonItem
+      
+//      self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+      
     locationSwitch.transform = CGAffineTransformMakeScale(0.8, 0.8);
     [locationSwitch setOnTintColor:[UIColor midnightBlueColor]];
     [locationSwitch addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
@@ -120,14 +126,14 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 // UITextField Stuff
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     NSLog(@"textFieldShouldBeginEditing");
-   // textField.backgroundColor = [UIColor lightTextColor];
+   textField.backgroundColor = [UIColor cloudsColor];
     
     return YES;
 }
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
     NSLog(@"textFieldShouldEndEditing");
-   //   textField.backgroundColor = [UIColor clearColor];
+    textField.backgroundColor = [UIColor clearColor];
     return YES;
 }
 
@@ -161,7 +167,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 - (void)textViewDidBeginEditing:(UITextView *)textView{
     NSLog(@"textFieldDidBeginEditing");
     
-  //  textView.backgroundColor = [UIColor lightTextColor];
+    textView.backgroundColor = [UIColor cloudsColor];
     
     CGRect textFieldRect = [self.view.window convertRect:textView.bounds fromView:textView];
     CGRect viewRect = [self.view.window convertRect:self.view.bounds fromView:self.view];
@@ -243,7 +249,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 
 - (BOOL)textViewShouldEndEditing:(UITextView *)textView{
     NSLog(@"textFieldShouldEndEditing");
-   //   textView.backgroundColor = [UIColor clearColor];
+    textView.backgroundColor = [UIColor clearColor];
     return YES;
 }
 
