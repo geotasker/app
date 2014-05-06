@@ -37,6 +37,10 @@
 + (UIColor *) silverColor;
 + (UIColor *) concreteColor;
 + (UIColor *) asbestosColor;
++ (UIColor *) accentColor;
++ (UIColor *) darkGrey;
++ (UIColor *) deselectedColor;
++ (UIColor *) headingColor;
 
 + (UIColor *) blendedColorWithForegroundColor:(UIColor *)foregroundColor
                               backgroundColor:(UIColor *)backgroundColor

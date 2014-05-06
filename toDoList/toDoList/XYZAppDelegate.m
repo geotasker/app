@@ -47,6 +47,8 @@ BOOL alertsOn = YES;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    
     if(self.locationManager==nil){
         _locationManager=[[CLLocationManager alloc] init];
         //I'm using ARC with this project so no need to release

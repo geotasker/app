@@ -53,14 +53,14 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     notesBox.delegate = self;
     [self.view addSubview:notesBox];
       
-      [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor myTurquoiseColor2]];
+      [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor darkGrey]];
       
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor midnightBlueColor]};
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor headingColor]};
       
-      [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+      [self.navigationController.navigationBar setTintColor:[UIColor headingColor]];
       
     locationSwitch.transform = CGAffineTransformMakeScale(0.8, 0.8);
-    [locationSwitch setOnTintColor:[UIColor midnightBlueColor]];
+    [locationSwitch setOnTintColor:[UIColor accentColor]];
     [locationSwitch addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
 
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];

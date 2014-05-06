@@ -34,6 +34,23 @@
     return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
 }
 
+// Light green {
++ (UIColor *) headingColor {
+    return [UIColor colorFromHexCode:@"C4F5E0"];
+}
+
+// Currently sea green
++ (UIColor *) accentColor {
+    static UIColor *color = nil;
+    static dispatch_once_t dispatchToken;
+    
+    dispatch_once(&dispatchToken, ^{
+        color = [UIColor colorFromHexCode:@"1bc27c"];
+    });
+    
+    return color;
+}
+
 + (UIColor *) turquoiseColor {
     static UIColor *turquoise = nil;
     static dispatch_once_t dispatchToken;
@@ -45,15 +62,27 @@
     return turquoise;
 }
 
-+ (UIColor *) myLightTurquoiseColor {
-    static UIColor *myTurquoise = nil;
+// light blue
++ (UIColor *) deselectedColor {
+    static UIColor *myColor = nil;
     static dispatch_once_t dispatchToken;
     
     dispatch_once(&dispatchToken, ^{
-        myTurquoise = [UIColor colorFromHexCode:@"A3DED2"];
+        myColor = [UIColor colorFromHexCode:@"e8f8fc"];
     });
     
-    return myTurquoise;
+    return myColor;
+}
+
++ (UIColor *) darkGrey {
+    static UIColor *myColor = nil;
+    static dispatch_once_t dispatchToken;
+    
+    dispatch_once(&dispatchToken, ^{
+        myColor = [UIColor colorFromHexCode:@"2e2e2e"];
+    });
+    
+    return myColor;
 }
 
 + (UIColor *) myTurquoiseColor {

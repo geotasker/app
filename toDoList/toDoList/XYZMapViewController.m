@@ -53,9 +53,9 @@
         self.navigationItem.rightBarButtonItem = nil;
     }
     
-    [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor myTurquoiseColor2]];
+    [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor darkGrey]];
     
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor midnightBlueColor]};
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor headingColor]};
     
     // Do any additional setup after loading the view from its nib.
     // NSLog(@"%@", toDoItem.itemName);

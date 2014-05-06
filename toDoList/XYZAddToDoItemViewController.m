@@ -136,12 +136,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"Add Item";
     
-    [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor myTurquoiseColor2]];
+    [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor darkGrey]];
    
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor midnightBlueColor]};
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor headingColor]};
     
-    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    [self.navigationController.navigationBar setTintColor:[UIColor headingColor]];
     
     self.textField.clipsToBounds = YES;
     self.textField.layer.cornerRadius = 5.0f;
@@ -154,7 +155,7 @@
     self.notesBox.layer.borderWidth = 0.2;
     
     self.locationOn.transform = CGAffineTransformMakeScale(0.8, 0.8);
-    [self.locationOn setOnTintColor:[UIColor midnightBlueColor]];
+    [self.locationOn setOnTintColor:[UIColor accentColor]];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     
