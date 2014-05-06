@@ -15,7 +15,7 @@
     IBOutlet MKMapView *mapView;
 }
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *getDirections;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *getDirections;
 
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
 

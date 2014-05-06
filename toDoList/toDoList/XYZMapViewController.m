@@ -49,7 +49,6 @@
 {
     [super viewDidLoad];
     
-    
     if(toDoItem.closeMatch == nil){
         self.navigationItem.rightBarButtonItem = nil;
     }

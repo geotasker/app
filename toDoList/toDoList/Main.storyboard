@@ -57,7 +57,7 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="233" translatesAutoresizingMaskIntoConstraints="NO" id="Lts-gR-hfm">
                                 <rect key="frame" x="49" y="243" width="233" height="149"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text">Other geolocation based to do lists require the user to manually input the location where they want to be alerted, which makes it difficult to use in areas that the user is unfamiliar with. We take your to-do list, and alert you when you are near any store that will help you complete one of your tasks. Find out more at our website. </string>
+                                <string key="text">Add tasks like "groceries," "toothpaste," or "coffee" to be alerted near grocery stores, pharmacies, and coffee shops. Multiple word tasks like "get toothpaste" won't work as well. Find out more about our app at our website. </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="highlightedColor"/>
                             </label>
