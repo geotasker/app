@@ -12,6 +12,7 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "XYZAppDelegate.h"
+#import "XYZsimulate.h"
 
 
 NSMutableArray *queries;

@@ -57,11 +57,11 @@ BOOL alertsOn = YES;
         _locationManager.distanceFilter=100; //min dist in m before update event is generated
         self.locationManager=_locationManager;
     }
-    
+    /*
     if([CLLocationManager locationServicesEnabled]){
         [self.locationManager startUpdatingLocation];
     }
-    
+    */
     return YES;
 }
 

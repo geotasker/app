@@ -55,6 +55,7 @@
 		A278E8C418DA3C4F00D75E03 /* XYZToDoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A278E8C318DA3C4F00D75E03 /* XYZToDoItem.m */; };
 		A278E8CB18DB47BD00D75E03 /* XYZDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A278E8C918DB47BD00D75E03 /* XYZDetailsViewController.xib */; };
 		A27995231901B72000B50584 /* XYZDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A27995221901B72000B50584 /* XYZDetailsViewController.m */; };
+		A28718C019196488006CF53F /* XYZsimulate.m in Sources */ = {isa = PBXBuildFile; fileRef = A28718BF19196488006CF53F /* XYZsimulate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +150,8 @@
 		A278E8C918DB47BD00D75E03 /* XYZDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYZDetailsViewController.xib; sourceTree = "<group>"; };
 		A27995211901B72000B50584 /* XYZDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZDetailsViewController.h; sourceTree = "<group>"; };
 		A27995221901B72000B50584 /* XYZDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 6; lastKnownFileType = sourcecode.c.objc; path = XYZDetailsViewController.m; sourceTree = "<group>"; tabWidth = 5; };
+		A28718BE19196488006CF53F /* XYZsimulate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZsimulate.h; sourceTree = "<group>"; };
+		A28718BF19196488006CF53F /* XYZsimulate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZsimulate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +272,8 @@
 				A278E8B618DA03B400D75E03 /* Main.storyboard */,
 				9ECDEDE918F4CC7B0034D2C0 /* findMatches.h */,
 				9ECDEDEA18F4CC870034D2C0 /* findMatches.m */,
+				A28718BE19196488006CF53F /* XYZsimulate.h */,
+				A28718BF19196488006CF53F /* XYZsimulate.m */,
 				9EA516C11913530B008433AA /* XYZSettingsViewController.h */,
 				9EA516C21913530B008433AA /* XYZSettingsViewController.m */,
 				9EA516C31913530B008433AA /* XYZSettingsViewController.xib */,
@@ -426,6 +431,7 @@
 				A278E89818D9FE6A00D75E03 /* XYZAppDelegate.m in Sources */,
 				35393AB8190203FD003E2D99 /* UIBarButtonItem+FlatUI.m in Sources */,
 				35393ABE190203FD003E2D99 /* UIProgressView+FlatUI.m in Sources */,
+				A28718C019196488006CF53F /* XYZsimulate.m in Sources */,
 				A242AD3618F8915800F1AA70 /* XYZMapViewController.m in Sources */,
 				35393AC2190203FD003E2D99 /* UITableViewCell+FlatUI.m in Sources */,
 				35393AC3190203FD003E2D99 /* UIToolbar+FlatUI.m in Sources */,

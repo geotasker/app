@@ -17,9 +17,9 @@ BOOL show;
 
 @implementation findMatches
 
-CLLocationManager *locationManager;
-
 + (int)find:(CLLocation *)currentLoc {
+    
+    NSLog(@"find matches start");
     
     [findMatches setRadius];
     
@@ -42,8 +42,9 @@ CLLocationManager *locationManager;
                     request.naturalLanguageQuery = item.itemLocation;
                 }
                 else{
-                request.naturalLanguageQuery = item.itemName;
+                    request.naturalLanguageQuery = item.itemName;
                 }
+                
                 // somehow deal with radius
                 MKCoordinateSpan span = MKCoordinateSpanMake(0.1, 0.1);
                 request.region = MKCoordinateRegionMake(currentLoc.coordinate, span);
@@ -64,7 +65,7 @@ CLLocationManager *locationManager;
                         }
                         if(dist <= item.radius){
                             [item.matches addObject:mapitem];
-                            NSLog(@"%d", [item.matches count]);
+                            NSLog(@"%lu", (unsigned long)[item.matches count]);
                         }
                        // NSLog(@"%d", item.radius);
                     }
@@ -180,23 +181,29 @@ CLLocationManager *locationManager;
 
 + (void) setRadius{
     
+    NSLog(@"start of set radius");
+    
     double speed = currentLoc.speed;
+    
+    if(driving){
+        speed = 5;
+    }
     
     for(XYZToDoItem *item in toDoItems){
         
         [item.matches removeAllObjects];
         item.closeMatch = nil;
     
-        if (speed < 1)
+        if (speed < 1.5)
         {
-            item.radius = 500;
+            item.radius = 300;
         }
         else
         {
-            item.radius = speed*300;
+            item.radius = (long) speed*200;
         }
-        NSLog(@"%d",item.radius);
     }
+    NSLog(@"end of set radius");
     
 }
 

@@ -61,13 +61,29 @@ NSMutableArray *toDoItems = nil;
 }
 
 - (void)loadInitialData {
+    NSMutableArray * strings = [[NSMutableArray alloc] init];
+    [strings addObject:@"starbucks"];
+    [strings addObject:@"toothpaste"];
+    [strings addObject:@"bike"];
+    [strings addObject:@"toys"];
+    [strings addObject:@"bose"];
+    [strings addObject:@"whole foods"];
     
-    XYZToDoItem *item1 = [[XYZToDoItem alloc] init];
-    item1.matches = [[NSMutableArray alloc] init];
-    item1.itemName = @"starbucks";
-    item1.itemNotes = @"This is a preloaded item to show that it is possible, this may or may not be a final feature.";
-    item1.hasLocation = true;
-    [toDoItems addObject:item1];
+    for(NSString * s in strings){
+    
+        XYZToDoItem *item1 = [[XYZToDoItem alloc] init];
+        item1.matches = [[NSMutableArray alloc] init];
+        item1.itemName = s;
+        item1.itemNotes = @"This is a preloaded item for searching in new york.";
+        item1.hasLocation = true;
+        [toDoItems addObject:item1];
+        
+    }
+    
+    //** this starts searhcing locations.....
+    [XYZsimulate changeLocations];
+
+    
 }
 
 - (void)didReceiveMemoryWarning
