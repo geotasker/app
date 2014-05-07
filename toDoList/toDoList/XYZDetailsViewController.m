@@ -144,10 +144,11 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
       [textField resignFirstResponder];
     
     if(![toDoItem.itemName isEqualToString:self.name1.text]){
-        [findMatches find];
+          toDoItem.itemName = self.name1.text;
+          [findMatches findItem:toDoItem];
     }
     
-    toDoItem.itemName = self.name1.text;
+    //toDoItem.itemName = self.name1.text;
 }
 
 // make notes part fixed view with scrolling
@@ -275,7 +276,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     
     if(locationSwitch.on) {
         toDoItem.hasLocation = true;
-        [findMatches find];
+          [findMatches findItem:toDoItem];
     }
     else {
         toDoItem.hasLocation = false;

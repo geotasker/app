@@ -22,10 +22,10 @@ UIAlertView *alert;
 
 @interface findMatches : NSObject
 
-+ (int)find;
-
++ (int) find;
++ (int) findItem: (XYZToDoItem *) item;
 + (void) notifyNearbyTasks;
-
++ (void) notifyNearbyTask: (XYZToDoItem*) item;
 
 + (void) localDirections;
 

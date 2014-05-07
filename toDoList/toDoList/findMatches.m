@@ -98,6 +98,78 @@ CLLocationManager *locationManager;
 }
 
 
+// Queries all tasks in list and sends notifications
+//+ (int)find {
+//    __block int i = 0;
+//    __block NSUInteger total = [toDoItems count];
+//    for(XYZToDoItem* item in toDoItems){
+//        i = i + [self findItem:item];
+//    }
+//    [self notifyNearbyTasks];
+//    NSLog(@"Alerts sent.");
+//    return 1;
+//}
+
++ (int)findItem: (XYZToDoItem *) item {
+    
+    [findMatches setRadius];
+    
+    __block dispatch_queue_t queue;
+    queue = dispatch_queue_create("com.example.myQueueForMaps", DISPATCH_QUEUE_CONCURRENT);
+    
+    dispatch_sync(queue, ^{
+        
+                if (item.hasLocation==true) {
+                MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];
+                
+                if (item.itemLocation != nil){
+                    request.naturalLanguageQuery = item.itemLocation;
+                }
+                else{
+                    request.naturalLanguageQuery = item.itemName;
+                }
+                // somehow deal with radius
+                MKCoordinateSpan span = MKCoordinateSpanMake(0.1, 0.1);
+                request.region = MKCoordinateRegionMake(currentLoc.coordinate, span);
+                MKLocalSearch *search = [[MKLocalSearch alloc]initWithRequest:request];
+                
+                [search startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error){
+                    
+                    double minimum = INFINITY;
+                    MKMapItem *closest;
+                    for (MKMapItem *mapitem in response.mapItems) {
+                        
+                        CLLocation *loc = mapitem.placemark.location;
+                        CLLocationDistance dist = [currentLoc distanceFromLocation:loc];
+                        
+                        if (dist < minimum) {
+                            minimum = dist;
+                            closest = mapitem;
+                        }
+                        if(dist <= item.radius){
+                            [item.matches addObject:mapitem];
+                            NSLog(@"%d", [item.matches count]);
+                        }
+                         NSLog(@"%d", item.radius);
+                    }
+                    
+                    if (minimum <= item.radius) {
+                        item.closeMatch = closest;
+                        item.match = true;
+                        [self notifyNearbyTask:item];
+                    }
+                    else {
+                        item.match = false;
+                        NSLog(@"No item match");
+                        item.closeMatch = nil;
+                    }
+
+                }];
+            }
+    });
+    return 1;
+}
+
 + (void)notifyNearbyTasks
 {
     int x = 0;
@@ -179,6 +251,65 @@ CLLocationManager *locationManager;
     }
 }
 
+
++ (void)notifyNearbyTask: (XYZToDoItem*) item
+{
+
+    NSString *str = @"";
+    NSLog(@"%@", str);
+    
+    UIViewController *root = [[[UIApplication sharedApplication] keyWindow] rootViewController];
+    [root viewDidAppear:true];
+    
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    [alert dismissWithClickedButtonIndex:0 animated:false];
+    
+    // App not open
+    if ([UIApplication sharedApplication].applicationState == UIApplicationStateBackground && alertsOn)
+    {
+        str = [NSString stringWithFormat: @"Do \"%@\" at %@", item.itemName, item.closeMatch.name];
+        
+        UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+        localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
+        localNotification.alertBody = str;
+        localNotification.timeZone = [NSTimeZone defaultTimeZone];
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    }
+        
+    //UINavigationController *topController = (UINavigationController *)[XYZAppDelegate topMostController];
+    
+    
+    // App open
+    else if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive && alertsOn)
+        //&& [topController.visibleViewController class] != [XYZToDoListViewController class])
+    {
+        NSString *name = [NSString stringWithFormat: @"Do \"%@\" at %@", item.itemName, item.closeMatch.name];
+            
+        alert = [[UIAlertView alloc] initWithTitle:@"GeoTasker" message:name delegate:self
+                                 cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
+        [alert show];
+            
+            /*show = YES;
+             
+             for (UIWindow* window in [UIApplication sharedApplication].windows) {
+             NSArray* subviews = window.subviews;
+             if ([subviews count] > 0) {
+             
+             BOOL alert = [[subviews objectAtIndex:0] isKindOfClass:[UIAlertView class]];
+             BOOL action = [[subviews objectAtIndex:0] isKindOfClass:[UIActionSheet class]];
+             
+             if (alert || action)
+             show = NO;
+             }
+             }*/
+            
+            //if (show)
+            //{
+            
+            //  show = NO;
+            // }
+    }
+}
 
 + (void) setRadius{
     

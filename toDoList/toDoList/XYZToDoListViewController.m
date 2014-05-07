@@ -33,7 +33,7 @@ NSMutableArray *toDoItems = nil;
     if (item != nil) {
         [toDoItems addObject:item];
         [self.tableView reloadData];
-        [findMatches find];
+        [findMatches findItem:item];
     }
     //NSLog(@"%@", item.itemLocation);
 }
