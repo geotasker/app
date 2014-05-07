@@ -19,7 +19,7 @@ BOOL show;
 
 CLLocationManager *locationManager;
 
-+ (int)find:(CLLocation *)currentLoc {
++ (int)find {
     
     [findMatches setRadius];
     

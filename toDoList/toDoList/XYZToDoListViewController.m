@@ -33,7 +33,7 @@ NSMutableArray *toDoItems = nil;
     if (item != nil) {
         [toDoItems addObject:item];
         [self.tableView reloadData];
-        [findMatches find:currentLoc];
+        [findMatches find];
     }
     //NSLog(@"%@", item.itemLocation);
 }
@@ -44,12 +44,14 @@ NSMutableArray *toDoItems = nil;
     self.title = @"List";
     [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor darkGrey]];
         self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor headingColor]};
-    [self.navigationController.navigationBar setTintColor:[UIColor headingColor]];
+    //[self.navigationController.navigationBar setTintColor:[UIColor headingColor]];
     
-    //set the separator color
-    self.tableView.separatorColor = [UIColor headingColor];
+    // Set separator (lines) properties
+    self.tableView.separatorColor = [UIColor backgroundColor];
+    [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     
-    //Set the background color
+    
+    // Set the background color
     self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.backgroundView = nil;
     

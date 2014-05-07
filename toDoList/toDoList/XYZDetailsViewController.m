@@ -57,7 +57,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
       
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor headingColor]};
       
-      [self.navigationController.navigationBar setTintColor:[UIColor headingColor]];
+      //[self.navigationController.navigationBar setTintColor:[UIColor headingColor]];
       
     locationSwitch.transform = CGAffineTransformMakeScale(0.8, 0.8);
     [locationSwitch setOnTintColor:[UIColor accentColor]];
@@ -144,7 +144,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
       [textField resignFirstResponder];
     
     if(![toDoItem.itemName isEqualToString:self.name1.text]){
-        [findMatches find:currentLoc];
+        [findMatches find];
     }
     
     toDoItem.itemName = self.name1.text;
@@ -275,7 +275,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     
     if(locationSwitch.on) {
         toDoItem.hasLocation = true;
-        [findMatches find: currentLoc];
+        [findMatches find];
     }
     else {
         toDoItem.hasLocation = false;

@@ -38,7 +38,7 @@ BOOL alertsOn = YES;
                 
             }
             
-        [findMatches find:currentLoc];
+        [findMatches find];
             
         }
     }
@@ -67,7 +67,9 @@ BOOL alertsOn = YES;
     CLLocationCoordinate2D coordinate = [location coordinate];
     
     currentLoc = [[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude];
-                  
+    
+    [[UIBarButtonItem appearance] setTintColor:[UIColor headingColor]];
+    
     return YES;
 }
 

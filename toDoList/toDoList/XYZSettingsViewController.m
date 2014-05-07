@@ -53,9 +53,9 @@
     
     [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor darkGrey]];
     
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor accentColor]};
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor headingColor]};
     
-    [self.navigationController.navigationBar setTintColor:[UIColor headingColor]];
+    //[self.navigationController.navigationBar setTintColor:[UIColor headingColor]];
     
     [website addTarget:self action:@selector(toWebsite) forControlEvents:UIControlEventTouchUpInside];
     

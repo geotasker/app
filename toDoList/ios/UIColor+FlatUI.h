@@ -15,7 +15,6 @@
 + (UIColor *) myTurquoiseColor;
 + (UIColor *) myTurquoiseColor2;
 + (UIColor *) myGreenColor;
-+ (UIColor *) myLightTurquoiseColor;
 + (UIColor *) mySalmonColor;
 + (UIColor *) myNavyColor;
 + (UIColor *) greenSeaColor;
@@ -37,10 +36,12 @@
 + (UIColor *) silverColor;
 + (UIColor *) concreteColor;
 + (UIColor *) asbestosColor;
+
 + (UIColor *) accentColor;
 + (UIColor *) darkGrey;
 + (UIColor *) deselectedColor;
 + (UIColor *) headingColor;
++ (UIColor *) backgroundColor;
 
 + (UIColor *) blendedColorWithForegroundColor:(UIColor *)foregroundColor
                               backgroundColor:(UIColor *)backgroundColor

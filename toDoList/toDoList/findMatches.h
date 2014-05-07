@@ -22,7 +22,7 @@ UIAlertView *alert;
 
 @interface findMatches : NSObject
 
-+ (int)find:(CLLocation *)currentLoc;
++ (int)find;
 
 + (void) notifyNearbyTasks;
 
