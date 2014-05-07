@@ -125,7 +125,7 @@ CLLocationManager *locationManager;
     __block dispatch_queue_t queue;
     queue = dispatch_queue_create("com.example.myQueueForMaps", DISPATCH_QUEUE_CONCURRENT);
     
-    dispatch_sync(queue, ^{
+    dispatch_async(queue, ^{
         
                 if (item.hasLocation==true) {
                 MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];

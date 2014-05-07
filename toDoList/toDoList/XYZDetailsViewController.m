@@ -272,17 +272,33 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 
 // Location switch stuff
 -(IBAction)switchAction:(id)sender{
-    NSLog(@"locationSwitch");
     
     if(locationSwitch.on) {
-        toDoItem.hasLocation = true;
-          [findMatches findItem:toDoItem];
+      NSLog(@"location Switch turned on");
+
+      toDoItem.hasLocation = true;
+      [findMatches findItem:toDoItem];
+      NSLog(@"%@", toDoItem.closeMatch.description);
+
+      int64_t delayInSeconds = 1;
+      dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        
+      dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [self viewDidLoad];
+      });
+          
+          
+          
+
+          
     }
     else {
-          NSLog(@"This is happening?!?!?");
-        toDoItem.hasLocation = false;
-        toDoItem.match = false;
-        toDoItem.closeMatch = nil;
+      NSLog(@"location switch turned off");
+      toDoItem.hasLocation = false;
+      toDoItem.match = false;
+      toDoItem.closeMatch = nil;
+      [toDoItem.matches removeAllObjects];
+      [self viewDidLoad];
     }
 }
 
