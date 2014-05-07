@@ -146,6 +146,13 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     if(![toDoItem.itemName isEqualToString:self.name1.text]){
           toDoItem.itemName = self.name1.text;
           [findMatches findItem:toDoItem];
+          
+          int64_t delayInSeconds = 1;
+          dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+          dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                [self viewDidLoad];
+          });
+          
     }
     
     //toDoItem.itemName = self.name1.text;
@@ -268,6 +275,8 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     
     [self.view setFrame:viewFrame];
     [UIView commitAnimations];
+      
+      
 }
 
 // Location switch stuff
@@ -282,7 +291,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 
       int64_t delayInSeconds = 1;
       dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-        
       dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             [self viewDidLoad];
       });

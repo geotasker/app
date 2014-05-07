@@ -27,7 +27,7 @@ BOOL alertsOn = YES;
     if (abs(howRecent) < 15.0)
     {
         //Location timestamp is within the last 15.0 seconds, let's use it
-        if(newLocation.horizontalAccuracy < 35.0){
+        if(newLocation.horizontalAccuracy < 150.0){
             //Location is accurate enough, let's use it
             
             currentLoc = newLocation;
