@@ -63,12 +63,13 @@
     return myColor;
 }
 
+// Navbar color
 + (UIColor *) darkGrey {
     static UIColor *myColor = nil;
     static dispatch_once_t dispatchToken;
     
     dispatch_once(&dispatchToken, ^{
-        myColor = [UIColor colorFromHexCode:@"2e2e2e"];
+        myColor = [UIColor colorFromHexCode:@"34495e"];
     });
     
     return myColor;

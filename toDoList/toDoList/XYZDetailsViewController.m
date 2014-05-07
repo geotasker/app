@@ -279,6 +279,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
           [findMatches findItem:toDoItem];
     }
     else {
+          NSLog(@"This is happening?!?!?");
         toDoItem.hasLocation = false;
         toDoItem.match = false;
         toDoItem.closeMatch = nil;

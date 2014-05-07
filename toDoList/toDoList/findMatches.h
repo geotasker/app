@@ -24,8 +24,11 @@ UIAlertView *alert;
 
 + (int) find;
 + (int) findItem: (XYZToDoItem *) item;
++ (int) getTravelTime:(XYZToDoItem*) item
+                     :(MKMapItem*) destination;
 + (void) notifyNearbyTasks;
-+ (void) notifyNearbyTask: (XYZToDoItem*) item;
++ (void) notifyNearbyTask:(XYZToDoItem*) item
+                         :(int) travelTime;
 
 + (void) localDirections;
 

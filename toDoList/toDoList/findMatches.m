@@ -112,7 +112,15 @@ CLLocationManager *locationManager;
 
 + (int)findItem: (XYZToDoItem *) item {
     
-    [findMatches setRadius];
+    // setRadius hack...
+    double speed = currentLoc.speed;
+    if (speed < 1) {
+        item.radius = 500;
+    }
+    else {
+        item.radius = speed*300;
+    }
+    
     
     __block dispatch_queue_t queue;
     queue = dispatch_queue_create("com.example.myQueueForMaps", DISPATCH_QUEUE_CONCURRENT);
@@ -156,7 +164,7 @@ CLLocationManager *locationManager;
                     if (minimum <= item.radius) {
                         item.closeMatch = closest;
                         item.match = true;
-                        [self notifyNearbyTask:item];
+                        [self getTravelTime:item:item.closeMatch];
                     }
                     else {
                         item.match = false;
@@ -170,7 +178,30 @@ CLLocationManager *locationManager;
     return 1;
 }
 
-+ (void)notifyNearbyTasks
+// Gets travel time in minutes and sends notification
++ (int) getTravelTime:(XYZToDoItem*) item
+                     :(MKMapItem*) destination {
+    __block int time;
+    
+    MKDirectionsRequest *request = [MKDirectionsRequest new];
+    request.transportType = MKDirectionsTransportTypeWalking;
+    request.source = [MKMapItem mapItemForCurrentLocation]; // start from the users current location
+    request.destination = destination;
+    request.departureDate = [NSDate date]; // Departing now
+    
+    MKDirections *directions = [[MKDirections alloc] initWithRequest:request];
+    [directions calculateETAWithCompletionHandler:^(MKETAResponse *response, NSError *error) {
+        //directions.walkingTime.text = [formatter stringForTimeInterval:response.expectedTravelTime];
+        time = (int) response.expectedTravelTime/60;
+        NSLog(@"inside: %d", (int)time);
+        [self notifyNearbyTask:item:time];
+    }];
+    
+    //NSLog(@"getTravelTime: %d", (int)time);
+    return time;
+}
+
++ (void) notifyNearbyTasks
 {
     int x = 0;
     for (XYZToDoItem *task in toDoItems) {
@@ -251,8 +282,9 @@ CLLocationManager *locationManager;
     }
 }
 
-
-+ (void)notifyNearbyTask: (XYZToDoItem*) item
+// Single task
++ (void) notifyNearbyTask:(XYZToDoItem*) item
+                         :(int) travelTime
 {
 
     NSString *str = @"";
@@ -267,7 +299,9 @@ CLLocationManager *locationManager;
     // App not open
     if ([UIApplication sharedApplication].applicationState == UIApplicationStateBackground && alertsOn)
     {
-        str = [NSString stringWithFormat: @"Do \"%@\" at %@", item.itemName, item.closeMatch.name];
+        //str = [NSString stringWithFormat: @"Do \"%@\" at %@", item.itemName, item.closeMatch.name];
+        
+        str = [NSString stringWithFormat: @"\"%@\" is %d min away", item.itemName, travelTime];
         
         UILocalNotification *localNotification = [[UILocalNotification alloc] init];
         localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
@@ -283,7 +317,9 @@ CLLocationManager *locationManager;
     else if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive && alertsOn)
         //&& [topController.visibleViewController class] != [XYZToDoListViewController class])
     {
-        NSString *name = [NSString stringWithFormat: @"Do \"%@\" at %@", item.itemName, item.closeMatch.name];
+        //NSString *name = [NSString stringWithFormat: @"Do \"%@\" at %@", item.itemName, item.closeMatch.name];
+        NSString *name = [NSString stringWithFormat: @"\"%@\" is %d min away",
+                          item.itemName, travelTime];
             
         alert = [[UIAlertView alloc] initWithTitle:@"GeoTasker" message:name delegate:self
                                  cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
@@ -319,7 +355,8 @@ CLLocationManager *locationManager;
         
         [item.matches removeAllObjects];
         item.closeMatch = nil;
-    
+        
+        // These values are also copied in the setRadius hack for findItem
         if (speed < 1)
         {
             item.radius = 500;
