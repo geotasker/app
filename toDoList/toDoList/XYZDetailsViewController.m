@@ -57,7 +57,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
       
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor headingColor]};
       
-      //[self.navigationController.navigationBar setTintColor:[UIColor headingColor]];
+      [self.navigationController.navigationBar setTintColor:[UIColor headingColor]];
       
     locationSwitch.transform = CGAffineTransformMakeScale(0.8, 0.8);
     [locationSwitch setOnTintColor:[UIColor accentColor]];
