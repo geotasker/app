@@ -8,6 +8,7 @@
 
 #import "XYZSettingsViewController.h"
 #import "XYZAppDelegate.h"
+#import "findMatches.h"
 
 @interface XYZSettingsViewController ()
 
@@ -17,8 +18,11 @@
 
 @implementation XYZSettingsViewController
 
-@synthesize locationSwitch;
+@synthesize locationSwitch; // THIS IS REALLY THE TURN OFF ALL ALERTS SWITCH
+@synthesize radiusSlider;
 @synthesize website;
+
+float initialSliderValue;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,6 +31,11 @@
         // Custom initialization
     }
     return self;
+}
+
+- (IBAction)sliderAction:(id)sender {
+    
+    radiusScale = radiusSlider.value;
 }
 
 -(IBAction)switchAction:(id)sender
@@ -41,6 +50,7 @@
         alertsOn = false;
     }
 }
+
 
 -(void)toWebsite
 {
@@ -69,7 +79,15 @@
         [locationSwitch setOn:NO];
     }
     
-    // Do any additional setup after loading the view from its nib.
+    initialSliderValue = radiusSlider.value;
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    if (radiusSlider.value != initialSliderValue) {
+        [findMatches find];
+    }
 }
 
 - (void)didReceiveMemoryWarning

@@ -14,6 +14,8 @@
 
 extern CLLocation *currentLoc;
 extern BOOL alertsOn;
+extern double radiusScale;
+
 
 @interface XYZAppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate>
 

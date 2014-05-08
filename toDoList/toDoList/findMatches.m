@@ -113,12 +113,19 @@ CLLocationManager *locationManager;
 + (int)findItem: (XYZToDoItem *) item {
     
     // setRadius hack...
+//    
+//    int r = 1;
+//    
+//    if (doubleRadius == TRUE) {
+//        r = 10;
+//    }
+    
     double speed = currentLoc.speed;
     if (speed < 1) {
-        item.radius = 500;
+        item.radius = radiusScale*500;
     }
     else {
-        item.radius = speed*300;
+        item.radius = radiusScale*speed*300;
     }
     
     
@@ -139,6 +146,7 @@ CLLocationManager *locationManager;
                 // somehow deal with radius
                 MKCoordinateSpan span = MKCoordinateSpanMake(0.1, 0.1);
                 request.region = MKCoordinateRegionMake(currentLoc.coordinate, span);
+                
                 MKLocalSearch *search = [[MKLocalSearch alloc]initWithRequest:request];
                 
                 [search startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error){
@@ -158,7 +166,7 @@ CLLocationManager *locationManager;
                             [item.matches addObject:mapitem];
                             NSLog(@"%d", [item.matches count]);
                         }
-                         NSLog(@"%d", item.radius);
+                         NSLog(@"RADIUS 3 %d", item.radius);
                     }
                     
                     if (minimum <= item.radius) {
@@ -359,14 +367,17 @@ CLLocationManager *locationManager;
         // These values are also copied in the setRadius hack for findItem
         if (speed < 1)
         {
-            item.radius = 500;
+            item.radius = radiusScale*500;
+            
         }
         else
         {
-            item.radius = speed*300;
+            item.radius = radiusScale*speed*300;
         }
+        
         NSLog(@"%d",item.radius);
     }
+
     
 }
 

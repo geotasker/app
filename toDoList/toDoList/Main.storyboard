@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iDF-8v-eiV">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iDF-8v-eiV">
                                 <rect key="frame" x="233" y="111" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
@@ -26,26 +26,21 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hc1-bE-dLb">
-                                <rect key="frame" x="125" y="376" width="70" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hc1-bE-dLb">
+                                <rect key="frame" x="116" y="379" width="88" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="tJS-XD-x3m"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Website">
+                                <state key="normal" title="Learn more">
                                     <color key="titleColor" red="0.1058823529" green="0.76078431369999999" blue="0.48627450979999998" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="32" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="253" translatesAutoresizingMaskIntoConstraints="NO" id="5wV-2f-h0b">
-                                <rect key="frame" x="34" y="159" width="253" height="58"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="32" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="248" translatesAutoresizingMaskIntoConstraints="NO" id="5wV-2f-h0b">
+                                <rect key="frame" x="36" y="271" width="248" height="115"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="58" id="WhN-8e-9L9"/>
-                                </constraints>
                                 <attributedString key="attributedText">
-                                    <fragment content="GeoTasker geographically optimizes your to-do list so you never have to go out of your way to run an errand. ">
+                                    <fragment>
+                                        <string key="content">Add tasks like "groceries," "toothpaste," or "coffee" to be alerted near grocery stores, pharmacies, and coffee shops. Multiple word tasks like "get toothpaste" won't work, but exact locations like "CVS Plainsboro" will.</string>
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <font key="NSFont" size="13" name="HelveticaNeue"/>
@@ -55,33 +50,57 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="253" translatesAutoresizingMaskIntoConstraints="NO" id="Lts-gR-hfm">
-                                <rect key="frame" x="34" y="212" width="253" height="149"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Search radius" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFX-HP-mhu">
+                                <rect key="frame" x="34" y="162" width="106" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text">Add tasks like "groceries," "toothpaste," or "coffee" to be alerted near grocery stores, pharmacies, and coffee shops. Multiple word tasks like "get toothpaste" won't work, but exact locations like "CVS Plainsboro" will. Find out more about our app on our website. </string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.5x" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fi6-zW-vCa">
+                                <rect key="frame" x="155" y="162" width="41" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" image="thinblackline2.png" translatesAutoresizingMaskIntoConstraints="NO" id="xoW-6Q-6kg">
+                                <rect key="frame" x="34" y="145" width="248" height="4"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.5" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="s7r-Sc-qi7">
+                                <rect key="frame" x="185" y="158" width="96" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="sliderAction:" destination="2fl-Bs-zl0" eventType="valueChanged" id="pPW-aq-TdA"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="5x" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdP-ex-2q4">
+                                <rect key="frame" x="284" y="163" width="41" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="5wV-2f-h0b" firstAttribute="top" secondItem="iDF-8v-eiV" secondAttribute="bottom" constant="17" id="0WN-4k-64o"/>
-                            <constraint firstItem="Lts-gR-hfm" firstAttribute="centerX" secondItem="Hc1-bE-dLb" secondAttribute="centerX" id="K2t-bh-q5y"/>
-                            <constraint firstItem="1ka-yd-CnW" firstAttribute="top" secondItem="Hc1-bE-dLb" secondAttribute="bottom" constant="74" id="Md5-Fz-VkD"/>
-                            <constraint firstItem="Lts-gR-hfm" firstAttribute="top" secondItem="5wV-2f-h0b" secondAttribute="bottom" constant="-5" id="Pjp-ec-bmr"/>
+                            <constraint firstItem="s7r-Sc-qi7" firstAttribute="leading" secondItem="fFX-HP-mhu" secondAttribute="trailing" constant="47" id="7Dk-r0-XK0"/>
+                            <constraint firstAttribute="trailing" secondItem="5wV-2f-h0b" secondAttribute="trailing" constant="36" id="Cm6-6U-oRB"/>
+                            <constraint firstItem="jdP-ex-2q4" firstAttribute="leading" secondItem="s7r-Sc-qi7" secondAttribute="trailing" constant="5" id="H0e-J8-qdp"/>
+                            <constraint firstItem="s7r-Sc-qi7" firstAttribute="top" secondItem="xoW-6Q-6kg" secondAttribute="bottom" constant="9" id="KGg-Ac-yvJ"/>
+                            <constraint firstItem="Hc1-bE-dLb" firstAttribute="leading" secondItem="0Kf-E5-T3N" secondAttribute="leading" constant="116" id="Kgh-dL-vag"/>
+                            <constraint firstItem="5wV-2f-h0b" firstAttribute="top" secondItem="s7r-Sc-qi7" secondAttribute="bottom" constant="177" id="QLO-2L-UlM"/>
                             <constraint firstItem="oKQ-Xo-g8M" firstAttribute="centerY" secondItem="iDF-8v-eiV" secondAttribute="centerY" id="QZg-Z5-ack"/>
                             <constraint firstItem="iDF-8v-eiV" firstAttribute="top" secondItem="aLq-wJ-ReD" secondAttribute="bottom" constant="47" id="VFV-s1-zAh"/>
-                            <constraint firstItem="5wV-2f-h0b" firstAttribute="leading" secondItem="oKQ-Xo-g8M" secondAttribute="leading" id="dWL-0X-2gH"/>
-                            <constraint firstItem="Lts-gR-hfm" firstAttribute="trailing" secondItem="5wV-2f-h0b" secondAttribute="trailing" id="h3c-Ku-yMZ"/>
-                            <constraint firstItem="Lts-gR-hfm" firstAttribute="leading" secondItem="5wV-2f-h0b" secondAttribute="leading" id="qap-FU-WId"/>
-                            <constraint firstItem="Hc1-bE-dLb" firstAttribute="top" secondItem="Lts-gR-hfm" secondAttribute="bottom" constant="15" id="qm5-90-cuc"/>
-                            <constraint firstItem="5wV-2f-h0b" firstAttribute="trailing" secondItem="iDF-8v-eiV" secondAttribute="trailing" constant="5" id="xFx-e0-5kq"/>
+                            <constraint firstItem="1ka-yd-CnW" firstAttribute="top" secondItem="Hc1-bE-dLb" secondAttribute="bottom" constant="68" id="dYd-fz-O3s"/>
+                            <constraint firstItem="5wV-2f-h0b" firstAttribute="leading" secondItem="0Kf-E5-T3N" secondAttribute="leading" constant="36" id="l5a-pe-pCB"/>
+                            <constraint firstItem="1ka-yd-CnW" firstAttribute="top" secondItem="5wV-2f-h0b" secondAttribute="bottom" constant="94" id="qh8-Q9-whH"/>
+                            <constraint firstAttribute="trailing" secondItem="Hc1-bE-dLb" secondAttribute="trailing" constant="116" id="viT-1n-BHu"/>
                             <constraint firstItem="oKQ-Xo-g8M" firstAttribute="leading" secondItem="0Kf-E5-T3N" secondAttribute="leading" constant="34" id="yLA-LK-WiO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="sAa-MW-YF1"/>
                     <connections>
                         <outlet property="locationSwitch" destination="iDF-8v-eiV" id="VBB-ja-p6z"/>
+                        <outlet property="radiusSlider" destination="s7r-Sc-qi7" id="1Tq-lo-quJ"/>
                         <outlet property="website" destination="Hc1-bE-dLb" id="NvD-Ec-QS4"/>
                     </connections>
                 </viewController>

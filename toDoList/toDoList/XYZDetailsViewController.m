@@ -97,6 +97,15 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
           closeMatchFeild.text = [NSString stringWithFormat:@"%@\n%@ %@\n%@, %@",
                                    placemark.name, placemark.subThoroughfare, placemark.thoroughfare,
                                    placemark.locality, placemark.administrativeArea];
+          if (placemark.subThoroughfare == NULL) {
+                closeMatchFeild.text = [NSString stringWithFormat:@"%@\n%@\n%@, %@",
+                                        placemark.name, placemark.thoroughfare, placemark.locality, placemark.administrativeArea];
+          }
+          
+          if (placemark.subThoroughfare == NULL && placemark.thoroughfare == NULL) {
+                closeMatchFeild.text = [NSString stringWithFormat:@"%@\n%@, %@",
+                                        placemark.name, placemark.locality, placemark.administrativeArea];
+          }
     }
       
       

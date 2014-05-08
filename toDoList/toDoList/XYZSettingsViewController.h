@@ -16,7 +16,10 @@
 
 - (IBAction)switchAction:(id)sender;
 
-
 @property (weak, nonatomic) IBOutlet UIButton *website;
+
+@property (weak, nonatomic) IBOutlet UISlider *radiusSlider;
+
+- (IBAction)sliderAction:(id)sender;
 
 @end
