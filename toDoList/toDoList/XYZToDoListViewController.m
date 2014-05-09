@@ -66,9 +66,10 @@ NSMutableArray *toDoItems = nil;
     [strings addObject:@"toothpaste"];
     [strings addObject:@"bike"];
     [strings addObject:@"toys"];
-    [strings addObject:@"bose"];
+    [strings addObject:@"UPS"];
+    [strings addObject:@"staples"];
     [strings addObject:@"whole foods"];
-    
+        
     for(NSString * s in strings){
     
         XYZToDoItem *item1 = [[XYZToDoItem alloc] init];

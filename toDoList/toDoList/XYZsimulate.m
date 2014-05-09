@@ -18,13 +18,25 @@ bool driving = nil;
 {
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 
+
+    //double delay = 30;
+    
+    double delay = 8;
+    
+    //double delay = 6.5;
+    
+    //double delay = 3;
+
     dispatch_async(queue, ^{
-        
+        int count = 1;
         for(CLLocation* item in items){
             currentLoc = item;
             [findMatches find:item];
             //NSLog(@"%@", item.description);
-            sleep(8);
+            sleep(delay);
+            
+            
+            count++;
         }
         
     });
@@ -33,7 +45,7 @@ bool driving = nil;
 
 +(void) changeLocations{
     
-    driving = false;
+    driving = true;
     
     NSLog(@"changing location");
     NSMutableArray *x = [[NSMutableArray alloc] init];
@@ -43,7 +55,7 @@ bool driving = nil;
     [x addObject:([[CLLocation alloc] initWithLatitude:40.7534991 longitude:-73.983076])];
     [x addObject:([[CLLocation alloc] initWithLatitude:40.750422 longitude:-73.983076])];
     [x addObject:([[CLLocation alloc] initWithLatitude:40.7521125 longitude:-73.9875821])];
-    [x addObject:([[CLLocation alloc] initWithLatitude:40.7541281 longitude:-73.9921741])];
+    [x addObject:([[CLLocation alloc] initWithLatitude:40.7541281 longitude:-73.9821741])];
     [x addObject:([[CLLocation alloc] initWithLatitude:40.7597376 longitude:-73.9879297])];
     [x addObject:([[CLLocation alloc] initWithLatitude:40.7636057 longitude:-73.9853548])];
     [x addObject:([[CLLocation alloc] initWithLatitude:40.7676854 longitude:-73.9822029])];

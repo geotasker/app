@@ -26,7 +26,7 @@ BOOL show;
     __block dispatch_queue_t queue;
     queue = dispatch_queue_create("com.example.myQueueForMaps", DISPATCH_QUEUE_CONCURRENT);
     
-    dispatch_async(queue, ^{
+    dispatch_sync(queue, ^{ 
         
         __block int pos = 0;
         __block NSUInteger counts = [toDoItems count];
@@ -119,7 +119,8 @@ BOOL show;
     }
     
     if (x>0) {
-        
+        [alert dismissWithClickedButtonIndex:0 animated:false];
+
         if ([UIApplication sharedApplication].applicationState == UIApplicationStateBackground && alertsOn)
         {
             //NSLog(@"\n A Wild Alert Window Appears!\n");
@@ -140,8 +141,7 @@ BOOL show;
         
         if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive && alertsOn && [topController.visibleViewController class] != [XYZToDoListViewController class])
         {
-            [alert dismissWithClickedButtonIndex:0 animated:false];
-            
+               
             if(x > 1){
                 alert = [[UIAlertView alloc] initWithTitle:@"GeoTasker" message:str delegate:self
                                          cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
@@ -183,25 +183,19 @@ BOOL show;
     
     NSLog(@"start of set radius");
     
-    double speed = currentLoc.speed;
-    
-    if(driving){
-        speed = 5;
-    }
     
     for(XYZToDoItem *item in toDoItems){
         
         [item.matches removeAllObjects];
         item.closeMatch = nil;
     
-        if (speed < 1.5)
-        {
-            item.radius = 300;
+        if(driving){
+            item.radius = 800;
         }
-        else
-        {
-            item.radius = (long) speed*200;
+        else{
+            item.radius = 500;
         }
+        
     }
     NSLog(@"end of set radius");
     
