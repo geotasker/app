@@ -71,6 +71,7 @@ float initialSliderValue;
     
     locationSwitch.transform = CGAffineTransformMakeScale(0.8, 0.8);
     [locationSwitch setOnTintColor:[UIColor accentColor]];
+    
     [locationSwitch addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
     if(alertsOn){
         [locationSwitch setOn:YES];

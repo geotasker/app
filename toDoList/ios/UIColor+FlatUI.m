@@ -45,7 +45,9 @@
     static dispatch_once_t dispatchToken;
     
     dispatch_once(&dispatchToken, ^{
-        color = [UIColor colorFromHexCode:@"1bc27c"];
+        
+        // color = [UIColor colorFromHexCode:@"1bc27c"];
+        color = [UIColor colorFromHexCode:@"009660"];
     });
     
     return color;
@@ -69,7 +71,8 @@
     static dispatch_once_t dispatchToken;
     
     dispatch_once(&dispatchToken, ^{
-        myColor = [UIColor colorFromHexCode:@"34495e"];
+        myColor = [UIColor colorFromHexCode:@"202C45"];
+        // myColor = [UIColor colorFromHexCode:@"34495e"];
     });
     
     return myColor;
