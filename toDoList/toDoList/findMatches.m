@@ -247,10 +247,10 @@ CLLocationManager *locationManager;
             [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
         }
         
-        //UINavigationController *topController = (UINavigationController *)[XYZAppDelegate topMostController];
+        UINavigationController *topController = (UINavigationController *)[XYZAppDelegate topMostController];
         
-        if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive && alertsOn)
-            //&& [topController.visibleViewController class] != [XYZToDoListViewController class])
+        if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive && alertsOn
+            && ([topController.visibleViewController class] != [XYZToDoListViewController class])   )
         {
             
             if(x > 1){
