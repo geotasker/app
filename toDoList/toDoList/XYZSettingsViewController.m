@@ -80,6 +80,7 @@ float initialSliderValue;
         [locationSwitch setOn:NO];
     }
     
+    [radiusSlider setValue:radiusScale];
     initialSliderValue = radiusSlider.value;
     
 }
