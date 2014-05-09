@@ -29,7 +29,7 @@
 {
     if (sender != self.doneButton) return;
     
-    if (self.textField.text.length > 0) {
+    if (![@"" isEqualToString:[self.textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] ]) {
         
         self.toDoItem = [[XYZToDoItem alloc] init];
         self.toDoItem.itemName = self.textField.text;

@@ -152,7 +152,16 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
       
       [textField resignFirstResponder];
     
-    if(![toDoItem.itemName isEqualToString:self.name1.text]){
+      
+    if([@"" isEqualToString:[self.name1.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] ]){
+            // do nothing, leave the name the same
+          int64_t delayInSeconds = 0.5;
+          dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+          dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                [self viewDidLoad];
+          });
+    }
+    else if(![toDoItem.itemName isEqualToString:self.name1.text]){
           toDoItem.itemName = self.name1.text;
           [findMatches findItem:toDoItem];
           
@@ -163,7 +172,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
           });
           
     }
-    
+     
     //toDoItem.itemName = self.name1.text;
 }
 
